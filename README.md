@@ -11,3 +11,11 @@ https://fonts.google.com/specimen/Quicksand
 
 ## Color theme
 [Insert picture here]
+
+## Work load:
+### First Phase:
+- [ ] TEAM: Navigation Diagram
+- [ ] ENG: Homepage / Index.html
+- [ ] VIEW: About us page / about.html
+- [ ] PETE: Admin + Login
+- [ ] CHAN: Search + Result
