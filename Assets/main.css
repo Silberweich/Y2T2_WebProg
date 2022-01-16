@@ -18,13 +18,32 @@
 }
 .grid-item{
   background-color: rgba(197, 197, 197, 0.5);
+  padding-left: 4px;
+  padding-right: 4px;
 }
 .item-wide {
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 1;
+  grid-row-end: 1;
+}
+.item-tall-right {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
   grid-row-end: 4;
 }
-
+.item-void{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+.square {
+  width: 500;
+  height: 500;
+  border: 5px solid black;
+  padding: 5px
+}
 
 
