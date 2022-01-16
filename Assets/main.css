@@ -1,7 +1,30 @@
-/* ######## MAIN AND SECTIONING ######## */
+/* ######## FONTS AND DEFAULT PARAMETERS ######## */
+/*Everypage Background*/
+.bgcolor {
+  background-image: linear-gradient(to right, #9bfcff93, azure, #f2f2f2);
+}
 
-.flex-container {
-    display: flex;
-    background-color: #333;
-    color: #f2f2f2;
-  }
+/*Everypage Margin probably*/
+
+
+/* ######## MAIN AND GRID SECTIONING ######## */
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding-top: 5px;
+  padding-bottom:5px;
+}
+.grid-item{
+  background-color: rgba(197, 197, 197, 0.5);
+}
+.item-wide {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+
+
