@@ -1,64 +1,112 @@
 <!DOCTYPE html>
 
-<html lang = "en">
-    <head>
-        <meta charset ="utf-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> <!-- Control page view dimension and scaling -->
-        <meta name = "author" content = "[INSERT TEAM NAME]">
+<html lang="en">
 
-        <!-- SET TITLE HERE -->
-        <title>Main page</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control page view dimension and scaling -->
+    <meta name="author" content="[INSERT TEAM NAME]">
 
-        <!-- SYTLE AND CUSTOMIZATION -->
-        <link rel = "shortcut icon" href = "Assets/pain.JPG">
+    <!-- SET TITLE HERE -->
+    <title>Main page</title>
 
-        <!-- BOOTSTRAPS CONTENT -->
-        <link rel = "stylesheet" href = "Assets/head_feeties.css">
-        <link rel = "stylesheet" href = "Assets/main.css">
+    <!-- SYTLE AND CUSTOMIZATION -->
+    <link rel="shortcut icon" href="Assets/pain.JPG">
 
-        <!-- FONT MANAGEMENT -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAPS CONTENT -->
+    <link rel="stylesheet" href="Assets/head_feeties.css">
+    <link rel="stylesheet" href="Assets/main.css">
+    <link rel="stylesheet" href="Assets/search.css">
 
-        <style>
-            body {
-                font-family: 'Quicksand', sans-serif;
-            }
-        </style>
-    </head>
+    <!-- FONT MANAGEMENT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-    <!-- Main body starts here -->
+    <!-- LINK TO FONT AWESOME (FOR SOME ELEMENT LOGO) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <body>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
 
-        <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
-        <header>
-            <nav class="topnav slideUp">
-                <img src="Assets/logo.png" >
-                <a href="index.html">Home</a>
-                <a class="active" href="search.html">Search</a>
-                <a href="about.html">About</a>
-                <a href="login.html">Login</a>
-            </nav>
-        </header>
-        <!-- TOP NAV TEMPLATE, USE ON ALL PAGE --> 
+    <!-- LINK TO JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".default-option").click(function() {
+                // Toggle down for choosing
+                $(".dropdown ul").toggleClass("active");
+            });
+            $(".dropdown ul li").click(function() {
+                var text = $(this).text();
+                // Change the option to the selected
+                $(".default-option").text(text);
+                // Toggle up after choose
+                $(".dropdown ul").removeClass("active");
+            })
+        });
+    </script>
+</head>
 
-        <main>
-            searchpage
-        </main>
+<!-- Main body starts here -->
+
+<body>
+
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+    <header>
+        <nav class="topnav slideUp">
+            <img src="Assets/logo.png">
+            <a href="index.html">Home</a>
+            <a class="active" href="search.html">Search</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+
+    <main>
+        <!-- Search Box starts here -->
+        <div class="wrapper">
+            <form>
+                <div class="search-box">
+                    <div class="dropdown">
+                        <div class="default-option">All</div>
+                        <ul>
+                            <li>All</li>
+                            <li>Movie</li>
+                            <li>News</li>
+                            <li>Promotion</li>
+                        </ul>
+                    </div>
+                    <!-- Search box -->
+                    <div class="search-field">
+                        <input type="text" class="input" placeholder="Search" required>
+                        <a href="result.html" target="_blank">
+                            <i class='fas fa-search'></i>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Search Box ends here -->
+    </main>
 
 
-        <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
-        <footer>
-            <span class="right">Last Updated: N/A</span>
-            <span class="left"> <a style="color:azure" href="index.html">Home</a> | 
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+    <footer>
+        <span class="right">Last Updated: N/A</span>
+        <span class="left"> <a style="color:azure" href="index.html">Home</a> | 
                                 <a style="color:azure" href="about.html">About</a> | 
                                 <a style="color:azure" href="login.html">Login</a> | 
                                 <a style="color:azure" href="sudolog.html">Admin</a> </span><br><br>
-            <span class="center"> For MUICT Y2 web programming project</span><br>
-        </footer>
-        <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+        <span class="center"> For MUICT Y2 web programming project</span><br>
+    </footer>
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
 
-    </body>
+</body>
+
 </html>

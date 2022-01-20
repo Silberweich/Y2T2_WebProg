@@ -1,0 +1,161 @@
+/* Set Webpage
+-----------------------------*/
+
+* {
+    padding: 0;
+    list-style: none;
+}
+
+
+/* Background & Font
+-----------------------------*/
+
+main {
+    position: relative;
+    color: whitesmoke;
+    width: 100%;
+    height: 80vh;
+}
+
+
+/* Set 'WHOLE' Search Box Position
+-----------------------------*/
+
+main {
+    /* not work */
+    /* background-image: url("Assets/nightCity.gif"); */
+    background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3e542269-8836-44b9-a2b7-a39844589af5/ddndb84-a7f48e3b-8c89-465c-b8d7-039d61598aeb.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNlNTQyMjY5LTg4MzYtNDRiOS1hMmI3LWEzOTg0NDU4OWFmNVwvZGRuZGI4NC1hN2Y0OGUzYi04Yzg5LTQ2NWMtYjhkNy0wMzlkNjE1OThhZWIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.F6ppjGIBO6mzySCJd6g_E5P4eVP-b0j9ZSBoV8kzuSQ);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper .search-box {
+    /* margin: 20px; */
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 50%;
+    background-color: rgb(0, 0, 0);
+    padding: 15px;
+    padding-left: 50px;
+    display: flex;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+
+/* Set Search By (Width) & Little Light Line
+-----------------------------*/
+
+.wrapper .search-box .dropdown {
+    width: 150px;
+    border-right: 2px solid white;
+}
+
+
+/* Set Default Option
+-----------------------------*/
+
+.wrapper .search-box .dropdown .default-option {
+    text-transform: capitalize;
+    padding: 13px 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/* Set Option Box
+-----------------------------*/
+
+.wrapper .search-box .dropdown ul {
+    width: 14%;
+    position: absolute;
+    left: 4px;
+    top: 80px;
+    padding: 10px;
+    padding-left: 6%;
+    border-radius: 12px;
+    background: black;
+    line-height: 35px;
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+
+/* Set Option Box (When Clicked)
+-----------------------------*/
+
+.wrapper .search-box .dropdown ul.active {
+    display: block;
+}
+
+
+/* Set When Hover the Option Text (HOVER)
+-----------------------------*/
+
+.wrapper .search-box .dropdown ul li:hover {
+    color: rgb(192, 191, 191);
+}
+
+
+/* Set the Triangle to Select
+-----------------------------*/
+
+.wrapper .search-box .dropdown:before {
+    content: "";
+    position: absolute;
+    top: 35px;
+    left: 17%;
+    border: 8px solid;
+    border-color: rgb(255, 255, 255) transparent transparent transparent;
+    cursor: pointer;
+}
+
+
+/* Set the Search Field
+    -----------------------------*/
+
+.wrapper .search-field input {
+    font-size: 18px;
+    width: 260%;
+    height: 70%;
+    margin-top: 8px;
+    margin-left: 40px;
+    border: 0;
+    background: rgb(0, 0, 0);
+    border: none;
+    color: whitesmoke;
+    outline: none;
+    /* To make the input box stays in this font */
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+/* Set the Search Field (ICON)
+    -----------------------------*/
+
+.wrapper .search-field .fas {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
+
+/* Color of Search icon
+    -----------------------------*/
+
+.wrapper .search-box .search-field a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* Color of Search icon (HOVER)
+    -----------------------------*/
+
+.wrapper .search-box .search-field a:hover {
+    color: rgb(192, 191, 191);
+}
