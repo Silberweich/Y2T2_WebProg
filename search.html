@@ -32,24 +32,6 @@
             font-family: 'Quicksand', sans-serif;
         }
     </style>
-
-    <!-- LINK TO JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".default-option").click(function() {
-                // Toggle down for choosing
-                $(".dropdown ul").toggleClass("active");
-            });
-            $(".dropdown ul li").click(function() {
-                var text = $(this).text();
-                // Change the option to the selected
-                $(".default-option").text(text);
-                // Toggle up after choose
-                $(".dropdown ul").removeClass("active");
-            })
-        });
-    </script>
 </head>
 
 <!-- Main body starts here -->
@@ -69,41 +51,30 @@
     <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
 
     <main>
-        <!-- Search Box starts here -->
-        <div class="wrapper">
-            <form>
-                <div class="search-box">
-                    <div class="dropdown">
-                        <div class="default-option">All</div>
-                        <ul>
-                            <li>All</li>
-                            <li>Movie</li>
-                            <li>News</li>
-                            <li>Promotion</li>
-                        </ul>
+
+        <form action="result.html">
+            <!-- Search Field starts here -->
+            <div class="search-wrapper">
+                <input type="text" placeholder="Search Movie, News, Promotion" name="input">
+                <a href="result.html">
+                    <div class="iconChange">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-chevron-circle-right" style="font-size: 25px;"></i>
                     </div>
-                    <!-- Search box -->
-                    <div class="search-field">
-                        <input type="text" class="input" placeholder="Search" required>
-                        <a href="result.html" target="_blank">
-                            <i class='fas fa-search'></i>
-                        </a>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <!-- Search Box ends here -->
+                </a>
+            </div>
+        </form>
     </main>
 
 
     <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
     <footer>
-        <span class="right">Last Updated: N/A</span>
-        <span class="left"> <a style="color:azure" href="index.html">Home</a> | 
-                                <a style="color:azure" href="about.html">About</a> | 
-                                <a style="color:azure" href="login.html">Login</a> | 
-                                <a style="color:azure" href="sudolog.html">Admin</a> </span><br><br>
-        <span class="center"> For MUICT Y2 web programming project</span><br>
+        <span class=" right ">Last Updated: N/A</span>
+        <span class="left "> <a style="color:azure " href="index.html ">Home</a> | 
+                                <a style="color:azure " href="about.html ">About</a> | 
+                                <a style="color:azure " href="login.html ">Login</a> | 
+                                <a style="color:azure " href="sudolog.html ">Admin</a> </span><br><br>
+        <span class="center "> For MUICT Y2 web programming project</span><br>
     </footer>
     <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
 
