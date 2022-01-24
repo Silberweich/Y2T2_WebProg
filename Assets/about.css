@@ -1,10 +1,10 @@
 body {
-    background-color: rgb(53, 2, 2);
+    background-color: #443737;
 }
 
 h1, p {
     margin: 0;
-    color: black
+    color: black;
 }
 
 html {
@@ -27,7 +27,7 @@ figure {
 
 .container {
     margin: 2% 15%;
-    background-color: rgb(8, 7, 7);
+    background-color: #272121;
     padding: 2%;
 }
 
