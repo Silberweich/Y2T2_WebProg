@@ -9,6 +9,30 @@
     min-height: 73.7vh;   
 }
 
+/* Admin box with added text*/
+.admin-container
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 73.7vh;   
+}
+
+/* Admin Header text */
+.adminText
+{
+    background-color: #333;
+    color:#ccc;
+    text-align: center;
+    border: 3px solid #000000;
+    border-bottom: none;
+}
+
+
+
 form {
     border: 3px solid #000000;
     display: block;
