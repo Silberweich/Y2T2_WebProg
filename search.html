@@ -23,6 +23,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
 
     <!-- LINK TO FONT AWESOME (FOR SOME ELEMENT LOGO) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -36,34 +38,137 @@
 
 <!-- Main body starts here -->
 
-<body>
+<body style="background: rgb(119, 119, 119)">
 
     <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
     <header>
-        <nav class="topnav slideUp">
+        <nav class="topnav slideUp" id="test">
             <img src="Assets/logo.png">
             <a href="index.html">Home</a>
-            <a class="active" href="search.html">Search</a>
-            <a href="about.html">About</a>
-            <a href="login.html">Login</a>
+            <a class="active " href="search.html ">Search</a>
+            <a href="about.html ">About</a>
+            <a href="login.html ">Login</a>
         </nav>
     </header>
     <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
 
     <main>
-
-        <form action="result.html">
-            <!-- Search Field starts here -->
-            <div class="search-wrapper">
-                <input type="text" placeholder="Search Movie, News, Promotion" name="input">
-                <a href="result.html">
-                    <div class="iconChange">
-                        <i class="fas fa-search"></i>
-                        <i class="fas fa-chevron-circle-right" style="font-size: 25px;"></i>
+        <!-- SEARCH SUBMISSION -->
+        <div class="container">
+            <div class="search-container">
+                <form action="result.html">
+                    <h1 class="introduck">Searching Movie</h1>
+                    <!-- Search Field (Input Movie) -->
+                    <div class="search-field">
+                        <input id="search" type="text " placeholder="Enter a Movie Name " name="input ">
+                        <a href="result.html ">
+                            <i class="fas fa-search "></i>
+                        </a>
                     </div>
+                </form>
+            </div>
+            <!-- MOVIE LIST RANKING TOP 5 -->
+            <section id="container-ranking">
+                <div class="header-combine">
+                    <h1 class="header">TOP 5 MOVIES</h1>
+                    <hr>
+                    <form>
+                        <label for="date" class="labelSort">Sort by: </label>
+                        <input type="date" id="date">
+                        <label class="labelSort">|</label>
+                        <!-- GENRE PICKER -->
+                        <select id="sortByGenre">
+                            <option value="All">All</option>
+                            <option value="Action">Action</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Drama">Drama</option>  
+                            <option value="Family">Family</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Kids">Kids</option>            
+                            <option value="Musical">Musical</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Superhero">Superhero</option>
+                            <option value="Wildlife">Wildlife</option>
+                        </select>
+                    </form>
+                </div>
+                <!-- MOVIE LISTS -->
+                <div class="movielists">
+                    <!-- Box 1 -->
+                    <div class="movies-box">
+                        <!-- Img -->
+                        <div class="movies-img">
+                            <div class="rating"><i class="fas fa-star"></i>4.9</div>
+                            <div class="fav"><i class="fas fa-heart"></i></div>
+                            <img src="Assets/Movies/Encanto.jpeg">
+                        </div>
+                        <!-- Below Description -->
+                        <a href="#container-ranking">
+                        Encanto<br>(2021)
+                        </a>
+                    </div>
+                    <!-- Box 2 -->
+                    <div class="movies-box">
+                        <!-- Img -->
+                        <div class="movies-img">
+                            <div class="rating"><i class="fas fa-star"></i>4.9</div>
+                            <div class="fav"><i class="fas fa-heart"></i></div>
+                            <img src="Assets/Movies/TheCroods.jpeg">
+                        </div>
+                        <!-- Below Description -->
+                        <a href="#container-ranking">
+                       The Croods<br>(2021)
+                    </a>
+                    </div>
+                    <!-- Box 3 -->
+                    <div class="movies-box">
+                        <!-- Img -->
+                        <div class="movies-img">
+                            <div class="rating"><i class="fas fa-star"></i>5.0</div>
+                            <div class="fav"><i class="fas fa-heart"></i></div>
+                            <img src="Assets/Movies/TheSecretOfPet2.jpg">
+                        </div>
+                        <!-- Below Description -->
+                        <a href="#container-ranking">
+                       The Secret Life of Pets 2<br>(2019)
+                    </a>
+                    </div>
+                    <!-- Box 4 -->
+                    <div class="movies-box">
+                        <!-- Img -->
+                        <div class="movies-img">
+                            <div class="rating"><i class="fas fa-star"></i>4.8</div>
+                            <div class="fav"><i class="fas fa-heart"></i></div>
+                            <img src="Assets/Movies/ToyStory4.jpg">
+                        </div>
+                        <!-- Below Description -->
+                        <a href="#container-ranking">
+                            Toy Story 4<br>(2019)
+                        </a>
+                    </div>
+                    <!-- Box 5 -->
+                    <div class="movies-box">
+                        <!-- Img -->
+                        <div class="movies-img">
+                            <div class="rating"><i class="fas fa-star"></i>5.0</div>
+                            <div class="fav"><i class="fas fa-heart"></i></div>
+                            <img src="Assets/Movies/Dumbo.jpg">
+                        </div>
+                        <!-- Below Description -->
+                        <a href="#container-ranking">
+                            Dumbo<br>(2021)
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Toggle up button -->
+            <div class="toggleup">
+                <a href="#top" class="top">
+                    <i class=" fas fa-chevron-up "></i>
                 </a>
             </div>
-        </form>
+        </div>
     </main>
 
 
