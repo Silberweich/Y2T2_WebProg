@@ -1,5 +1,5 @@
 body {
-    background-color: #443737;
+    background-color: rgb(121, 179, 212);
 }
 
 h1, p {
@@ -13,7 +13,7 @@ html {
 
 .profile-pic {
     display: inline-block;
-    border: 2px solid red;
+    border: 2px solid tomato;
     padding: 0;
     width: 300px;
     height: 300px;
@@ -26,10 +26,12 @@ figure {
 
 
 .container {
-    margin: 2% 15%;
-    background-color: #272121;
+    margin: 2px 15%;
+    background-color: rgb(255, 255, 255);
     padding: 2%;
+    border-radius: 12px;
 }
+
 
 .member {
     display: flex;
@@ -51,11 +53,11 @@ img {
     display:flex;
     flex-direction: column;
     width: 80%;
-    border: 2px solid rgb(243, 3, 3);
+    border: 2px solid tomato;
     border-radius: 25px;
     padding: 1% 2%;
     margin-left: 2%;
-    background-color: rgba(248, 240, 239, 0.993);
+    background-color: rgba(121, 179, 212,0.2);
 }
 
 @media (max-width:1080px) {
@@ -79,7 +81,6 @@ img {
 }
 
 .aboutus {
-    color: white;
     text-transform: uppercase;
     font-size: 3em;
     text-align: center;  
@@ -102,15 +103,22 @@ ul {
     text-decoration: none;
     margin: 5px 2px;
     border-radius: 50%;
+    
   }
+
+.fa:hover {
+    transform:translate(-1px, -1px);
+    box-shadow: grey 2px 2px;
+    transition: 0.2s ease-in-out;
+}
 
 .fa-facebook {
     background: #3B5998;
     color: white;
 }
-  
-.fa-twitter {
-    background: #55ACEE;
+
+.fa-facebook:hover {
+    background: #5170b3;
     color: white;
 }
 
@@ -118,8 +126,17 @@ ul {
     background: #007bb5;
     color: white;
 }
+
+.fa-linkedin:hover {
+    background: #1796d1;
+    color: white;
+}
   
 .fa-instagram {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: white;
+}
+.fa-instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #faf2a0 0%, #faf3a2 5%, #ff695c 45%, #f341bb 60%, #4271fd 90%);
     color: white;
 }

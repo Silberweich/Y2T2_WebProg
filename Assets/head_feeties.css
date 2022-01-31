@@ -1,8 +1,8 @@
-/* Add a black background color to the top navigation */
+ /* Add a black background color to the top navigation */
 
 .topnav {
-  background-color: #272121;
-  overflow: hidden;
+    background-color: #333;
+    overflow: hidden;
 }
 
 
@@ -44,29 +44,18 @@ body {
 /* Add a color to the active/current link */
 
 .topnav a.active {
-<<<<<<< HEAD
-  background-color: #FF4D00;
-  color: white;
-=======
     background-color: #ff0000;
     color: white;
->>>>>>> fbc757c1dd20e4abae90f588155b386b0016181e
 }
 
 
 /* FEETIES */
 
 footer {
-<<<<<<< HEAD
-  padding: 15px 16px;
-  background-color: #272121;
-  color: #f2f2f2;
-=======
     padding: 15px 16px;
     background-color: #333;
     color: #f2f2f2;
     /* Footer height */
->>>>>>> fbc757c1dd20e4abae90f588155b386b0016181e
 }
 
 .left {
@@ -75,4 +64,12 @@ footer {
 
 .right {
     float: right;
+}
+
+.left a {
+  color: white;
+}
+
+.left a:hover {
+  color: lightskyblue;
 }
