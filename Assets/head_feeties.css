@@ -1,7 +1,7 @@
 /* Add a black background color to the top navigation */
 
 .topnav {
-  background-color: #333;
+  background-color: #272121;
   overflow: hidden;
 }
 
@@ -42,7 +42,7 @@ body {
 /* Add a color to the active/current link */
 
 .topnav a.active {
-  background-color: #9bfcff93;
+  background-color: #FF4D00;
   color: white;
 }
 
@@ -51,8 +51,8 @@ body {
 
 footer {
   padding: 15px 16px;
-  background-color: #333;
-  color: #f2f2f2;           /* Footer height */
+  background-color: #272121;
+  color: #f2f2f2;
 }
 
 .left {
