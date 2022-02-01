@@ -1,13 +1,17 @@
 /* ######## FONTS AND DEFAULT PARAMETERS ######## */
 /*Everypage Background*/
 .bgcolor {
-  background-image: linear-gradient(to right, #9bfcff93, azure, #f2f2f2);
+  background-image: linear-gradient(to right, azure, white);
 }
 
 /*Everypage Margin probably*/
 
 
 /* ######## MAIN AND GRID SECTIONING ######## */
+.highlighth_hov:hover {
+  opacity: 0.9;
+  transition: 0.5s ease-out;
+}
 
 .grid-container {
   display: grid;

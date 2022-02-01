@@ -1,7 +1,7 @@
  /* Add a black background color to the top navigation */
 
 .topnav {
-    background-color: #333;
+    background-color: #272121;
     overflow: hidden;
 }
 
@@ -28,7 +28,7 @@ body {
 /* img element on the left for logo */
 
 .topnav img {
-    padding: 10px 10px;
+    padding: 1px 10px;
     float: left;
 }
 
@@ -53,7 +53,7 @@ body {
 
 footer {
     padding: 15px 16px;
-    background-color: #333;
+    background-color: #272121;
     color: #f2f2f2;
     /* Footer height */
 }
@@ -73,3 +73,15 @@ footer {
 .left a:hover {
   color: lightskyblue;
 }
+
+.img_highlight {
+    background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ff000079 50%);
+    background-position: -0% 0;
+    background-size: 200% auto;
+    transition: background-position 0.5s ease-out;
+    overflow: hidden;
+  }
+.img_highlight:hover {
+    background-position: -99.99% 0;
+    overflow: hidden;
+  }
