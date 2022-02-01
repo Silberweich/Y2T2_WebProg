@@ -28,7 +28,7 @@ body {
 /* img element on the left for logo */
 
 .topnav img {
-    padding: 1px 10px;
+    padding: 1px 15px;
     float: left;
 }
 
@@ -75,7 +75,7 @@ footer {
 }
 
 .img_highlight {
-    background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ff000079 50%);
+    background-image: linear-gradient(to right, rgba(255,255,255,0) 50%, #ff0000 50%);
     background-position: -0% 0;
     background-size: 200% auto;
     transition: background-position 0.5s ease-out;
