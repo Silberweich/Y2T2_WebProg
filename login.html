@@ -26,6 +26,7 @@
             body 
             {
                 font-family: 'Quicksand', sans-serif;
+                background-image: url('Assets/LoginBG.JPG');
             }
         </style>
     </head>
@@ -37,7 +38,7 @@
         <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
         <header>
             <nav class="topnav slideUp">
-                <img src="Assets/logo.png" >
+                <img src="Assets/minor_logo.svg" class="img_highlight " height = 50 style="overflow: hidden;">
                 <a href="index.html">Home</a>
                 <a href="search.html">Search</a>
                 <a href="about.html">About</a>
@@ -49,11 +50,11 @@
         <main class="grid-container ">
             <form id=login class = "">
                
-                <div class="imgcontainer">
-                    <img src="Assets/logo.png" alt="Avatar" class="avatar">
+                <div class="imgcontainer" id="banner">
+                    <img src="Assets/minor_logo.svg" class="img_highlight " height = 50 style="overflow: hidden;">
                 </div>
               
-                <div class="container">
+                <div class="container" id="">
                     <label for="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="uname" required>
               

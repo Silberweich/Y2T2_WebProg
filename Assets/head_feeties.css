@@ -55,6 +55,7 @@ footer {
     padding: 15px 16px;
     background-color: #272121;
     color: #f2f2f2;
+    box-shadow: 0 50vh 0 50vh #272121;  /*<-- This is to fix footer gap on pages that doesnt have enough content to extend the page*/
     /* Footer height */
 }
 
