@@ -36,43 +36,61 @@
 }
 .item-wide {
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 1;
 }
-.item-wide-2 {
+.item-wide-2-l {
+  background-color: rgba(197, 197, 197, 0.5);
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+/*
+.item-wide-2-c {
+  background-color: rgba(197, 197, 197, 0.5);
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+*/
+.item-wide-2-r {
+  background-color: rgba(197, 197, 197, 0.5);
+  grid-column-start: 3;
+  grid-column-end: 7;
   grid-row-start: 2;
   grid-row-end: 2;
 }
 .item-wide-3 {
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 7;
   grid-row-start: 3;
   grid-row-end: 3;
 }
 .item-wide-4 {
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 7;
   grid-row-start: 4;
   grid-row-end: 4;
 }
-
-.item-tall-right {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 4;
+/*review section*/
+.rev-img {
+  padding: 5px;
+  padding-left: 15px;
+  border-radius: 10px;
+  height: 250px;
 }
-.item-void{
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 4;
-  grid-row-end: 6;
+.rev-text-name {
+  text-align: left;
+  margin: 10px;
 }
-
-/*carousel control*/
+.rev-text-info {
+  text-align: left;
+  margin: 10px;
+}
+/*genre carousel control*/
 
 .carousel {
   background: azure;
@@ -91,6 +109,7 @@
   margin-right: 2%;
   filter: blur(4px);
   overflow: hidden;
+  counter-increment: gallery-cell;
 }
 
 .carousel-cell img:hover {
@@ -98,6 +117,19 @@
   overflow: hidden;
   opacity: 0.9;
   transition: 0.5s ease-out;
+}
+
+.rev-carousel {
+  background: #EEE;
+}
+
+.rev-carousel-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
 }
 
 .centered-text {
@@ -108,4 +140,10 @@
   font-size: 50px;
   color: white;
   filter: none;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
