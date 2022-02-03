@@ -21,11 +21,18 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
+        <!-- EXTERNAL LIBBY TO DO CAROUSEL-->
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
         <style>
             body {
                 font-family: 'Quicksand', sans-serif;
             }
         </style>
+        <script>
+            
+        </script>
     </head>
 
     <!-- Main body starts here -->
@@ -45,84 +52,67 @@
         <!-- TOP NAV TEMPLATE, USE ON ALL PAGE --> 
 
         <!-- MAIN CONTENTS STARTS HERE --> 
-        <main class="grid-container content-wrap">
+        <main class="grid-container margin">
             <section class="item-wide highlighth_hov" style="text-align: center; overflow: hidden;">
-                <a href="login.html"><img src="Assets/minor_banner.jpg"></a>
+                <a href="login.html"><img src="Assets/minor_banner.jpg" class= "auto-size"></a>
             </section>
-
-            <section class="grid-item">
-                <h2>2</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
+            <section class="item-wide-2" style="text-align: center; overflow: hidden;">
+                <h1>BROWSE GENRE</h1>
             </section>
-
-            <section class="grid-item">
-                <h2>3</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
+            <section class="item-wide-3 auto-size" style="padding-bottom: 1%">
+                <div class="carousel " data-flickity='{"groupCells": true}'>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/action.jpg">
+                        <p class = "centered-text">ACTION</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/adventure.jpg">
+                        <p class = "centered-text">ADVENTURE</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/animated.jpg">
+                        <p class = "centered-text">ANIMATED</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/comedy.jpg">
+                        <p class = "centered-text">COMEDY</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/crime.jpg">
+                        <p class = "centered-text">CRIME</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/drama.jpg">
+                        <p class = "centered-text">DRAMA</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/fantasy.jpg">
+                        <p class = "centered-text">FANTASY</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/historical.jpg">
+                        <p class = "centered-text">HISTORICAL</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/horror.jpg">
+                        <p class = "centered-text">HORROR</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/scifi.jpg">
+                        <p class = "centered-text">SCI-FI</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/thriller.jpg">
+                        <p class = "centered-text">THRILLER</p>
+                    </cell>
+                    <cell class="carousel-cell">
+                        <img src="Assets/Genre/western.jpg">
+                        <p class = "centered-text">WESTERN</p>
+                    </cell>
+                  </div>
             </section>
-
-            <section class="grid-item">
-                <h2>4</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
-            </section>
-
-            <section class="grid-item">
-                <h2>5</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
-            </section>
-
-            <section class="grid-item item-tall-right">
-                <div class = "square">
-                    <h2 style="text-align: center;">SOMETHING ELSE!</h2>
-                </div>
-            </section>
-
-            <section class="grid-item">
-                <h2>7</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
-            </section>
-
-            <section class="grid-item">
-                <h2>8</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
-            </section>
-            <section class="item-void">
-                <h2>9 item-void, for empty spaces</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
-            </section>
-            <section class="grid-item">
-                <h2>10</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
-            </section>
-            <section class="grid-item">
-                <h2>11</h2>
-                <p>Spicy jalapeno bacon ipsum dolor amet porchetta labore do alcatra duis andouille.<br>
-                    Sausage ullamco dolore turducken pork belly. Qui laborum eu, pastrami consequat jowl doner bresaola shankle minim aliquip.<br>
-                    Dolor rump ullamco, andouille quis salami boudin.<br><br>
-                    Does your lorem ipsum text long for something a little meatier? Give our generator a try… it's tasty!</p>
+            <section class="item-wide-4" style="text-align: center; overflow: hidden;">
+                <h1>SOMETHING ELSE</h1>
             </section>
         </main>
         <!-- MAIN CONTENTS ENDS HERE --> 

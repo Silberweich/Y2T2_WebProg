@@ -1,11 +1,20 @@
 /* ######## FONTS AND DEFAULT PARAMETERS ######## */
 /*Everypage Background*/
 .bgcolor {
-  background-image: linear-gradient(to right, azure, white);
+  background: azure;
 }
 
-/*Everypage Margin probably*/
+/*page Margin probably*/
+.margin {
+  margin: 0 2.5vh;
+}
 
+/* ######## size control ######## */
+.auto-size {
+  max-width:100%;
+  max-height: 100%;
+  height:auto;
+}
 
 /* ######## MAIN AND GRID SECTIONING ######## */
 .highlighth_hov:hover {
@@ -31,6 +40,25 @@
   grid-row-start: 1;
   grid-row-end: 1;
 }
+.item-wide-2 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+.item-wide-3 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.item-wide-4 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
 .item-tall-right {
   grid-column-start: 3;
   grid-column-end: 4;
@@ -43,11 +71,41 @@
   grid-row-start: 4;
   grid-row-end: 6;
 }
-.square {
-  width: 500;
-  height: 500;
-  border: 5px solid black;
-  padding: 5px
+
+/*carousel control*/
+
+.carousel {
+  background: azure;
 }
 
+.carousel-cell {
+  width: 300px;
+  height: 300px;
+  margin-right: 5%;
+  overflow: hidden;
+}
 
+.carousel-cell img{
+  width: 300px;
+  height: 300px;
+  margin-right: 2%;
+  filter: blur(4px);
+  overflow: hidden;
+}
+
+.carousel-cell img:hover {
+  filter: blur(2px);
+  overflow: hidden;
+  opacity: 0.9;
+  transition: 0.5s ease-out;
+}
+
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  filter: none;
+}
