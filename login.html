@@ -49,26 +49,32 @@
 
         <main class="grid-container ">
             <form id=login class = "">
-               
-                <div class="imgcontainer" id="banner">
+                
+               <!-- Logobanner -->
+                <div class="imgcontainer">
                     <img src="Assets/minor_logo.svg" class="img_highlight " height = 50 style="overflow: hidden;">
                 </div>
               
-                <div class="container" id="">
+                <div class="container">
+                    <!-- Username Input --> 
                     <label for="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="uname" required>
-              
+                    
+                    <!-- Psw Input --> 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
-              
+                    
+                    <!-- Submit Button--> 
                     <button type="submit">Login</button>
 
+                    <!-- Remember me -->
                     <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
 
                 </div>
-              
+                
+                <!-- Cancel and Forget PSWD bottom box-->
                 <div class="container" style="background-color:#f1f1f1">
                   <button type="reset" class="cancelbtn">Cancel</button>
                   <span class="psw">Forgot <a href="#">password?</a></span>
