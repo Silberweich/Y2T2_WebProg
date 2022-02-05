@@ -75,22 +75,11 @@
   grid-row-start: 4;
   grid-row-end: 4;
 }
-/*review section*/
-.rev-img {
-  padding: 5px;
-  padding-left: 15px;
-  border-radius: 10px;
-  height: 250px;
-}
-.rev-text-name {
-  text-align: left;
-  margin: 10px;
-}
-.rev-text-info {
-  text-align: left;
-  margin: 10px;
-}
-/*genre carousel control*/
+
+/* ######## END OF GRID SECTIONING ######## */
+
+
+/* ######## GENRE CAROUSEL CONTROL ######## */
 
 .carousel {
   background: azure;
@@ -176,3 +165,5 @@
 .trending-carousel {
   padding: 0 5%;
 }
+
+/* ######## END GENRE CAROUSEL CONTROL ######## */
