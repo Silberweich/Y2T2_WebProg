@@ -18,18 +18,23 @@ body {
 .topnav a {
     color: #f2f2f2;
     text-align: center;
-    padding: 15px 16px;
+    padding: 20px 30px;
     text-decoration: none;
     font-size: 18px;
     float: right;
 }
 
-
 /* img element on the left for logo */
 
-.topnav img {
-    padding: 1px 15px;
+.topnav .logo{
+    padding: 0;
     float: left;
+}
+
+.topnav img {
+    padding: 2px 15px;
+    float: left;
+    height: 59px;
 }
 
 
