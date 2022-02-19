@@ -1,9 +1,5 @@
-    /*      Page setting
+    /* Page setting
 ------------------------------------- */
-    
-    body {
-        background-color: black;
-    }
     
     main {
         height: auto;
@@ -23,7 +19,7 @@
         text-align: center;
         font-weight: bold;
         font-family: 'Poppins', sans-serif;
-        font-size: 2.5em;
+        font-size: 3em;
         color: rgb(0, 0, 0);
     }
     /*      INPUT ZONE
@@ -58,10 +54,11 @@
         color: rgb(256, 256, 256);
         background-color: rgb(0, 0, 0);
     }
-    /* Recommend list as Balck bg */
+    /* Recommended list as Black bg */
     
     #search:-webkit-autofill {
         -webkit-text-fill-color: rgb(255, 255, 255);
+        /*inset - the background color drawn inside this area */
         -webkit-box-shadow: 0 0 0px 1000px rgb(0, 0, 0) inset;
     }
     /* Search icon setting */
@@ -78,6 +75,65 @@
         color: rgb(255, 255, 255);
         background: rgb(255, 0, 0);
     }
+    /*      TOP 5 RANKING MOVIE
+------------------------------------- */
+    
+    #container-ranking {
+        background-color: rgb(255, 255, 255);
+        border-radius: 15px;
+        margin: 1.5rem;
+        width: auto;
+    }
+    
+    .header-combine {
+        margin: 30px 0;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+        padding: 15px 15px 20px 15px;
+        border-radius: 15px;
+    }
+    
+    .header {
+        font-family: 'Poppins', sans-serif;
+        margin: 15px 25px;
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .labelSort {
+        margin: 0 10px;
+        font-size: 18px;
+    }
+    
+    #date {
+        font-family: 'Quicksand', sans-serif;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-weight: bold;
+        justify-content: center;
+        margin: auto;
+        margin-top: 1rem;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        padding: 6px;
+    }
+    
+    #sortByGenre {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 20px;
+        font-weight: bolder;
+        justify-content: center;
+        margin: auto;
+        margin-top: 1rem;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        padding: 6px;
+        background-color: rgb(255, 0, 0);
+        color: white;
+    }
     /*      MOVIE LIST RANKING
 ------------------------------------- */
     /* Layer box (Each movie container) */
@@ -87,19 +143,19 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* Affects the direction of the description and element bolow the*/
+        /* Affects the direction of the description and element bolow img */
         flex-direction: column;
         border-radius: 5px;
         overflow: hidden;
         box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
-        margin: 20px;
+        margin: 15px;
     }
     /* Set the content in the container (Fix the various sizes of img) */
     
     .movies-img {
         width: 100%;
         /* Image height (****) */
-        height: 450px;
+        height: 500px;
         position: relative;
     }
     /* Set the 'img' cropping and fits the lower layer box */
@@ -117,11 +173,7 @@
         color: rgb(0, 0, 0);
         font-weight: bold;
         font-size: 18px;
-        display: -webkit-box;
-        max-width: 80%;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: vertical;
-        margin: 20px;
+        margin: 15px;
     }
     
     .movies-box:hover {
@@ -185,4 +237,12 @@
     .top:hover {
         background: rgb(255, 0, 0);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    /* Responsive For Smaller Devices
+------------------------------------- */
+    
+    @media only screen and (max-width: 390px) {
+        input {
+            font-size: 16px;
+        }
     }
