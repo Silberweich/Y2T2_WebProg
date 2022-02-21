@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 
-<html lang = "en">
-    <head>
-        <meta charset ="utf-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> <!-- Control page view dimension and scaling -->
-        <meta name = "author" content = "[INSERT TEAM NAME]">
+<html lang="en">
 
-        <!-- SET TITLE HERE -->
-        <title>Minor Cineplex - Admin Login</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control page view dimension and scaling -->
+    <meta name="author" content="[INSERT TEAM NAME]">
 
-        <!-- SYTLE AND CUSTOMIZATION -->
-        <link rel = "shortcut icon" href = "Assets/title_icon.png">
+    <!-- SET TITLE HERE -->
+    <title>Minor Cineplex - Admin Login</title>
 
-        <!-- BOOTSTRAPS CONTENT -->
-        <link rel = "stylesheet" href = "Assets/head_feeties.css">
-        <link rel = "stylesheet" href = "Assets/main.css">
-        <link rel = "stylesheet" href = "Assets/testlogin.css">
+    <!-- SYTLE AND CUSTOMIZATION -->
+    <link rel="shortcut icon" href="Assets/title_icon.png">
 
-        <!-- FONT MANAGEMENT -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAPS CONTENT -->
+    <link rel="stylesheet" href="Assets/CSS/head_feeties.css">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
+    <link rel="stylesheet" href="Assets/CSS/testlogin.css">
 
-        <style>
-            body 
-            {
-                font-family: 'Quicksand', sans-serif;
-                background-image: url('Assets/LoginBG.JPG');
-            }
-        </style>
-    </head>
+    <!-- FONT MANAGEMENT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-    <!-- Main body starts here -->
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('Assets/LoginBG.JPG');
+        }
+    </style>
+</head>
 
-    <body>
+<!-- Main body starts here -->
 
-        <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
-        <header>
-            <nav class="topnav slideUp">
-                <a class="logo img_highlight" href="index.html">
-                    <img src="Assets/minor_logo.svg" style="overflow: hidden;">
-                </a>
-                <a class="active" href="sudolog.html">[Admin Login]</a>
-                <a href="index.html">Home</a>
-                <a href="search.html">Search</a>
-                <a href="about.html">About</a>
-                <a href="login.html">Login</a>
-            </nav>
-        </header>
-        <!-- TOP NAV TEMPLATE, USE ON ALL PAGE --> 
+<body>
 
-        <main class="admin-container">
-             <!-- ADMIN TEXTBOX --> 
-            <div class="adminText">
-                <h1>This page is for the administrative staffs only</h1>
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+    <header>
+        <nav class="topnav slideUp">
+            <a class="logo img_highlight" href="index.html">
+                <img src="Assets/minor_logo.svg" style="overflow: hidden;">
+            </a>
+            <a class="active" href="sudolog.html">[Admin Login]</a>
+            <a href="index.html">Home</a>
+            <a href="search.html">Search</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+
+    <main class="admin-container">
+        <!-- ADMIN TEXTBOX -->
+        <div class="adminText">
+            <h1>This page is for the administrative staffs only</h1>
+        </div>
+
+        <form id=adminlogin class="">
+
+            <div class="imgcontainer">
+                <img src="Assets/minor_logo.svg" class="img_highlight " height=50 style="overflow: hidden;">
             </div>
-            
-            <form id=adminlogin class = "">
-               
-                <div class="imgcontainer">
-                    <img src="Assets/minor_logo.svg" class="img_highlight " height = 50 style="overflow: hidden;">
-                </div>
-              
-                <div class="container">
-                    <!-- Username Input --> 
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
-                    
-                    <!-- Psw Input --> 
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
-                    
-                    <!-- Submit Button--> 
-                    <button type="submit">Login</button>
 
-                    <!-- Forget Psw checkbox-->
-                    <label>
+            <div class="container">
+                <!-- Username Input -->
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <!-- Psw Input -->
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <!-- Submit Button-->
+                <button type="submit">Login</button>
+
+                <!-- Forget Psw checkbox-->
+                <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
+                </label>
 
-                </div>
-              
-                <div class="container" style="background-color:#f1f1f1">
-                  <button type="reset" class="cancelbtn">Cancel</button>
-                  <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
+            </div>
 
-            </form>
-        </main>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="reset" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+
+        </form>
+    </main>
 
 
-        <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
-        <footer>
-            <span class="right">Last Updated: N/A</span>
-            <span class="left"> <a style="color:azure" href="index.html">Home</a> | 
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+    <footer>
+        <span class="right">Last Updated: N/A</span>
+        <span class="left"> <a style="color:azure" href="index.html">Home</a> | 
                                 <a style="color:azure" href="about.html">About</a> | 
                                 <a style="color:azure" href="login.html">Login</a> | 
                                 <a style="color:azure" href="sudolog.html">Admin</a> </span><br><br>
-            <span class="center"> For MUICT Y2 web programming project</span><br>
-        </footer>
-        <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+        <span class="center"> For MUICT Y2 web programming project</span><br>
+    </footer>
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
 
-    </body>
+</body>
+
 </html>
