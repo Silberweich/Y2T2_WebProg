@@ -20,7 +20,7 @@ git clone https://github.com/Silberweich/Y2T2_WebProg.git
 https://fonts.google.com/specimen/Quicksand
 
 ## Color theme
-[Insert picture here]
+[ColorPalette](https://imgur.com/4VkTE4p)
 
 ## Work load:
 ### First Phase:
