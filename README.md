@@ -1,4 +1,4 @@
-# Y2T2 Project: Minor Cineplex
+# Y2T2 Project: Minor Cineplex [NODE BRANCH]
 
 This is a web writing project for Year 2 Term 2 Web programming. Written by:
 1. Ariya P. 
@@ -24,9 +24,16 @@ https://fonts.google.com/specimen/Quicksand
 
 ## Work load:
 ### First Phase:
-- [ ] TEAM: Navigation Diagram
-- [ ] ENG: Homepage / Index.html
-- [ ] VIEW: About us page / about.html
-- [ ] PETE: Admin + Login
-- [ ] CHAN: Search + Result
+- [x] TEAM: Navigation Diagram
+- [x] ENG: Homepage / Index.html
+- [x] VIEW: About us page / about.html
+- [x] PETE: Admin + Login
+- [x] CHAN: Search + Result
+- [ ] 
 ### Second Phase:
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
