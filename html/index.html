@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control page view dimension and scaling -->
+    <meta name="author" content="[INSERT TEAM NAME]">
+
+    <!-- SET TITLE HERE -->
+    <title>Minor Cineplex - Main</title>
+
+    <!-- SYTLE AND CUSTOMIZATION -->
+    <link rel="shortcut icon" href="Assets/title_icon.png">
+
+    <!-- BOOTSTRAPS CONTENT -->
+    <link rel="stylesheet" href="Assets/CSS/head_feeties.css">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
+
+    <!-- FONT MANAGEMENT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- EXTERNAL LIBBY TO DO CAROUSEL-->
+    <!-- Easy, no? Because why not use something premade to make life easier-->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<!-- Main body starts here -->
+
+<body class="bgcolor page-container">
+
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+    <header>
+        <nav class="topnav slideUp">
+            <a class="logo img_highlight" href="index">
+                <img src="Assets/minor_logo.svg" style="overflow: hidden;">
+            </a>
+            <a class="active" href="index">Home</a>
+            <a href="search">Search</a>
+            <a href="about">About</a>
+            <a href="login">Login</a>
+        </nav>
+    </header>
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+
+    <!-- ### MAIN CONTENTS STARTS HERE ### -->
+    <main class="grid-container margin">
+
+        <!-- TOP BANNER HERE -->
+        <section class="item-wide highlighth_hov" style="text-align: center; overflow: hidden;">
+            <a href="login"><img src="Assets/minor_banner.jpg" class="auto-size"></a>
+        </section>
+
+        <!-- GENRE BROWSE CAROUSEL DOWN BELOW -->
+        <section class="item-wide-3" style="text-align: center; overflow: hidden;">
+            <h1>BROWSE GENRE</h1>
+        </section>
+
+        <section class="item-wide-4 auto-size" style="padding-bottom: 3%">
+            <div class="carousel " data-flickity='{"groupCells": true}'>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/action.jpg">
+                        <p class="centered-text">ACTION</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/adventure.jpg">
+                        <p class="centered-text">ADVENTURE</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/animated.jpg">
+                        <p class="centered-text">ANIMATED</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/comedy.jpg">
+                        <p class="centered-text">COMEDY</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/crime.jpg">
+                        <p class="centered-text">CRIME</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/drama.jpg">
+                        <p class="centered-text">DRAMA</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/fantasy.jpg">
+                        <p class="centered-text">FANTASY</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/historical.jpg">
+                        <p class="centered-text">HISTORICAL</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/horror.jpg">
+                        <p class="centered-text">HORROR</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/scifi.jpg">
+                        <p class="centered-text">SCI-FI</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/thriller.jpg">
+                        <p class="centered-text">THRILLER</p>
+                    </a>
+                </cell>
+                <cell class="carousel-cell">
+                    <a href="search"><img src="Assets/Genre/western.jpg">
+                        <p class="centered-text">WESTERN</p>
+                    </a>
+                </cell>
+            </div>
+        </section>
+    </main>
+
+    <!-- SEPARATE MAIN SECTION FOR TRENDING CAROUSEL -->
+    <main class="grid-container margin">
+        <section class="item-wide-3" style="text-align: center; overflow: hidden;">
+            <h1>TRENDING <i class="fa fa-fire"></i> </h1>
+        </section>
+
+        <section class="item-wide-4 auto-size trending-container" style="padding: 0 1.5% 5% 1.5%;">
+            <div class="carousel-trending" data-flickity='{ "draggable": false, "contain": true, "groupCells": true }'>
+                <cell class="carousel-cell trending">
+                    <img src="Assets/Movies/Moonfall.jpg" alt="Moonfall">
+                </cell>
+                <cell class="carousel-cell trending">
+                    <img src="Assets/Movies/RE.jpg" alt="Resident Evil">
+                </cell>
+                <cell class="carousel-cell trending">
+                    <img src="Assets/Movies/SpideyNWH.jpg" alt="Spiderman:No Way home">
+                </cell>
+                <cell class="carousel-cell trending">
+                    <img src="Assets/Movies/Gintama.jpg" alt="Gintama The Final">
+                </cell>
+                <cell class="carousel-cell trending">
+                    <img src="Assets/Movies/Harrypotter1.jpg" alt="Harry Potter and the Sorcerer's stone">
+                </cell>
+                <cell class="carousel-cell trending">
+                    <img src="Assets/Movies/HOG.jpg" alt="House of Gucci">
+                </cell>
+            </div>
+        </section>
+    </main>
+
+    <!-- ### MAIN CONTENTS ENDS HERE ###-->
+
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+    <footer>
+        <span class="right">Last Updated: N/A</span>
+        <span class="left"> <a style="color:azure" href="index">Home</a> |
+            <a style="color:azure" href="about">About</a> |
+            <a style="color:azure" href="login">Login</a> |
+            <a style="color:azure" href="sudolog">Admin</a> </span><br><br>
+        <span class="center"> For MUICT Y2 web programming project</span><br>
+    </footer>
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+</body>
+
+</html>
