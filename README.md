@@ -29,7 +29,6 @@ https://fonts.google.com/specimen/Quicksand
 - [x] VIEW: About us page / about.html
 - [x] PETE: Admin + Login
 - [x] CHAN: Search + Result
-- [ ] 
 ### Second Phase:
 - [ ] 
 - [ ] 

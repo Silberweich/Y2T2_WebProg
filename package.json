@@ -1,0 +1,23 @@
+{
+  "name": "y2t2_webprog",
+  "version": "1.0.0",
+  "description": "node implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silberweich/Y2T2_WebProg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Silberweich/Y2T2_WebProg/issues"
+  },
+  "homepage": "https://github.com/Silberweich/Y2T2_WebProg#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
