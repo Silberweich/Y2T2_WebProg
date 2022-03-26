@@ -1,13 +1,32 @@
 const http = require("http");
 const fs = require("fs"); 
+const bodyParser = require('body-parser');
 const path = require('path');
+const mysql = require('mysql2');
 const express = require('express');
+const dotenv = require('dotenv');
 const app = express();
 
 console.log(__dirname);
 console.log(__filename);
 
+dotenv.config();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/Assets", express.static(__dirname + '/Assets'));
+
+
+const con = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PWD,
+    database: process.env.DB_DATABASE,
+});
+
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected DB");
+});
 
 app.get('/',function(req,res){
     console.log("Accessing INDEX");
