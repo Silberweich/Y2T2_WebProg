@@ -28,6 +28,7 @@
     <!-- Easy, no? Because why not use something premade to make life easier-->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="../script/api_rec.js"></script>
 
     <style>
         body {
@@ -137,12 +138,15 @@
 
     <!-- SEPARATE MAIN SECTION FOR TRENDING CAROUSEL -->
     <main class="grid-container margin">
-        <section class="item-wide-3" style="text-align: center; overflow: hidden;">
+        <section class="item-wide-5-l" style="text-align: center; overflow: hidden;">
             <h1>TRENDING <i class="fa fa-fire"></i> </h1>
         </section>
+        <section class="item-wide-5-r" style="text-align: center; overflow: hidden;">
+            <h1>RECOMMENDATION <i class="fa fa-fire"></i> </h1>
+        </section>
 
-        <section class="item-wide-4 auto-size trending-container" style="padding: 0 1.5% 5% 1.5%;">
-            <div class="carousel-trending" data-flickity='{ "draggable": false, "contain": true, "groupCells": true }'>
+        <section class="item-wide-6-l auto-size trending-container" style="padding: 0 1.5% 5% 1.5%;">
+            <div class="carousel-trending" data-flickity='{ "draggable": false, "contain": true, "groupCells": true, "wrapAround": true, "resize": true , "lazyLoad": 1}'>
                 <cell class="carousel-cell trending">
                     <img src="Assets/Movies/Moonfall.jpg" alt="Moonfall">
                 </cell>
@@ -162,6 +166,10 @@
                     <img src="Assets/Movies/HOG.jpg" alt="House of Gucci">
                 </cell>
             </div>
+        </section>
+
+        <section class="item-wide-6-r auto-size trending-container" id ="api-insert" onload="mScript()" style="padding: 0 1.5% 5% 1.5%;">
+        
         </section>
     </main>
 
