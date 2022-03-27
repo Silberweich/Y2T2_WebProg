@@ -51,7 +51,7 @@
     <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
 
     <main class="grid-container ">
-        <form id=login class="">
+        <form id=login class="" action="/login" method="POST">
 
             <!-- Logobanner -->
             <div class="imgcontainer">
@@ -61,11 +61,11 @@
             <div class="container">
                 <!-- Username Input -->
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Email" name="email" required>
 
                 <!-- Psw Input -->
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
 
                 <!-- Submit Button-->
                 <button type="submit">Login</button>
