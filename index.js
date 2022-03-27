@@ -14,7 +14,7 @@ dotenv.config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/Assets", express.static(__dirname + '/Assets'));
-app.use("/Assets", express.static(__dirname + '/Assets'));
+app.use("/script", express.static(__dirname + '/script'));
 
 
 // const con = mysql.createConnection({
