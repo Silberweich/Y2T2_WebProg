@@ -5,6 +5,9 @@ const path = require('path');
 const mysql = require('mysql2');
 const express = require('express');
 const dotenv = require('dotenv');
+let jwt = require("jsonwebtoken");
+let cookieParser = require('cookie-parser')
+let authorize = require("./auth.js");
 const app = express();
 
 console.log(__dirname);
@@ -13,6 +16,7 @@ console.log(__filename);
 dotenv.config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use("/Assets", express.static(__dirname + '/Assets'));
 app.use("/script", express.static(__dirname + '/script'));
 
@@ -64,6 +68,14 @@ app.get('/sudolog', function (req, res) {
     res.sendFile(path.join(__dirname + '/html/sudolog.html'));
 });
 
+app.get('/user-secret', authorize, function (req, res) {
+    res.send("User logged in");
+})
+
+app.get('/admin-secret', authorize, function (req, res) {
+    res.send("Admin logged in");
+})
+
 app.post('/login', function (req, res) {
     let email = req.body.email;
     let password = req.body.password;
@@ -74,18 +86,27 @@ app.post('/login', function (req, res) {
 
     con.query('SELECT * FROM user WHERE email = ?', email, function (error, results) {
         if (error) throw error;
+        let jwtToken;
         let info = results[0];
         if (info) {
             if (info['password'] === password) {
-                console.log(info)
+                let user = req.body;
+                jwtToken = jwt.sign({
+                    email: user.email,
+                    password: user.password
+                }, process.env.SECRET, {
+                    expiresIn: "1h"
+                });
                 console.log("User Login Successful");
-                return res.send({ error: false, data: results, message: "User Login Success" });
+                // res.status(200).json({ token: jwtToken, message: user})
+                return res.status(200).cookie("token", jwtToken, {httpOnly:true}).redirect('/user-secret');
             } else {
                 console.log("Login failed Successfully")
                 return res.send({ error: false, data: results, message: "Login failed Successfully, Email doesn't match with the password" });
             }
+        } else {
+            return res.send("This user doesn't exist");
         }
-        return res.send({ error: false, data: results, message: "This user doesn't exist" });
     })
 })
 
@@ -99,12 +120,18 @@ app.post('/adminlogin', function (req, res) {
 
     con.query('SELECT * FROM admin WHERE email = ?', email, function (error, results) {
         if (error) throw error;
+        let jwtToken;
         let info = results[0];
         if (info) {
             if (info['password'] === password) {
-                console.log(info)
-                console.log("Admin Login Successful");
-                return res.send({ error: false, data: results, message: "Admin Login Success" });
+                let user = req.body;
+                jwtToken = jwt.sign({
+                    email: user.email,
+                    password: user.password
+                }, process.env.SECRET, {
+                    expiresIn: "1h"
+                });
+                return res.status(200).cookie("token", jwtToken, {httpOnly:true}).redirect('/admin-secret');
             } else {
                 console.log("Login failed Successfully")
                 return res.send({ error: false, data: results, message: "Login failed Successfully, Email doesn't match with the password" });
