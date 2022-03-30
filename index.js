@@ -141,6 +141,23 @@ app.post('/adminlogin', function (req, res) {
     })
 })
 
+
+app.get('/searchMovies', function(req, res) {
+    let movieName = "%"+(req.query.movieName).toLowerCase()+"%";
+    console.log("User searching (LOWER): " +movieName);
+    con.query('SELECT * FROM movie WHERE lower(movie_name) LIKE ?', movieName, function (error, results) {
+        if (error) throw error;
+        // console.log(results);
+        // not found and not input anything case
+        if (results.length == 0 || movieName === "%%") {
+            return res.send({ error: true, message: "This movie doesn't exist" });
+        }
+        else {
+            return res.send({ error: false, data: results, message: "This movie exists" });
+        }
+    })
+})
+
 app.use((req, res, next) => {
     console.log("404: Invalid accessed");
     res.status(404).send("NONO, GO BACK, BAD");
