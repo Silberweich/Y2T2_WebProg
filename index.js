@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/Assets", express.static(__dirname + '/Assets'));
 app.use("/script", express.static(__dirname + '/script'));
-
+app.use('/', require('./routes/crud'));
 
 const con = mysql.createConnection({
     host: process.env.DB_HOST,
