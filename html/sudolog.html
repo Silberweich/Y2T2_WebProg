@@ -57,7 +57,7 @@
             <h1>This page is for the administrative staffs only</h1>
         </div>
 
-        <form id=adminlogin class="">
+        <form id=adminlogin class="" action="/adminlogin" method="POST">
 
             <div class="imgcontainer">
                 <img src="../Assets/minor_logo.svg" class="img_highlight " height=50 style="overflow: hidden;">
@@ -66,11 +66,11 @@
             <div class="container">
                 <!-- Username Input -->
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Email" name="email" required>
 
                 <!-- Psw Input -->
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="password" required>
 
                 <!-- Submit Button-->
                 <button type="submit">Login</button>

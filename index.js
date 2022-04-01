@@ -1,10 +1,13 @@
 const http = require("http");
-const fs = require("fs"); 
+const fs = require("fs");
 const bodyParser = require('body-parser');
 const path = require('path');
 const mysql = require('mysql2');
 const express = require('express');
 const dotenv = require('dotenv');
+let jwt = require("jsonwebtoken");
+let cookieParser = require('cookie-parser')
+let authorize = require("./auth.js");
 const app = express();
 
 console.log(__dirname);
@@ -13,124 +16,191 @@ console.log(__filename);
 dotenv.config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use("/Assets", express.static(__dirname + '/Assets'));
 app.use("/script", express.static(__dirname + '/script'));
 
 
- const con = mysql.createConnection({
-     host: process.env.DB_HOST,
-     user: process.env.DB_USER,
-     password: process.env.DB_PWD,
-     database: process.env.DB_DATABASE,
- });
-
- con.connect(function (err) {
-     if (err) throw err;
-     console.log("Connected DB");
- });
-
-app.get('/',function(req,res){
-    console.log("Accessing INDEX");
-    res.sendFile(path.join(__dirname+'/html/index.html'));
+const con = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PWD,
+    database: process.env.DB_DATABASE,
 });
 
-app.get('/index',function(req,res){
-    console.log("Accessing INDEX");
-    res.sendFile(path.join(__dirname+'/html/index.html'));
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected DB");
 });
 
-app.get('/about',function(req,res){
+app.get('/', function (req, res) {
+    console.log("Accessing INDEX");
+    res.sendFile(path.join(__dirname + '/html/index.html'));
+});
+
+app.get('/index', function (req, res) {
+    console.log("Accessing INDEX");
+    res.sendFile(path.join(__dirname + '/html/index.html'));
+});
+
+app.get('/about', function (req, res) {
     console.log("Accessing About page");
-    res.sendFile(path.join(__dirname+'/html/about.html'));
+    res.sendFile(path.join(__dirname + '/html/about.html'));
 });
 
-app.get('/login',function(req,res){
+app.get('/login', function (req, res) {
     console.log("Accessing Login page");
-    res.sendFile(path.join(__dirname+'/html/login.html'));
+    res.sendFile(path.join(__dirname + '/html/login.html'));
 });
 
-app.get('/result',function(req,res){
+app.get('/result', function (req, res) {
     console.log("Accessing Result page");
-    res.sendFile(path.join(__dirname+'/html/result.html'));
+    res.sendFile(path.join(__dirname + '/html/result.html'));
 });
 
-app.get('/search',function(req,res){
+app.get('/search', function (req, res) {
     console.log("Accessing Search page");
-    res.sendFile(path.join(__dirname+'/html/search.html'));
+    res.sendFile(path.join(__dirname + '/html/search.html'));
 });
 
-app.get('/sudolog',function(req,res){
+app.get('/sudolog', function (req, res) {
     console.log("Accessing Admind Login page");
-    res.sendFile(path.join(__dirname+'/html/sudolog.html'));
+    res.sendFile(path.join(__dirname + '/html/sudolog.html'));
 });
    
 ////////////////////////////////////////////////////////////    CRUD OPERATION   ///////////////////////////////////////////////////////////////////////
 
-/*----------------------------------CUSTOMER CRUD----------------------------------*/
+/*----------------------------------USER CRUD----------------------------------*/
 // get all 
-app.get('/customer', function (req, res) {
-    con.query('SELECT * FROM customer', function (error, results) {
+app.get('/user', function (req, res) {
+    con.query('SELECT * FROM user', function (error, results) {
     if (error) throw error;
         return res.send({ 
             error: false, 
             data: results, 
-            message: 'Customer list returned successfully.' });
+            message: 'User list returned successfully.' });
     });
 });
 
 // add single record
-app.post('/customer', function (req, res) {
-    let customer = req.body.data;
-    console.log(customer);
-    if (!customer) {
+app.post('/user', function (req, res) {
+    let user = req.body.data;
+    console.log(user);
+    if (!user) {
         return res.status(400).send({ 
             error: true, 
-            message: 'Please provide customer information.'
+            message: 'Please provide user information.'
         });
     }
-    con.query("INSERT INTO customer SET ? ", customer, function (error, results) {
+    con.query("INSERT INTO user SET ? ", user, function (error, results) {
     if (error) throw error;
         return res.send ({
             error: false, 
             data: results.affectedRows, 
-            message: 'New customer has been created successfully.'
+            message: 'New user has been created successfully.'
         });
     });
 });
 
 //update
-app.put('/customer', function (req, res) {
-    let custEmail = req.body.data[0].email;
-    let customer = req.body.data;
-    if (!custEmail || !customer) {
+app.put('/user', function (req, res) {
+    let userEmail = req.body.data[0].email;
+    let user = req.body.data;
+    if (!userEmail || user) {
         return res.status(400).send({ 
-            error: customer, 
-            message: 'Please provide valid customer information' 
+            error: user, 
+            message: 'Please provide valid user information' 
         });
     }
-    con.query("UPDATE customer SET ? WHERE email = ?", [customer[0], custEmail], function (error, results) {
+    con.query("UPDATE user SET ? WHERE email = ?", [user[0], userEmail], function (error, results) {
     if (error) throw error;
         return res.send({
             error: false, 
             data: results.affectedRows, 
-            message: 'customer has been updated successfully.'
+            message: 'User has been updated successfully.'
         })
     });
 });
 
 //delete
-app.delete('/customer', function (req, res) {
-    let custEmail = req.body.data[0].email;
-    if (!custEmail) {
+app.delete('/user', function (req, res) {
+    let userEmail = req.body.data[0].email;
+    if (!userEmail) {
         return res.status(400).send({ error: true, message: 'Please provide email' });
     }
-    con.query('DELETE FROM customer WHERE email = ?', [custEmail], function (error, results)
+    con.query('DELETE FROM user WHERE email = ?', [userEmail], function (error, results)
     {
     if (error) throw error;
-        return res.send({ error: false, data: results.affectedRows, message: 'Customer has been deleted successfully.' });
+        return res.send({ error: false, data: results.affectedRows, message: 'User has been deleted successfully.' });
     });
 });
 /*----------------------------------CUSTOMER CRUD----------------------------------*/
+
+/*----------------------------------ADMIN CRUD----------------------------------*/
+// get all 
+app.get('/admin', function (req, res) {
+    con.query('SELECT * FROM admin', function (error, results) {
+    if (error) throw error;
+        return res.send({ 
+            error: false, 
+            data: results, 
+            message: 'Admin list returned successfully.' });
+    });
+});
+
+// add single record
+app.post('/admin', function (req, res) {
+    let admin = req.body.data;
+    console.log(admin);
+    if (!admin) {
+        return res.status(400).send({ 
+            error: true, 
+            message: 'Please provide admin information.'
+        });
+    }
+    con.query("INSERT INTO admin SET ? ", admin, function (error, results) {
+    if (error) throw error;
+        return res.send ({
+            error: false, 
+            data: results.affectedRows, 
+            message: 'New admin has been created successfully.'
+        });
+    });
+});
+
+//update
+app.put('/admin', function (req, res) {
+    let adminEmail = req.body.data[0].email;
+    let admin = req.body.data;
+    if (!adminEmail || !admin) {
+        return res.status(400).send({ 
+            error: user, 
+            message: 'Please provide valid admin information' 
+        });
+    }
+    con.query("UPDATE admin SET ? WHERE email = ?", [admin[0], adminEmail], function (error, results) {
+    if (error) throw error;
+        return res.send({
+            error: false, 
+            data: results.affectedRows, 
+            message: 'admin has been updated successfully.'
+        })
+    });
+});
+
+//delete
+app.delete('/admin', function (req, res) {
+    let adminEmail = req.body.data[0].email;
+    if (!adminEmail) {
+        return res.status(400).send({ error: true, message: 'Please provide email' });
+    }
+    con.query('DELETE FROM admin WHERE email = ?', [adminEmail], function (error, results)
+    {
+    if (error) throw error;
+        return res.send({ error: false, data: results.affectedRows, message: 'admin has been deleted successfully.' });
+    });
+});
+/*----------------------------------ADMIN CRUD----------------------------------*/
 
 /*--------------------------------------MOVIES CRUD-----------------------------------------*/
 // get all 
@@ -196,12 +266,104 @@ app.delete('/movie', function (req, res) {
         return res.send({ error: false, data: results.affectedRows, message: 'Movie has been deleted successfully.' });
     });
 });
+/*--------------------------------------MOVIES CRUD-----------------------------------------*/
+
 ////////////////////////////////////////////////////////////    CRUD OPERATION   ///////////////////////////////////////////////////////////////////////
+
+app.get('/user-secret', authorize, function (req, res) {
+    res.send("User logged in");
+})
+
+app.get('/admin-secret', authorize, function (req, res) {
+    res.send("Admin logged in");
+})
+
+app.post('/login', function (req, res) {
+    let email = req.body.email;
+    let password = req.body.password;
+
+    if (!email || !password) {
+        return res.status(400).send({ error: true, message: 'Please provide fill information' });
+    }
+
+    con.query('SELECT * FROM user WHERE email = ?', email, function (error, results) {
+        if (error) throw error;
+        let jwtToken;
+        let info = results[0];
+        if (info) {
+            if (info['password'] === password) {
+                let user = req.body;
+                jwtToken = jwt.sign({
+                    email: user.email,
+                    password: user.password
+                }, process.env.SECRET, {
+                    expiresIn: "1h"
+                });
+                console.log("User Login Successful");
+                // res.status(200).json({ token: jwtToken, message: user})
+                return res.status(200).cookie("token", jwtToken, {httpOnly:true}).redirect('/user-secret');
+            } else {
+                console.log("Login failed Successfully")
+                return res.send({ error: false, data: results, message: "Login failed Successfully, Email doesn't match with the password" });
+            }
+        } else {
+            return res.send("This user doesn't exist");
+        }
+    })
+})
+
+app.post('/adminlogin', function (req, res) {
+    let email = req.body.email;
+    let password = req.body.password;
+
+    if (!email || !password) {
+        return res.status(400).send({ error: true, message: 'Please provide fill information' });
+    }
+
+    con.query('SELECT * FROM admin WHERE email = ?', email, function (error, results) {
+        if (error) throw error;
+        let jwtToken;
+        let info = results[0];
+        if (info) {
+            if (info['password'] === password) {
+                let user = req.body;
+                jwtToken = jwt.sign({
+                    email: user.email,
+                    password: user.password
+                }, process.env.SECRET, {
+                    expiresIn: "1h"
+                });
+                return res.status(200).cookie("token", jwtToken, {httpOnly:true}).redirect('/admin-secret');
+            } else {
+                console.log("Login failed Successfully")
+                return res.send({ error: false, data: results, message: "Login failed Successfully, Email doesn't match with the password" });
+            }
+        }
+        return res.send({ error: false, data: results, message: "This user doesn't exist" });
+    })
+})
+
+
+app.get('/searchMovies', function(req, res) {
+    let movieName = "%"+(req.query.movieName).toLowerCase()+"%";
+    console.log("User searching (LOWER): " +movieName);
+    con.query('SELECT * FROM movie WHERE lower(movie_name) LIKE ?', movieName, function (error, results) {
+        if (error) throw error;
+        // console.log(results);
+        // not found and not input anything case
+        if (results.length == 0 || movieName === "%%") {
+            return res.send({ error: true, message: "This movie doesn't exist" });
+        }
+        else {
+            return res.send({ error: false, data: results, message: "This movie exists" });
+        }
+    })
+})
 
 app.use((req, res, next) => {
     console.log("404: Invalid accessed");
     res.status(404).send("NONO, GO BACK, BAD");
-   })
+})
 
 console.log("Listening on the port 3030");
 app.listen(3030); 

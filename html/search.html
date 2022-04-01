@@ -58,14 +58,12 @@
         <!-- SEARCH SUBMISSION -->
         <div class="container">
             <div class="search-container">
-                <form action="result">
+                <form action="/searchMovies" method="GET">
                     <h1 class="introduck">Searching Movie</h1>
                     <!-- Search Field (Input Movie) -->
                     <div class="search-field">
-                        <input id="search" type="text" placeholder="Enter a Movie Name" name="input">
-                        <a href="result ">
-                            <i class="fas fa-search "></i>
-                        </a>
+                        <input id="search" type="text" placeholder="Enter a Movie Name" name="movieName">
+                        <button type="submit" style="background-color: black; border: none;"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
             </div>
