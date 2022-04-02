@@ -69,7 +69,6 @@ app.get('/sudolog', function (req, res) {
     console.log("Accessing Admind Login page");
     res.sendFile(path.join(__dirname + '/html/sudolog.html'));
 });
-   
 
 app.get('/user-secret', authorize, function (req, res) {
     res.send("User logged in");
@@ -313,4 +312,3 @@ app.use((req, res, next) => {
 
 console.log("Listening on the port 3030");
 app.listen(3030); 
-
