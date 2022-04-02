@@ -347,10 +347,26 @@ app.post('/adminlogin', function (req, res) {
 app.get('/searchMovies', function(req, res) {
     let movieName = "%"+(req.query.movieName).toLowerCase()+"%";
     console.log("User searching (LOWER): " +movieName);
+    if (movieName === "%%"){
+        con.query('SELECT * FROM movie WHERE lower(movie_name) LIKE ?', movieName, function (error, results) {
+            if (error) throw error;
+            if (error) {
+                return res.send({ error: true, message: "Something went wrong" });
+            }
+            else {
+                return res.send({ error: false, data: results, message: "This movie exists" });
+            }
+
+        })
+    }
+    else
     con.query('SELECT * FROM movie WHERE lower(movie_name) LIKE ?', movieName, function (error, results) {
         if (error) throw error;
         // console.log(results);
         // not found and not input anything case
+        //if (results.length == 0 || movieName === "%%") {
+        //    return res.send({ error: true, message: "This movie doesn't exist" });
+        //}
         if (results.length == 0 || movieName === "%%") {
             return res.send({ error: true, message: "This movie doesn't exist" });
         }
