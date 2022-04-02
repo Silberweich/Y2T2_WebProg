@@ -60,40 +60,49 @@
             <div class="search-container">
                 <form action="/searchMovies" method="GET">
                     <h1 class="introduck">Searching Movie</h1>
-                    <!-- Search Field (Input Movie) -->
                     <div class="search-field">
                         <input id="search" type="text" placeholder="Enter a Movie Name" name="movieName">
                         <button type="submit" style="background-color: black; border: none;"><i class="fas fa-search"></i></button>
                     </div>
-                </form>
-            </div>
-            <!-- MOVIE LIST RANKING TOP 5 -->
-            <section id="container-ranking">
-                <div class="header-combine">
-                    <h1 class="header">TOP 5 MOVIES</h1>
-                    <hr>
-                    <form>
-                        <label for="date" class="labelSort">Sort by: </label>
-                        <input type="date" id="date">
-                        <label class="labelSort">|</label>
-                        <!-- GENRE PICKER -->
-                        <select id="sortByGenre">
+                    <!--------------------------- SEARCH CRITERIA --------------------------->
+                    <!-- 1. Movie Genre -->
+                    <div class="search" style="background-color: rgb(229, 229, 229); border-radius: 0.1rem; padding: 1rem; margin: 4vh; border-radius: 0.5rem;">
+                        <label style="margin: 2vh; color: black; font-family: Poppins;">Genre:</label>
+                        <select style="font-family: Poppins;" id="sortByGenre" name="movieGenre">
                             <option value="All">All</option>
                             <option value="Action">Action</option>
-                            <option value="Comedy">Comedy</option>
-                            <option value="Documentary">Documentary</option>
-                            <option value="Drama">Drama</option>  
-                            <option value="Family">Family</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Drama">Drama</option>   
                             <option value="Horror">Horror</option>
-                            <option value="Kids">Kids</option>            
-                            <option value="Musical">Musical</option>
-                            <option value="Romance">Romance</option>
-                            <option value="Superhero">Superhero</option>
-                            <option value="Wildlife">Wildlife</option>
-                        </select>
-                    </form>
-                </div>
+                            <option value="Thriller">Thriller</option>
+                        </select>                                                    
+                        <!-- 2. Movie Released Date -->
+                        <label style="margin: 2vh; color: rgb(0, 0, 0); font-family: Poppins;">Released Year (from recent):</label>
+                        <select style="font-family: Poppins;" id="sortByReleasedYr" name="movieReleasedYr">
+                            <option value="All">All</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>  
+                        </select>    
+                        <!-- 3. Movie SOUND -->
+                        <br>
+                        <div class="adjust" style="padding-top: 0.5rem;">
+                            <label style="margin: 2vh; color: black; font-family: Poppins;">Soundtrack:</label>
+                            <input type="checkbox" id="EN" name="movieSound" value="EN" checked>
+                            <label for="EN" style="font-family: Poppins; color: black;  font-size: 22px; margin-right: 1rem;">EN</label>
+                            <input type="checkbox" id="JP" name="movieSound" value="JP">
+                            <label for="JP" style="font-family: Poppins; color: black;  font-size: 22px; margin-right: 1rem;">JP</label>
+                            <input type="checkbox" id="KR" name="movieSound" value="KR">
+                            <label for="KR" style="font-family: Poppins; color: black;  font-size: 22px; margin-right: 1rem;">KR</label>
+                            <input type="checkbox" id="TH" name="movieSound" value="TH">
+                            <label for="TH" style="font-family: Poppins; color: black;  font-size: 22px; margin-right: 1rem;">TH</label>
+                        </div>
+                    </div>
+                    <!--------------------------- SEARCH CRITERIA --------------------------->
+                </form>
                 <!-- MOVIE LISTS -->
+                <h1 style="font-family: Poppins; padding: 1rem; background-color: rgb(28, 28, 28); border-radius: 0.5rem; text-align: center; margin: 4vh; color: white;">Top Movies</h1>
                 <div class="movielists">
                     <!-- Box 1 -->
                     <article>
@@ -177,6 +186,7 @@
                 <a href="#top" class="top">
                     <i class=" fas fa-chevron-up "></i>
                 </a>
+            </div>
             </div>
         </div>
     </main>
