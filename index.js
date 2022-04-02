@@ -251,7 +251,7 @@ app.get('/searchMovies', function (req, res) {
                                 </div>
                             </form>
                             <div></div>
-                    </main>
+
                 </body>    
                 </html>`
 
@@ -273,7 +273,7 @@ app.get('/searchMovies', function (req, res) {
                                         ${results[i].movie_name}
                                     </a>
                                 </div>
-                            </article></div></div>`
+                            </article></div></div></main>`
                         }
                         else {
                             output +=
@@ -297,7 +297,7 @@ app.get('/searchMovies', function (req, res) {
                 else {  // Not found any movie (display error image)
                     output += `<div class="container">
                                     <img style="width: 25%;   display: block; margin-left: auto; margin-right: auto;" src="Assets/404 Error with a cute animal-pana.png">
-                                </div>`
+                                </div></main>`
                 }
             res.send(output)
             // return res.send({ error: false, data: results, message: "This movie exists" });
