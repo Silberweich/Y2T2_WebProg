@@ -419,7 +419,7 @@ module.exports = router;
 
 
 // Testing insert (POST)
-//  URL     = http://localhost:3030/user
+//  URL     = http://localhost:3030/movie
 //  method  = POST 
 //  body    = raw JSON
 // {
@@ -434,14 +434,16 @@ module.exports = router;
 //              "movie_length": 999,
 //              "soundtrack": "TH",
 //              "subtitle": null,
-//              "synopsis": "THIS IS A SYNOPSIS"
+//              "movie_starRate": "0.0",
+//              "synopsis": "THIS IS A SYNOPSIS",
+//              "movie_image": "https://picsum.photos/seed/picsum/200/300"
 //            }
 //        ]    
 // }  
 
 
 // Testing update (PUT)
-//  URL     = http://localhost:3030/user
+//  URL     = http://localhost:3030/movie
 //  method  = PUT 
 //  body    = raw JSON
 // {
@@ -456,7 +458,9 @@ module.exports = router;
 //              "movie_length": 111,
 //              "soundtrack": "TH",
 //              "subtitle": null,
-//              "synopsis": "THIS IS A SYNOPSIS BUT IT IS EDITED"
+//              "movie_starRate": "5.0",
+//              "synopsis": "THIS IS A SYNOPSIS BUT IT IS EDITED",
+//              "movie_image": "https://picsum.photos/id/237/200/300"
 //            }
 //        ]    
 // }  
