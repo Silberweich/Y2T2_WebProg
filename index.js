@@ -180,7 +180,8 @@ app.get('/searchMovies', function (req, res) {
         con.query(`SELECT * FROM movie WHERE movie_name LIKE ?
         AND movie_genre LIKE ?
         AND YEAR(release_date) >= ?
-        AND soundtrack IN (${movieSound})`,
+        AND soundtrack IN (${movieSound})
+        ORDER BY movie_name ASC`,
         [movieName, movieGenre, movieReleasedYr], function (error, results) {
             if (error) throw error;
             var output = "";
