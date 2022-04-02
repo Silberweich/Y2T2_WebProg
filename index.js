@@ -70,13 +70,14 @@ app.get('/sudolog', function (req, res) {
 });
    
 
+// ===================   Authentiaction Part   ========================
 app.get('/user-secret', authorize, function (req, res) {
     res.send("User logged in");
-})
+});
 
 app.get('/admin-secret', authorize, function (req, res) {
     res.send("Admin logged in");
-})
+});
 
 app.post('/login', function (req, res) {
     let email = req.body.email;
@@ -101,7 +102,7 @@ app.post('/login', function (req, res) {
                 });
                 console.log("User Login Successful");
                 // res.status(200).json({ token: jwtToken, message: user})
-                return res.status(200).cookie("token", jwtToken, {httpOnly:true}).redirect('/user-secret');
+                return res.status(200).cookie("token", jwtToken, { httpOnly: true }).redirect('/user-secret');
             } else {
                 console.log("Login failed Successfully")
                 return res.send({ error: false, data: results, message: "Login failed Successfully, Email doesn't match with the password" });
@@ -109,8 +110,8 @@ app.post('/login', function (req, res) {
         } else {
             return res.send("This user doesn't exist");
         }
-    })
-})
+    });
+});
 
 app.post('/adminlogin', function (req, res) {
     let email = req.body.email;
@@ -125,6 +126,9 @@ app.post('/adminlogin', function (req, res) {
         let jwtToken;
         let info = results[0];
         if (info) {
+            // if the the result from sql is not empty and the password match
+            // create the token which expire in 1 hour, then create a cookie
+            // with httpOnly to avoid the client side to access the data
             if (info['password'] === password) {
                 let user = req.body;
                 jwtToken = jwt.sign({
@@ -133,51 +137,60 @@ app.post('/adminlogin', function (req, res) {
                 }, process.env.SECRET, {
                     expiresIn: "1h"
                 });
-                return res.status(200).cookie("token", jwtToken, {httpOnly:true}).redirect('/admin-secret');
+                return res.status(200).cookie("token", jwtToken, { httpOnly: true }).redirect('/admin-secret');
             } else {
                 console.log("Login failed Successfully")
                 return res.send({ error: false, data: results, message: "Login failed Successfully, Email doesn't match with the password" });
             }
         }
         return res.send({ error: false, data: results, message: "This user doesn't exist" });
-    })
-})
+    });
+});
+// ===================   Authentiaction Part   ========================
 
-
-app.get('/searchMovies', function(req, res) {
-    let movieName = "%"+(req.query.movieName).toLowerCase()+"%";
-    console.log("User searching (LOWER): " +movieName);
-    // No criteria search
-    if (movieName === "%%"){
-        con.query('SELECT * FROM movie WHERE lower(movie_name) LIKE ?', movieName, function (error, results) {
-            if (error) throw error;
-            if (error) {
-                return res.send({ error: true, message: "Something went wrong" });
-            }
-            else {
-                return res.send({ error: false, data: results, message: "This movie exists" });
-            }
-
+// Search movies (not done)
+app.get('/searchMovies', function (req, res) {
+    // No input
+    console.log(req.query)
+    if (Object.keys(req.query).length === 0) {
+        con.query('SELECT * FROM movie', function (error, results) {
+            return res.send({ error: false, data: results, message: "This movie exists, 1st con" });
         })
-    }
-    else
-    con.query('SELECT * FROM movie WHERE lower(movie_name) LIKE ?', movieName, function (error, results) {
-        if (error) throw error;
-        // console.log(results);
-        // no movie
-        if (results.length == 0) {
-            return res.send({ error: true, message: "This movie doesn't exist" });
+    } else {
+        let movieName;
+        if(!req.query.movieName || req.query.movieName === "All") {
+            movieName = "%%"
+        } else {
+            movieName = "%" + (req.query.movieName).toLowerCase() + "%";
         }
-        else {
+        /* --------- Criteria Search Variable --------- */
+        let movieGenre = req.query.movieGenre;
+        if(!movieGenre || movieGenre === "All") movieGenre = "%%";
+        let movieReleasedYr = req.query.movieReleasedYr;
+        if(!movieReleasedYr) movieReleasedYr = 0;
+        let movieSound = JSON.stringify(req.query.movieSound);
+        if(!movieSound) {
+            movieSound = `"JP", "EN", "KR", "TH"`
+        }
+        // Remove the square bracket from the query parsing
+        movieSound = movieSound.replace("]", "")
+        movieSound = movieSound.replace("[", "")
+            
+        console.log(movieName, movieGenre, movieReleasedYr, movieSound)
+        con.query(`SELECT * FROM movie WHERE movie_name LIKE ?
+        AND movie_genre LIKE ?
+        AND YEAR(release_date) >= ?
+        AND soundtrack IN (${movieSound})`,
+        [movieName, movieGenre, movieReleasedYr], function (error, results) {
             return res.send({ error: false, data: results, message: "This movie exists" });
-        }
-    })
-})
+        });
+    }
+});
 
 app.use((req, res, next) => {
     console.log("404: Invalid accessed");
     res.status(404).send("NONO, GO BACK, BAD");
-})
+});
 
 console.log("Listening on the port 3030");
 app.listen(3030); 
