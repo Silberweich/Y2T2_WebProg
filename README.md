@@ -25,7 +25,7 @@ git pull origin node
 https://fonts.google.com/specimen/Quicksand
 
 ## Color theme
-![ColorPalette](https://imgur.com/4VkTE4p.png)
+![ColorPalette](https://imgur.com/4VkTE4p.png = 350x240)
 
 ## Work load:
 ### First Phase:
