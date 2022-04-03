@@ -16,8 +16,8 @@ git push -u origin Genesis
 git pull origin Genesis
 ```
 ## Font Family & Color theme
-https://fonts.google.com/specimen/Quicksand
-<img src="https://imgur.com/4VkTE4p.png" width="350" height="240">
+https://fonts.google.com/specimen/Quicksand    
+<img src="https://imgur.com/4VkTE4p.png" width="350" height="140">  
 
 ## Work load:
 ### First Phase:
