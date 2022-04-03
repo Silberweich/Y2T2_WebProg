@@ -1,10 +1,15 @@
-
+/**
+ * This is the file containing External API service.
+ * The API service will make request everytime that homepage(index.html) is loaded
+ * Check line 46 and 47, comment out the placeholder function and uncomment realGetAPI()
+ * 
+ */
 
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function getAPI(){
+function realGetAPI(){
     console.log("GETTING API FRFR");
     const options = {
         method: 'GET',
@@ -29,18 +34,16 @@ function getAPI(){
         .catch(err => console.error(err));
 }
 
-function myScript() {
-    console.log("LOADED AS FUCK");
-    console.log("LOADED AS FUCK");
+function placeHolder() {
     document.getElementById("api-insert").innerHTML = `<img src="Assets/Movies/HOG.jpg" alt="House of Gucci" style="float: left; margin: 1vh; height: 42.5vh;">
-                                                       <h3>Title : PLACE HOLDER</h3>
-                                                       <p>Title : EDIT LINE 42 and 43 on api_rec.js to change to getAPI()</p>
-                                                       <p>Title : PLACE HOLDER</p>
-                                                       <p>Title : PLACE HOLDER</p>
-                                                       <p>Title : PLACE HOLDER</p>`;
+                                                       <h3>Title : PLACE HOLDER TITLE, <b>README.md</b> can give you extra information</h3>
+                                                       <p>PLACE HOLDER : The External API service is turn off to avoid losing money</p>
+                                                       <p>PLACE HOLDER : RapidAPI give limit of 100 requesr per day</p>
+                                                       <p>PLACE HOLDER : ++++</p>
+                                                       <p>PLACE HOLDER : Check (./script/rec_api.js) to see how to open the External API function</p>`;
 }
 
-window.onload = myScript;
-//window.onload = getAPI;
+//uncomment realGetAPI, and comment placeHolder to test, dont forget to put it back, if it goes over, you pay.
+window.onload = placeHolder;
+//window.onload = realGetAPI;
 
-//uncomment getAPI, and comment myScript to test, dont forget to put it back, if it goes over, you pay
