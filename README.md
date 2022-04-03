@@ -8,24 +8,16 @@ This is a web writing project for Year 2 Term 2 Web programming. Written by:
 ## Important Commands 
 ```
 git remote add origin https://github.com/Silberweich/Y2T2_WebProg.git
-
-git branch -M Genesis
-git push -u origin Genesis
-
-git pull origin Genesis
-
 git clone https://github.com/Silberweich/Y2T2_WebProg.git
 
-git branch -M node
-git push -u origin node
-
-git pull origin node
+CURRENT BRANCH IS "node", not Genesis
+git branch -M Genesis
+git push -u origin Genesis
+git pull origin Genesis
 ```
-## Font Family
+## Font Family & Color theme
 https://fonts.google.com/specimen/Quicksand
-
-## Color theme
-![ColorPalette](https://imgur.com/4VkTE4p.png = 350x240)
+<img src="https://imgur.com/4VkTE4p.png" width="350" height="240">
 
 ## Work load:
 ### First Phase:
