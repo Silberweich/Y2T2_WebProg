@@ -1,4 +1,4 @@
-# Y2T2 Project: Minor Cineplex [NODE BRANCH]
+# Y2T2 Project: Minor Cineplex [REACT BRANCH]
 the web server should be working!!!  
 #### http://202.183.167.111:4203/
 
@@ -20,7 +20,8 @@ This is a web writing project for Year 2 Term 2 Web programming. Written by:
 git remote add origin https://github.com/Silberweich/Y2T2_WebProg.git
 git clone https://github.com/Silberweich/Y2T2_WebProg.git
 
-CURRENT BRANCH IS "node", not Genesis
+!!!IMPORTANT!!!
+CURRENT BRANCH IS "react", not Genesis
 git branch -M Genesis
 git push -u origin Genesis
 git pull origin Genesis
