@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Control page view dimension and scaling -->
+    <meta name="author" content="[INSERT TEAM NAME]">
+
+    <!-- SET TITLE HERE -->
+    <title>Minor Cineplex - Login</title>
+
+    <!-- SYTLE AND CUSTOMIZATION -->
+    <link rel="shortcut icon" href="Assets/title_icon.png">
+
+    <!-- BOOTSTRAPS CONTENT -->
+    <link rel="stylesheet" href="Assets/CSS/head_feeties.css">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
+    <link rel="stylesheet" href="Assets/CSS/testlogin.css">
+
+    <!-- FONT MANAGEMENT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('Assets/LoginBG.JPG');
+        }
+    </style>
+</head>
+
+<!-- Main body starts here -->
+
+<body>
+
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+    <header>
+        <nav class="topnav slideUp">
+            <a class="logo img_highlight" href="index">
+                <img src="Assets/minor_logo.svg" style="overflow: hidden;">
+            </a>
+            <a href="index">Home</a>
+            <a href="search">Search</a>
+            <a href="about">About</a>
+            <a class="active" href="login">Login</a>
+        </nav>
+    </header>
+    <!-- TOP NAV TEMPLATE, USE ON ALL PAGE -->
+
+    <main class="grid-container ">
+        <form id=login class="" action="/login" method="POST">
+
+            <!-- Logobanner -->
+            <div class="imgcontainer">
+                <img src="Assets/minor_logo.svg" class="img_highlight" height=50 style="overflow: hidden;">
+            </div>
+
+            <div class="container">
+                <!-- Username Input -->
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <!-- Psw Input -->
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+
+                <!-- Submit Button-->
+                <button type="submit">Login</button>
+
+                <!-- Remember me -->
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+
+            </div>
+
+            <!-- Cancel and Forget PSWD bottom box-->
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="reset" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+
+        </form>
+    </main>
+
+
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+    <footer>
+        <span class="right">Last Updated: N/A</span>
+        <span class="left"> <a style="color:azure" href="index">Home</a> | 
+                                <a style="color:azure" href="about">About</a> | 
+                                <a style="color:azure" href="login">Login</a> | 
+                                <a style="color:azure" href="sudolog">Admin</a> </span><br><br>
+        <span class="center"> For MUICT Y2 web programming project</span><br>
+    </footer>
+    <!-- FOOTER NAV TEMPLATE, USE ON ALL PAGE -->
+
+</body>
+
+</html>
