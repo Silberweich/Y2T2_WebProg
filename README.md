@@ -21,10 +21,10 @@ git remote add origin https://github.com/Silberweich/Y2T2_WebProg.git
 git clone https://github.com/Silberweich/Y2T2_WebProg.git
 
 !!!IMPORTANT!!!
-CURRENT BRANCH IS "react", not Genesis
-git branch -M Genesis
-git push -u origin Genesis
-git pull origin Genesis
+CURRENT BRANCH IS "react", not react
+git branch -M react
+git push -u origin react
+git pull origin react
 ```
 ## Font Family & Color theme
 https://fonts.google.com/specimen/Quicksand    
