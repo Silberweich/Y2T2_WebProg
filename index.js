@@ -9,12 +9,19 @@ let jwt = require("jsonwebtoken");
 let cookieParser = require('cookie-parser')
 let authorize = require("./auth.js");
 const res = require("express/lib/response");
+const cors = require('cors');
 const { throws } = require("assert");
 const app = express();
 
 console.log(__dirname);
 console.log(__filename);
 
+let corsOptions = {
+    origin: 'http://localhost:3000',
+    method: 'GET,POST,PUT,DELETE'
+};
+
+app.use(cors(corsOptions));
 dotenv.config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
