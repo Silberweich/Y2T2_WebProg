@@ -24,25 +24,46 @@ const MyLink = styled(Link)`
 `;
 
 class Nav extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loginTxt: "Login",
+        };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(e) {
+        if (this.props.state.loggedIn === true){
+            this.setState({
+                loginTxt: "Logout",
+            })
+        } else {
+            this.setState({
+                loginTxt: "Login",
+            })
+        }
+        e.target.classList.toggle('bg-danger');
+    }
+
     render() {
         return (
-            <nav class="navbar navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Logo</a>
+            <nav className="navbar navbar-light bg-light">
+                <div className="container-fluid">
+                    <a>Logo</a>
                 
                 
                 <Myul className="nav nav-pills justify-content-end bg-light">
-                    <li class="nav-item">
+                    <li className="nav-item">
                         <Link className="nav-link" to="/">Home</Link>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                         <Link className="nav-link" to="/adminmovies">Movies</Link>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                         <Link className="nav-link" to="/adminusers">User Management</Link>
                     </li>
-                    <li class="nav-item">
-                        <Link className="nav-link active" to="/adminlogin">Login</Link>
+                    <li className="nav-item">
+                        <Link className="nav-link active" to="/adminlogin" onClick={this.handleClick}>{this.state.loginTxt}</Link>
                     </li>
                 </Myul>
                 </div>
