@@ -89,7 +89,8 @@ router.put('/user', function (req, res) {
 
 //delete a user using email
 router.delete('/user', function (req, res) {
-    let userEmail = req.body.data[0].email;
+    let userEmail = req.body.email;
+    console.log(req.body)
     if (!userEmail) {
         return res.status(400).send({ error: true, message: 'Please provide email' });
     }
