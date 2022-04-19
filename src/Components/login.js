@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import { useNavigate } from "react-router-dom";
-import Nav from './navbar';
-import Redirect from './navbar';
-
-
 class LoginForm extends Component {
     constructor(props) {
         super(props);
@@ -11,12 +7,13 @@ class LoginForm extends Component {
             email: "",
             password: "",
         };
+        this.domain = "http://localhost:4203";
         this.login = this.login.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     login(e) {
         e.preventDefault();
-        fetch("/adminlogin", {
+        fetch(this.domain + "/adminlogin", {
             "method": "POST",
             "headers": {
                 "content-type": "application/json",
@@ -29,7 +26,7 @@ class LoginForm extends Component {
         })
         .then(response => {
             console.log(response)
-            if (response.redirected == true) {
+            if (response.redirected === true) {
                 this.setState({ loggedIn: true })
                 this.props.navigate('/');
                 alert("Login Successful")
@@ -46,7 +43,7 @@ class LoginForm extends Component {
     }
     render() {
         return (
-            <div className="container" style={{ 'maxWidth': "50%", marginTop: "5%", }}>
+            <div className="container" style={{ 'maxWidth': "50%", marginTop: "5%", marginBottom: "7.35%"}}>
                 <div className="card">
                     <div className="card-header" style={{ padding: "30px" }}>
                         <h1 className="text-center">Admin Login</h1>

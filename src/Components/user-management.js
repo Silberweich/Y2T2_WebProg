@@ -1,94 +1,96 @@
 import React from 'react';
 
 class Friends extends React.Component {
-    render() {
-        return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Since</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.friends && this.props.friends.map(friend => {
-                        return <tr>
-                            <td>{friend.email}</td>
-                            <td>{friend.first_name}</td>
-                            <td>{friend.last_name}</td>
-                        </tr>
-                    })}
-                </tbody>
-            </table>
-        );
-    }
+  render() {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Since</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.friends && this.props.friends.map(friend => {
+            return <tr>
+              <td>{friend.email}</td>
+              <td>{friend.first_name}</td>
+              <td>{friend.last_name}</td>
+            </tr>
+          })}
+        </tbody>
+      </table>
+    );
   }
+}
 
 class UserManagement extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        friends: [],
-        name: '',
-        id: '',
-        notes: '',
-        getData: false
-      };
-      this.search = this.search.bind(this);
-      this.create = this.create.bind(this);
-      this.update = this.update.bind(this);
-      this.delete = this.delete.bind(this);
-      this.handleChange = this.handleChange.bind(this);
-    }
-  
-    search(e) {
-      // get all entities - GET
-      this.setState({
-        getData: true
-      })
-      fetch(`/user`, {
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        "method": "GET",
-      }, )
-        .then(response => response.json())
-        .then(response => {
-          console.log(response);
-          this.setState({
-            friends: response.data
-          })
+  constructor(props) {
+    super(props);
+    this.state = {
+      friends: [],
+      name: '',
+      id: '',
+      notes: '',
+      getData: false
+    };
+    this.domain = "http://localhost:4203";
+    this.search = this.search.bind(this);
+    this.create = this.create.bind(this);
+    this.update = this.update.bind(this);
+    this.delete = this.delete.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  search(e) {
+    // get all entities - GET
+    this.setState({
+      getData: true
+    })
+    fetch(`${this.domain}/user`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      "method": "GET",
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState({
+          friends: response.data
         })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-    create(e) {
-      // add entity - POST
-      e.preventDefault();
-    }
-    update(e) {
-      // update entity - PUT
-      e.preventDefault();
-    }
-    delete(e) {
-      // delete entity - DELETE
-      e.preventDefault();
-    }
-    handleChange(changeObject) {
-      this.setState(changeObject)
-    }
-    
-    render() {
-      return (
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+  create(e) {
+    // add entity - POST
+    e.preventDefault();
+  }
+  update(e) {
+    // update entity - PUT
+    e.preventDefault();
+  }
+  delete(e) {
+    // delete entity - DELETE
+    e.preventDefault();
+  }
+  handleChange(changeObject) {
+    this.setState(changeObject)
+  }
+
+  render() {
+    return (
+      <div>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-8">
-              <h1 className="display-4 text-center">Make An API Call in React</h1>
+              <h1 className="display-4 text-center">Manage the User</h1>
               <form className="d-flex flex-column">
-                <legend className="text-center">Add-Update-Delete Friend</legend>
+                <legend className="text-center">CRUD User</legend>
                 <label htmlFor="name">
                   Friend Name:
                   <input name="name"
@@ -127,7 +129,7 @@ class UserManagement extends React.Component {
                   Select All
                 </button>
                 {this.state.getData ?
-                  <Friends friends={this.state.friends}/> :
+                  <Friends friends={this.state.friends} /> :
                   null
                 }
                 <button className="btn btn-primary" type='button' onClick={(e) => this.create(e)}>
@@ -143,9 +145,9 @@ class UserManagement extends React.Component {
             </div>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
-  
-  export default UserManagement;
-  
+}
+
+export default UserManagement;

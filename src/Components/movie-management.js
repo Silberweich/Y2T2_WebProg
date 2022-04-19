@@ -35,6 +35,7 @@ class MovieManagement extends React.Component {
             movie_sound: '',
             getData: false
         };
+        this.domain = "http://localhost:4203";
         this.search = this.search.bind(this);
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
@@ -47,7 +48,7 @@ class MovieManagement extends React.Component {
         this.setState({
             getData: true
         })
-        fetch(`/user`, {
+        fetch(`${this.domain}/user`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
