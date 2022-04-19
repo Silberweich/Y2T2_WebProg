@@ -1,24 +1,38 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
+function generateList(data) {
+  var elements = [];
+  for (let i = 0; i < data.length; i++) {
+    elements.push(
+      <tr>
+        <td>{i + 1}</td>
+        <td>{data[i].email}</td>
+        <td>{data[i].first_name}</td>
+        <td>{data[i].last_name}</td>
+        <td>
+          <Link to={`/user/${data[i].email}`}>View profile</Link>
+        </td>
+      </tr>
+    )
+  }
+  return elements
+}
 class Friends extends React.Component {
   render() {
     return (
-      <table>
+      <table className="table table-striped" style={{ background: "white" }}>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Since</th>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Detail</th>
           </tr>
         </thead>
         <tbody>
-          {this.props.friends && this.props.friends.map(friend => {
-            return <tr>
-              <td>{friend.email}</td>
-              <td>{friend.first_name}</td>
-              <td>{friend.last_name}</td>
-            </tr>
-          })}
+          {generateList(this.props.friends)}
         </tbody>
       </table>
     );
@@ -36,18 +50,13 @@ class UserManagement extends React.Component {
       getData: false
     };
     this.domain = "http://localhost:4203";
-    this.search = this.search.bind(this);
     this.create = this.create.bind(this);
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  search(e) {
-    // get all entities - GET
-    this.setState({
-      getData: true
-    })
+  componentDidMount() {
     fetch(`${this.domain}/user`, {
       headers: {
         'Content-Type': 'application/json',
@@ -66,6 +75,7 @@ class UserManagement extends React.Component {
         console.log(err);
       });
   }
+
   create(e) {
     // add entity - POST
     e.preventDefault();
@@ -84,67 +94,51 @@ class UserManagement extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-8">
-              <h1 className="display-4 text-center">Manage the User</h1>
-              <form className="d-flex flex-column">
-                <legend className="text-center">CRUD User</legend>
-                <label htmlFor="name">
-                  Friend Name:
-                  <input name="name"
-                    id="name"
-                    type="text"
-                    className="form-control"
-                    value={this.state.name}
-                    onChange={(e) => this.handleChange({ name: e.target.value })}
-                    required
-                  />
-                </label>
-                <label htmlFor="notes">
-                  Friend notes:
-                  <input
-                    name="notes"
-                    id="notes"
-                    type="test"
-                    className="form-control"
-                    value={this.state.notes}
-                    onChange={(e) => this.handleChange({ notes: e.target.value })}
-                    required
-                  />
-                </label>
-                <label htmlFor="id">
-                  Friend ID:
-                  <input
-                    name="id"
-                    id="id"
-                    type="text"
-                    className="form-control"
-                    value={this.state.id}
-                    onChange={(e) => this.handleChange({ id: e.target.value })}
-                  />
-                </label>
-                <button className="btn btn-warning" type='button' onClick={(e) => this.search(e)}>
-                  Select All
-                </button>
-                {this.state.getData ?
-                  <Friends friends={this.state.friends} /> :
-                  null
-                }
-                <button className="btn btn-primary" type='button' onClick={(e) => this.create(e)}>
-                  Add
-                </button>
-                <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
-                  Update
-                </button>
-                <button className="btn btn-danger" type='button' onClick={(e) => this.delete(e)}>
-                  Delete
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
+      <div className="container">
+        <form className="d-flex flex-column">
+          <legend className="text-center">CRUD User</legend>
+          <label htmlFor="name">
+            Username:
+            <input name="name"
+              id="name"
+              type="text"
+              className="form-control"
+              value={this.state.name}
+              onChange={(e) => this.handleChange({ name: e.target.value })}
+              required
+            />
+          </label>
+          <label htmlFor="notes">
+            Friend notes:
+            <input
+              name="notes"
+              id="notes"
+              type="test"
+              className="form-control"
+              value={this.state.notes}
+              onChange={(e) => this.handleChange({ notes: e.target.value })}
+              required
+            />
+          </label>
+          <label htmlFor="id">
+            Friend ID:
+            <input
+              name="id"
+              id="id"
+              type="text"
+              className="form-control"
+              value={this.state.id}
+              onChange={(e) => this.handleChange({ id: e.target.value })}
+            />
+          </label>
+          <Friends friends={this.state.friends} />
+          <button className="btn btn-primary" type='button' onClick={(e) => this.create(e)}>
+            Add
+          </button>
+          <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
+            Update
+          </button>
+        </form>
       </div>
     );
   }

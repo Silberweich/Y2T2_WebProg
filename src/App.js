@@ -9,6 +9,7 @@ import Nav from './Components/navbar';
 import Footer from './Components/footer';
 import Login from './Components/login';
 import Movie from './Components/movie';
+import UserDetail from './Components/user';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/adminusers" element={<UserManagement />} />
         <Route path="/adminlogin" element={<Login />} />
         <Route exact path="/movie/:id" element={<Movie item={{movie: "avengers"}}/>} />
+        <Route exact path="/user/:email" element={<UserDetail />} />
       </Routes>
         {<Footer />}
     </BrowserRouter>

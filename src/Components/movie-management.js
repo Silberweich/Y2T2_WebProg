@@ -1,8 +1,8 @@
 import React from 'react';
-class Friends extends React.Component {
+class Movies extends React.Component {
     render() {
         return (
-            <table>
+            <table className="table table-striped" style={{ background: "white", borderRadius: "5px"}}>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -11,11 +11,11 @@ class Friends extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.friends && this.props.friends.map(friend => {
+                    {this.props.movies && this.props.movies.map(movie => {
                         return <tr>
-                            <td>{friend.email}</td>
-                            <td>{friend.first_name}</td>
-                            <td>{friend.last_name}</td>
+                            <td>{movie.email}</td>
+                            <td>{movie.first_name}</td>
+                            <td>{movie.last_name}</td>
                         </tr>
                     })}
                 </tbody>
@@ -28,26 +28,20 @@ class MovieManagement extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            friends: [],
+            movies: [],
             movie_name: '',
             movie_genre: '',
             released_year: '',
             movie_sound: '',
-            getData: false
         };
         this.domain = "http://localhost:4203";
-        this.search = this.search.bind(this);
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
-    search(e) {
-        // get all entities - GET
-        this.setState({
-            getData: true
-        })
+    componentDidMount() {
         fetch(`${this.domain}/user`, {
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +53,7 @@ class MovieManagement extends React.Component {
             .then(response => {
                 console.log(response);
                 this.setState({
-                    friends: response.data
+                    movies: response.data
                 })
             })
             .catch(err => {
@@ -135,13 +129,7 @@ class MovieManagement extends React.Component {
                                     onChange={(e) => this.handleChange({ movie_sound: e.target.value })}
                                 />
                             </label>
-                            <button className="btn btn-warning" type='button' onClick={(e) => this.search(e)}>
-                                Select All
-                            </button>
-                            {this.state.getData ?
-                                <Friends friends={this.state.friends} /> :
-                                null
-                            }
+                                <Movies movies={this.state.movies} />
                             <button className="btn btn-primary" type='button' onClick={(e) => this.create(e)}>
                                 Add
                             </button>
