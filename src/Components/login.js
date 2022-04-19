@@ -27,27 +27,27 @@ class LoginForm extends Component {
                 password: this.state.password
             })
         })
-            .then(response => {
-                console.log(response)
-                if (response.redirected == true) {
-                    this.setState({ loggedIn: true })
-                    this.props.navigate('/');
-                    alert("Login Successful")
-                } else {
-                    alert("Unmatched Email and password");
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        .then(response => {
+            console.log(response)
+            if (response.redirected == true) {
+                this.setState({ loggedIn: true })
+                this.props.navigate('/');
+                alert("Login Successful")
+            } else {
+                alert("Unmatched Email and password");
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
     }
     handleChange(changeObject) {
         this.setState(changeObject)
     }
     render() {
         return (
-            <div className="container" style={{ 'maxWidth': "60%", marginTop: "5%" }}>
-                <div className="card bg-white">
+            <div className="container" style={{ 'maxWidth': "50%", marginTop: "5%", }}>
+                <div className="card">
                     <div className="card-header" style={{ padding: "30px" }}>
                         <h1 className="text-center">Admin Login</h1>
                     </div>
