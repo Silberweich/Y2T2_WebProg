@@ -2,14 +2,8 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import Login from './login'
-
-const TopMenu = styled.nav`
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    margin: 0px;
-    background-color: #71F8D3;
-`;
+import MClogo from '../Assets/minor_logo.svg'
+import './global.css'
 
 const Myul = styled.ul`
     padding: 10px;
@@ -20,8 +14,26 @@ const Myli = styled.li`
 `;
 
 const MyLink = styled(Link)`
-    color: black;
-    text-decoration: none;
+    color: white;
+    height: 100%;
+    &:hover {
+        color: red;
+        opacity: 80%;
+        transition: 0.3s;
+    }
+`;
+
+const LogoLink = styled(Link)`
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #ff0000 50%);
+    background-position: -0% 0;
+    background-size: 200% auto;
+    transition: background-position 0.5s ease-out;
+    padding: 15px 1%;
+    overflow: hidden;
+    &:hover {
+        background-position: -99.99% 0;
+        overflow: hidden;
+    }
 `;
 
 class Nav extends React.Component {
@@ -33,9 +45,9 @@ class Nav extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
     }
-    
+
     handleClick(e) {
-        if (this.state.isLoggedIn === true){
+        if (this.state.isLoggedIn === true) {
             this.setState({
                 loginTxt: "Logout",
             })
@@ -49,24 +61,25 @@ class Nav extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-light bg-light">
-                <div className="container-fluid">
-                    <a>Logo</a>                
-                <Myul className="nav nav-pills justify-content-end bg-light">
-                    <li className="nav-item">
-                        
-                        <Link className="nav-link" to="/"><i class="fa-solid fa-house" /> Home</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/adminmovies"><i class="fa-solid fa-film" /> Movies</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/adminusers"><i class="fa-solid fa-users" /> User Management</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link active" to="/adminlogin" onClick={this.handleClick}><i class="fa-solid fa-right-to-bracket"/> {this.state.loginTxt}</Link>
-                    </li>
-                </Myul>
+            <nav className="navbar navbar-light" style={{ padding: 0, background:"#272121" }}>
+                <div className="container-fluid" style={{ padding: "0 1% 0 0"}}>
+                    <LogoLink to="/"><img src={MClogo} alt="Logo" height={50} /></LogoLink>
+                    <Myul className="nav nav-pills justify-content-end" >
+                        <li className="nav-item">
+                            <MyLink className="nav-link" to="/"><i class="fa-solid fa-house" /> Home</MyLink>
+                        </li>
+                        <li className="nav-item">
+                            <MyLink className="nav-link" to="/adminmovies"><i class="fa-solid fa-film" /> Movies</MyLink>
+                        </li>
+                        <li className="nav-item">
+                            <MyLink className="nav-link" to="/adminusers"><i class="fa-solid fa-users" /> User Management</MyLink>
+                        </li>
+                        <li className="nav-item">
+                            <MyLink className="nav-link active" to="/adminlogin" onClick={this.handleClick} >
+                                <i class="fa-solid fa-right-to-bracket" /> {this.state.loginTxt}
+                            </MyLink>
+                        </li>
+                    </Myul>
                 </div>
             </nav>
         );

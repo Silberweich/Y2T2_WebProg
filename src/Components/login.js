@@ -75,7 +75,7 @@ class LoginForm extends Component {
                                     <input type="checkbox" className="form-check-input" id="rememberMeForCenturies" />
                                     <label htmlFor="rememberMeForCenturies" className="form-check-label">Remember me</label>
                                 </div>
-                                <button type="submit" className="btn btn-primary" onClick={(e) => this.login(e)}>Login</button>
+                                <button type="submit" className="btn btn-primary" style={{ width: "100%" }} onClick={(e) => this.login(e)}>Login</button>
                             </fieldset>
                         </form>
                     </div>
