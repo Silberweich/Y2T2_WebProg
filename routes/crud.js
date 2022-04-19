@@ -273,25 +273,31 @@ module.exports = router;
 
 ////////////////////////////////////////////////////////////    CRUD OPERATION   ///////////////////////////////////////////////////////////////////////
 
-
-
+//  LIVE SERVER IS NOW WORKING
+//  If you wish to test the CRUD operation on the live server, switch 
+//  http://localhost:3030/
+//  with
+//  http://202.183.167.111:4203/
 
 /******************************************TEST CASES********************************************* */
 
 //================================User test cases=========================================
 //  Testing search all (GET)
-//  URL     = http://localhost:3030/user
+//  URL(LocalHost)     = http://localhost:3030/user
+//  URL(LiveServer)    = http://202.183.167.111:4203/user
 //  method  = GET 
 //  body    = none
 
 // Testing search with Email (GET)
-//  URL     = http://localhost:3030/user/BoonC.one@hotmail.com
+//  URL(LocalHost)     = http://localhost:3030/user/BoonC.one@hotmail.com
+//  URL(LiveServer)    = http://202.183.167.111:4203/user/BoonC.one@hotmail.com
 //  method  = GET 
 //  body    = none
 
 
 // Testing insert (POST)
-//  URL     = http://localhost:3030/user
+//  URL(LocalHost)     = http://localhost:3030/user
+//  URL(LiveServer)    = http://202.183.167.111:4203/user
 //  method  = POST 
 //  body    = raw JSON
 // {
@@ -309,7 +315,8 @@ module.exports = router;
 
 
 // Testing update (PUT)
-//  URL     = http://localhost:3030/user
+//  URL(LocalHost)     = http://localhost:3030/user
+//  URL(LiveServer)    = http://202.183.167.111:4203/user
 //  method  = PUT 
 //  body    = raw JSON
 // {
@@ -327,7 +334,8 @@ module.exports = router;
 
 
 // Testing delete (DELETE)
-//  URL     = http://localhost:3030/user
+//  URL(LocalHost)     = http://localhost:3030/user
+//  URL(LiveServer)    = http://202.183.167.111:4203/user
 //  method  = DELETE 
 //  body    = raw JSON
 // {
@@ -343,19 +351,22 @@ module.exports = router;
 
 //================================Admin test cases=========================================
 //  Testing search (GET)
-//  URL     = http://localhost:3030/admin
+//  URL(LocalHost)     = http://localhost:3030/admin
+//  URL(LiveServer)    = http://202.183.167.111:4203/admin
 //  method  = GET 
 //  body    = none
 
 
 // Testing search with Email (GET)
-//  URL     = http://localhost:3030/admin/cxmdech.kittithr@gmail.com
+//  URL(LocalHost)     = http://localhost:3030/admin/cxmdech.kittithr@gmail.com
+//  URL(LiveServer)    = http://202.183.167.111:4203/admin/cxmdech.kittithr@gmail.com
 //  method  = GET 
 //  body    = none
 
 
 // Testing insert (POST)
-//  URL     = http://localhost:3030/admin
+//  URL(LocalHost)     = http://localhost:3030/admin
+//  URL(LiveServer)    = http://202.183.167.111:4203/admin
 //  method  = POST 
 //  body    = raw JSON
 // {
@@ -373,7 +384,8 @@ module.exports = router;
 
 
 // Testing update (PUT)
-//  URL     = http://localhost:3030/admin
+//  URL(LocalHost)     = http://localhost:3030/admin
+//  URL(LiveServer)    = http://202.183.167.111:4203/admin
 //  method  = PUT 
 //  body    = raw JSON
 // {
@@ -391,7 +403,8 @@ module.exports = router;
 
 
 // Testing delete (DELETE)
-//  URL     = http://localhost:3030/admin
+//  URL(LocalHost)     = http://localhost:3030/admin
+//  URL(LiveServer)    = http://202.183.167.111:4203/admin
 //  method  = DELETE 
 //  body    = raw JSON
 // {
@@ -407,19 +420,22 @@ module.exports = router;
 
 //================================Movies test cases=========================================
 //  Testing search (GET)
-//  URL     = http://localhost:3030/movie
+//  URL(LocalHost)     = http://localhost:3030/movie
+//  URL(LiveServer)    = http://202.183.167.111:4203/movie
 //  method  = GET 
 //  body    = none
 
 
 // Testing search with ID (GET)
-//  URL     = http://localhost:3030/movie/1
+//  URL(LocalHost)     = http://localhost:3030/movie/1
+//  URL(LiveServer)    = http://202.183.167.111:4203/movie/1
 //  method  = GET 
 //  body    = none
 
 
 // Testing insert (POST)
-//  URL     = http://localhost:3030/movie
+//  URL(LocalHost)     = http://localhost:3030/movie
+//  URL(LiveServer)    = http://202.183.167.111:4203/movie
 //  method  = POST 
 //  body    = raw JSON
 // {
@@ -443,7 +459,8 @@ module.exports = router;
 
 
 // Testing update (PUT)
-//  URL     = http://localhost:3030/movie
+//  URL(LocalHost)     = http://localhost:3030/movie
+//  URL(LiveServer)    = http://202.183.167.111:4203/movie
 //  method  = PUT 
 //  body    = raw JSON
 // {
@@ -468,7 +485,8 @@ module.exports = router;
 
 
 // Testing delete (DELETE)
-//  URL     = http://localhost:3030/user
+//  URL(LocalHost)     = http://localhost:3030/movie
+//  URL(LiveServer)    = http://202.183.167.111:4203/movie
 //  method  = DELETE 
 //  body    = raw JSON
 // {
