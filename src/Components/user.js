@@ -68,7 +68,7 @@ function Product() {
     }
 
     return (
-        <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "60%" }}>
+        <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "60%",  padding: "20px"}}>
             <button className="btn btn-primary" style={{ margin: "20px" }}
                 onClick={() => navigate("/adminusers")}>
                 <i class="fa-solid fa-arrow-left"></i> Back

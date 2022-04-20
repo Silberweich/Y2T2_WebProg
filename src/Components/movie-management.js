@@ -1,29 +1,40 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import './search.css';
+import axios from 'axios'
 class Movies extends React.Component {
     render() {
-        return (
-            <table className="table table-striped" style={{ background: "white", borderRadius: "5px"}}>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Since</th>
-                    </tr>
-                </thead>
-                <tbody>
+        if (this.props.movies.length > 0) {
+            return (
+                <div className="movielists">
                     {this.props.movies && this.props.movies.map(movie => {
-                        return <tr>
-                            <td>{movie.email}</td>
-                            <td>{movie.first_name}</td>
-                            <td>{movie.last_name}</td>
-                        </tr>
+                        return <Link to={`movie/${movie.movie_ID}`}>
+                            <article>
+                                <div className="movies-box">
+                                    <div className="movies-img">
+                                        <div className="rating"><i className="fas fa-star" />{movie.movie_starRate}</div>
+                                        <div className="fav"><i className="fas fa-heart" /></div>
+                                        <img src={movie.movie_image} alt={movie.movie_name} />
+                                    </div>
+                                    <a href="#container-ranking">
+                                        {movie.movie_name}<br />{movie.released_year}
+                                    </a>
+                                </div>
+                            </article>
+                        </Link>
                     })}
-                </tbody>
-            </table>
-        );
+                </div>
+            );
+        } else {
+            return (
+                <div class="container">
+                    <img style={{width: '25%', display: 'block', marginLeft: 'auto', marginRight: 'auto'}} 
+                    src={require("../Assets/404 Error with a cute animal-pana.png")} alt="Not"/>
+                </div>
+            )
+        }
     }
 }
-
 class MovieManagement extends React.Component {
     constructor(props) {
         super(props);
@@ -32,17 +43,18 @@ class MovieManagement extends React.Component {
             movie_name: '',
             movie_genre: '',
             released_year: '',
-            movie_sound: '',
+            genres: [],  
         };
         this.domain = "http://localhost:4203";
-        this.create = this.create.bind(this);
-        this.update = this.update.bind(this);
-        this.delete = this.delete.bind(this);
+        this.create = this.search.bind(this);
+        this.update = this.create.bind(this);
+        this.handleCheckbox = this.handleCheckbox.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
-        fetch(`${this.domain}/user`, {
+        fetch(`${this.domain}/movie`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -64,83 +76,115 @@ class MovieManagement extends React.Component {
         // add entity - POST
         e.preventDefault();
     }
-    update(e) {
-        // update entity - PUT
-        e.preventDefault();
+
+    search() {
+        // console.log(this.state.genres);
+        let soundQuery = "";
+        if (this.state.genres){
+            this.state.genres.forEach(value => {
+                soundQuery = soundQuery + "&movieSound=" + value
+            })
+        }
+        console.log(soundQuery);
+        // let url = `${this.domain}/searchMoviesReact?movieSound=${this.state.movie_sound}
+        // &movieGenre=${this.state.movie_genre}
+        // &movieReleasedYr=${this.state.released_year}
+        // &movieName=${this.state.movie_name}`
+        
+        let url = `${this.domain}/searchMoviesReact?movieName=${this.state.movie_name}&movieReleasedYr=${this.state.released_year}&movieGenre=${this.state.movie_genre}${soundQuery}`
+        console.log(url);
+        axios.get(url)
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    movies: response.data.data
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
-    delete(e) {
-        // delete entity - DELETE
-        e.preventDefault();
+
+    //https://medium.com/codex/handling-checkboxes-in-react-3a2514b140d2
+    handleCheckbox(e){
+        var isChecked = e.target.checked;  
+        console.log(isChecked);
+        if(isChecked) {
+            this.setState({ genres: [...this.state.genres, e.target.value ]});
+        } else {
+            const index = this.state.genres.indexOf(e.target.value);    //Get the index of the value in the array
+            this.state.genres.splice(index, 1);                         //Remove the item at index with only 1 item
+            // this.setState({ genres: this.state.genres});                //Update the state
+        }
+        console.log(this.state.genres)
     }
-    handleChange(changeObject) {
-        this.setState(changeObject)
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.search(this.state.menu);
+    }
+
+    handleChange(e) {
+        const targetName = e.target.name;
+        console.log(targetName)
+        this.setState({
+            [targetName]: e.target.value,
+        });
     }
 
     render() {
         return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <h1 className="display-4 text-center">Make An API Call in React</h1>
-                        <form className="d-flex flex-column">
-                            <legend className="text-center">Add-Update-Delete Friend</legend>
-                            <label htmlFor="movie_name">
-                                Movie Name:
-                                <input name="movie_name"
-                                    id="movie_name"
-                                    type="text"
-                                    className="form-control"
-                                    value={this.state.movie_name}
-                                    onChange={(e) => this.handleChange({ movie_name: e.target.value })}
-                                    required
-                                />
-                            </label>
-                            <label htmlFor="movie_genre">
-                                Movie Genre:
-                                <input
-                                    name="movie_genre"
-                                    id="movie_genre"
-                                    type="test"
-                                    className="form-control"
-                                    value={this.state.movie_genre}
-                                    onChange={(e) => this.handleChange({ movie_genre: e.target.value })}
-                                    required
-                                />
-                            </label>
-                            <label htmlFor="released_year">
-                                Released Year:
-                                <input
-                                    name="released_year"
-                                    id="released_year"
-                                    type="number"
-                                    className="form-control"
-                                    value={this.state.released_year}
-                                    onChange={(e) => this.handleChange({ released_year: e.target.value })}
-                                />
-                            </label>
-                            <label htmlFor="movie_sound">
-                                Movie Sound:
-                                <input
-                                    name="movie_sound"
-                                    id="movie_sound"
-                                    type="number"
-                                    className="form-control"
-                                    value={this.state.movie_sound}
-                                    onChange={(e) => this.handleChange({ movie_sound: e.target.value })}
-                                />
-                            </label>
-                                <Movies movies={this.state.movies} />
-                            <button className="btn btn-primary" type='button' onClick={(e) => this.create(e)}>
-                                Add
-                            </button>
-                            <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
-                                Update
-                            </button>
-                            <button className="btn btn-danger" type='button' onClick={(e) => this.delete(e)}>
-                                Delete
-                            </button>
-                        </form>
-                    </div>
+            <div className="bg-white" style={{ width: '95%', margin: '0 5vh 20px 5vh', borderRadius: '0.5rem', paddingBottom: '50px' }}>
+                <div class="search-container">
+                    <h1 className="introduck" style={{ padding: '50px 0' }}>Searching Movie</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="search-field">
+                            <input id="search" type="text" placeholder="Enter a Movie Name" name="movie_name" value={this.state.movie_name} onChange={this.handleChange} />
+                            <button type="submit" style={{ backgroundColor: "black", border: "none" }}><i class="fas fa-search"></i></button>
+                        </div>
+
+                        <div class="search" style={{ backgroundColor: 'rgb(229, 229, 229)', padding: '1rem', margin: '4vh', borderRadius: '0.5rem' }}>
+                            <label style={{ margin: '2vh', color: 'black', fontFamily: 'Poppins' }}>Genre:</label>
+                            <select style={{ fontFamily: "Poppins" }} id="sortByGenre" name="movie_genre" value={this.state.movie_genre} onChange={this.handleChange}>
+                                <option value="All">All</option>
+                                <option value="Action">Action</option>
+                                <option value="Animation">Animation</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Horror">Horror</option>
+                                <option value="Thriller">Thriller</option>
+                            </select>
+
+                            <label style={{ margin: '2vh', color: 'black', fontFamily: 'Poppins' }}>Released Year (from recent):</label>
+                            <select style={{ fontFamily: "Poppins" }} id="sortByReleasedYr" name="released_year" value={this.state.released_year} onChange={this.handleChange}>
+                                <option value="All">All</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                            </select>
+
+                            <div class="adjust" style={{ paddingTop: '0.5rem' }}>
+                                <label style={{ margin: '2vh', color: 'black', fontFamily: 'Poppins' }}>Soundtrack:</label>
+                                <input type="checkbox" className="search-checkbox" id="EN" name="movieSound" value="EN" 
+                                onChange={this.handleCheckbox} />
+                                <label for="EN" className="soundtrack-select">EN</label>
+                                <input type="checkbox" className="search-checkbox" id="JP" name="movieSound" value="JP" onChange={this.handleCheckbox}/>
+                                <label className="soundtrack-select">JP</label>
+                                <input type="checkbox" className="search-checkbox" id="KR" name="movieSound" value="KR" onChange={this.handleCheckbox}/>
+                                <label className="soundtrack-select">KR</label>
+                                <input type="checkbox" className="search-checkbox" id="TH" name="movieSound" value="TH" onChange={this.handleCheckbox}/>
+                                <label className="soundtrack-select">TH</label>
+                            </div>
+                        </div>
+                    </form>
+                    <h1 style={{
+                        fontFamily: 'Poppins', padding: '1rem',
+                        backgroundColor: 'rgb(28, 28, 28)', borderRadius: '0.5rem',
+                        textAlign: 'center', margin: '4vh', color: 'white'
+                    }}>
+                        List of {this.state.movies.length} movies
+                    </h1>
+                    {<Movies movies={this.state.movies} />}
                 </div>
             </div>
         );

@@ -95,7 +95,7 @@ class UserManagement extends React.Component {
   render() {
     return (
       <div className="container">
-        <form className="d-flex flex-column">
+        <form>
           <legend className="text-center">CRUD User</legend>
           <label htmlFor="name">
             Username:
@@ -131,13 +131,14 @@ class UserManagement extends React.Component {
               onChange={(e) => this.handleChange({ id: e.target.value })}
             />
           </label>
-          <Friends friends={this.state.friends} />
           <button className="btn btn-primary" type='button' onClick={(e) => this.create(e)}>
             Add
           </button>
           <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
             Update
           </button>
+          <Friends friends={this.state.friends} />
+          
         </form>
       </div>
     );
