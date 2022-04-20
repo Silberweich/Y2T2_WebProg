@@ -43,7 +43,7 @@ class LoginForm extends Component {
     }
     render() {
         return (
-            <div className="container" style={{ 'maxWidth': "50%", marginTop: "5%", marginBottom: "7.35%"}}>
+            <div className="container" style={{ 'maxWidth': "60%", marginTop: "7%", marginBottom: "7%"}}>
                 <div className="card">
                     <div className="card-header" style={{ padding: "30px" }}>
                         <h1 className="text-center">Admin Login</h1>

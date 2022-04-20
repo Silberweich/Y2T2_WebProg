@@ -1,8 +1,7 @@
 import React from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useAxiosGet } from './request'
-import Delete from './userEditor';
-import { Link } from "react-router-dom";
+import UpdateUser from './userEditor';
 import styled from 'styled-components';
 
 const MyLink = styled(Link)`
@@ -74,7 +73,7 @@ function Product() {
                 <i class="fa-solid fa-arrow-left"></i> Back
             </button>
             {content}
-            <Delete email={email}/>
+            <UpdateUser email={email}/>
         </div>
     )
 }

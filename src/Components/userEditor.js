@@ -97,9 +97,9 @@ class UserEditor extends React.Component {
     };
 }
 
-function Delete(props) {
+function UpdateUser(props) {
     let navigate = useNavigate();
     return <UserEditor{...props} navigate={navigate} />
 }
 
-export default Delete;
+export default UpdateUser;

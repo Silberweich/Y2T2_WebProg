@@ -51,8 +51,6 @@ class UserManagement extends React.Component {
     };
     this.domain = "http://localhost:4203";
     this.create = this.create.bind(this);
-    this.update = this.update.bind(this);
-    this.delete = this.delete.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -80,14 +78,7 @@ class UserManagement extends React.Component {
     // add entity - POST
     e.preventDefault();
   }
-  update(e) {
-    // update entity - PUT
-    e.preventDefault();
-  }
-  delete(e) {
-    // delete entity - DELETE
-    e.preventDefault();
-  }
+
   handleChange(changeObject) {
     this.setState(changeObject)
   }
@@ -98,7 +89,7 @@ class UserManagement extends React.Component {
         <form>
           <legend className="text-center">CRUD User</legend>
           <label htmlFor="name">
-            Username:
+            Email:
             <input name="name"
               id="name"
               type="text"
@@ -109,7 +100,7 @@ class UserManagement extends React.Component {
             />
           </label>
           <label htmlFor="notes">
-            Friend notes:
+            Password:
             <input
               name="notes"
               id="notes"
@@ -121,11 +112,33 @@ class UserManagement extends React.Component {
             />
           </label>
           <label htmlFor="id">
-            Friend ID:
+            Firstname:
             <input
               name="id"
               id="id"
               type="text"
+              className="form-control"
+              value={this.state.id}
+              onChange={(e) => this.handleChange({ id: e.target.value })}
+            />
+          </label>
+          <label htmlFor="id">
+            Lastname:
+            <input
+              name="id"
+              id="id"
+              type="text"
+              className="form-control"
+              value={this.state.id}
+              onChange={(e) => this.handleChange({ id: e.target.value })}
+            />
+          </label>
+          <label htmlFor="id">
+            Age:
+            <input
+              name="id"
+              id="id"
+              type="number"
               className="form-control"
               value={this.state.id}
               onChange={(e) => this.handleChange({ id: e.target.value })}
@@ -137,9 +150,10 @@ class UserManagement extends React.Component {
           <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
             Update
           </button>
-          <Friends friends={this.state.friends} />
           
+
         </form>
+        <Friends friends={this.state.friends} />
       </div>
     );
   }

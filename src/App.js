@@ -3,12 +3,13 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserManagement from './Components/user-management';
-import MovieManagement from './Components/movie-management';
+import MovieManagement from './Components/movie/movie-management';
 import Home from './Components/home';
 import Nav from './Components/navbar';
 import Footer from './Components/footer';
 import Login from './Components/login';
-import Movie from './Components/movie';
+import Movie from './Components/movie/movie';
+import AddMovie from './Components/movie/addmovie';
 import UserDetail from './Components/user';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
         <Route path="/adminmovies" element={<MovieManagement />} />
         <Route path="/adminusers" element={<UserManagement />} />
         <Route path="/adminlogin" element={<Login />} />
-        <Route exact path="/movie/:id" element={<Movie item={{movie: "avengers"}}/>} />
+        <Route path="/addmovie" element={<AddMovie />} />
+        <Route exact path="/movie/:id" element={<Movie />} />
         <Route exact path="/user/:email" element={<UserDetail />} />
       </Routes>
         {<Footer />}

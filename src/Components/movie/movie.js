@@ -14,7 +14,6 @@ render() {
     return (
         <div>
             <h1>movie</h1>
-            <p>{this.props.item.movie}</p>
         </div>
        );
    }

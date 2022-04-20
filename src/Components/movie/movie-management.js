@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './search.css';
 import axios from 'axios'
+
 class Movies extends React.Component {
     render() {
         if (this.props.movies.length > 0) {
             return (
                 <div className="movielists">
                     {this.props.movies && this.props.movies.map(movie => {
-                        return <Link to={`movie/${movie.movie_ID}`}>
+                        return <Link to={`/movie/${movie.movie_ID}`} style={{textDecoration: 'none'}}>
                             <article>
                                 <div className="movies-box">
                                     <div className="movies-img">
@@ -29,7 +30,7 @@ class Movies extends React.Component {
             return (
                 <div class="container">
                     <img style={{width: '25%', display: 'block', marginLeft: 'auto', marginRight: 'auto'}} 
-                    src={require("../Assets/404 Error with a cute animal-pana.png")} alt="Not"/>
+                    src={require("../../Assets/404 Error with a cute animal-pana.png")} alt="Not"/>
                 </div>
             )
         }
@@ -125,7 +126,7 @@ class MovieManagement extends React.Component {
     }
 
     handleChange(e) {
-        const targetName = e.target.name;
+        const targetName = e.target.name;           //Required the name of the element to match with the state variables
         console.log(targetName)
         this.setState({
             [targetName]: e.target.value,
@@ -186,6 +187,10 @@ class MovieManagement extends React.Component {
                     </h1>
                     {<Movies movies={this.state.movies} />}
                 </div>
+                <button className="btn btn-lg btn-primary position-fixed bottom-0 end-0 m-3"
+                style={{borderRadius: '10px'}}>
+                    <Link to="/addmovie" style={{textDecoration: 'none', color:'white'}}><i class="fa-solid fa-plus"></i> Add a new movie</Link>
+                </button>
             </div>
         );
     }

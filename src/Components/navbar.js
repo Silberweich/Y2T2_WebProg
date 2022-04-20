@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import Login from './login'
 import MClogo from '../Assets/minor_logo.svg'
 import './global.css'
 
