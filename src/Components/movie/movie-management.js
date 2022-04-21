@@ -73,10 +73,6 @@ class MovieManagement extends React.Component {
                 console.log(err);
             });
     }
-    create(e) {
-        // add entity - POST
-        e.preventDefault();
-    }
 
     search() {
         // console.log(this.state.genres);

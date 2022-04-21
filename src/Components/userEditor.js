@@ -13,7 +13,6 @@ class UserEditor extends React.Component {
             getData: false,
             email: "",
         };
-        this.setState({ email: this.props.email })
         this.domain = "http://localhost:4203";
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
