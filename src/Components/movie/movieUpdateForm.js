@@ -7,7 +7,7 @@ function MovieUpdateForm() {
     const { movie_ID } = useParams()
     console.log(movie_ID);
     // Create your own Mock API: https://mockapi.io/
-    const url = `http://localhost:4203/movie/${movie_ID}`
+    const url = process.env.REACT_APP_WEBSERV_URL + `/movie/${movie_ID}`
 
     const navigate = useNavigate()
     let movie = useAxiosGet(url)

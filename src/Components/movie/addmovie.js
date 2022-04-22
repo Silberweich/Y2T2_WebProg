@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-class Addmovie extends Component {
+class AddMov extends Component {
     constructor(props) {
         super(props);
 
@@ -24,7 +25,7 @@ class Addmovie extends Component {
             movie_subtitle: null,
             movie_synopsis: '',
         };
-        this.domain = "http://localhost:4203";
+        this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.update = this.create.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -67,6 +68,8 @@ class Addmovie extends Component {
                 this.setState({
                     movies: response.data
                 });
+                alert("Add movie successfully");
+                this.props.navigate('/adminmovies')
             })
             .catch(err => {
                 console.log(err);
@@ -126,7 +129,7 @@ class Addmovie extends Component {
                         <input type="number" className="form-control" id="moviestar" pattern="[0-4].[0-9]|5.0"
                             name="movie_starRate" value={this.state.movie_starRate} onChange={this.handleChange} />
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-2">
                         <label htmlFor="soundtrack" className="form-label">Soundtrack</label>
                         <select id="soundtrack" className="form-select"
                             name="movie_soundtrack" value={this.state.movie_soundtrack} onChange={this.handleChange}>
@@ -136,7 +139,7 @@ class Addmovie extends Component {
                             <option value="JP">JP</option>
                         </select>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-2">
                         <label htmlFor="subtitle" className="form-label">Subtitle</label>
                         <select id="subtitle" className="form-select"
                             name="movie_subtitle" value={this.state.movie_subtitle} onChange={this.handleChange}>
@@ -145,6 +148,19 @@ class Addmovie extends Component {
                             <option value="Th">TH</option>
                             <option value="KR">KR</option>
                             <option value="JP">JP</option>
+                        </select>
+                    </div>
+                    <div className="col-md-2">
+                        <label htmlFor="genre" className="form-label">Genre</label>
+                        <select id="genre" className="form-select"
+                            name="movie_genre" value={this.state.movie_genre} onChange={this.handleChange}>
+                            <option>None</option>
+                            <option value="Action">Action</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                     <div className="col-12">
@@ -159,6 +175,11 @@ class Addmovie extends Component {
             </div>
         )
     }
+}
+
+function Addmovie(props) {
+    let navigate = useNavigate();
+    return <AddMov{...props} navigate={navigate} />
 }
 
 export default Addmovie;

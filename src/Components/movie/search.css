@@ -172,6 +172,17 @@
         transform: scale(1.1);
         transition: ease-in-out 0.4s;
     }
+
+    /* ---- movies-box but i dont want hover (each movie no scaling) ---*/
+    .movies-box-noScale a {
+        text-align: center;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        font-size: 18px;
+        margin: 15px;
+    }
+
     /* Rating at the corner */
     
     .rating {
