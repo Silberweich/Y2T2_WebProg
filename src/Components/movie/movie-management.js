@@ -93,7 +93,8 @@ class MovieManagement extends React.Component {
         // &movieReleasedYr=${this.state.released_year}
         // &movieName=${this.state.movie_name}`
         
-        let url = `${this.domain}/searchMoviesReact?movieName=${this.state.movie_name}&movieReleasedYr=${this.state.released_year}&movieGenre=${this.state.movie_genre}${soundQuery}`
+        let url = `http://localhost:4203/searchMoviesReact?movieName=${this.state.movie_name}&movieReleasedYr=${this.state.released_year}&movieGenre=${this.state.movie_genre}${soundQuery}`
+        // let url = `${this.domain}/searchMoviesReact?movieName=${this.state.movie_name}&movieReleasedYr=${this.state.released_year}&movieGenre=${this.state.movie_genre}${soundQuery}`
         console.log(url);
         axios.get(url)
             .then(response => {
