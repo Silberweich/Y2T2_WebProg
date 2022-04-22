@@ -18,23 +18,74 @@ function generateList(data) {
   }
   return elements
 }
+
 class Friends extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      friends: "",
+      search: "",
+      searchType: "",
+      motherfucker: 1
+    };
+  }
+  handleChange(changeObject) {
+    this.setState(changeObject)
+  }
+
+  reducedList(){
+    console.log(typeof this.state.search)
+    console.log(typeof this.state.searchType)
+    console.log(this.state.friends.pop())
+    this.updateState()
+  }
+  
+  updateState(){
+    this.setState({motherfucker: 1})
+  }
+
   render() {
+    this.state.friends = this.props.friends;
     return (
+      <><form>
+        <label style={{ color: 'black', fontFamily: 'Poppins' }}>Search Type: </label>
+        <label>
+          <input
+            name="search"
+            id="search"
+            type="text"
+            className="form-control"
+            value={this.state.search}
+            onChange={(e) => this.handleChange({ search: e.target.value })} />
+        </label>
+
+        <select name="movie_genre" value={this.state.movie_genre} onChange={(e) => this.handleChange({ searchType: e.target.value })}>
+          <option value="id">ID search</option>
+          <option value="fname">First Name Search</option>
+          <option value="lname">Last Name Search</option>
+        </select>
+
+        <button className="btn btn-info"
+          type='button'
+          onClick={(e) => this.reducedList()}>
+          Search
+        </button>
+      </form>
+
       <table className="table table-striped" style={{ background: "white" }}>
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Email</th>
-            <th scope="col">Firstname</th>
-            <th scope="col">Lastname</th>
-            <th scope="col">Detail</th>
-          </tr>
-        </thead>
-        <tbody>
-          {generateList(this.props.friends)}
-        </tbody>
-      </table>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Email</th>
+              <th scope="col">Firstname</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {generateList(this.state.friends)}
+          </tbody>
+        </table></>
     );
   }
 }
@@ -47,7 +98,7 @@ class UserManagement extends React.Component {
       name: '',
       id: '',
       notes: '',
-      getData: false
+      getData: false,
     };
     this.domain = "http://localhost:4203";
     this.create = this.create.bind(this);
