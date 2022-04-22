@@ -7,7 +7,7 @@ class Addmovie extends Component {
 
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 01
         var yyyy = today.getFullYear();
         today = yyyy + '-' + mm + '-' + dd;
 
@@ -65,7 +65,7 @@ class Addmovie extends Component {
             .then(response => {
                 console.log(response);
                 this.setState({
-                    movies: response.data.data
+                    movies: response.data
                 });
             })
             .catch(err => {
@@ -148,7 +148,7 @@ class Addmovie extends Component {
                         </select>
                     </div>
                     <div className="col-md-2">
-                        <label htmlFor="genre" className="form-label">Subtitle</label>
+                        <label htmlFor="genre" className="form-label">Genre</label>
                         <select id="genre" className="form-select"
                             name="movie_genre" value={this.state.movie_genre} onChange={this.handleChange}>
                             <option>None</option>
@@ -168,7 +168,6 @@ class Addmovie extends Component {
                     <div className="d-grid col-6 mx-auto">
                         <button className="btn btn-lg btn-warning" type="submit">Add Movie!!!</button>
                     </div>
-
                 </form>
             </div>
         )

@@ -29,7 +29,7 @@ class Movies extends React.Component {
         } else {
             return (
                 <div class="container">
-                    <img style={{width: '25%', display: 'block', marginLeft: 'auto', marginRight: 'auto'}} 
+                    <img style={{width: '35%', display: 'block', marginLeft: 'auto', marginRight: 'auto'}} 
                     src={require("../../Assets/404 Error with a cute animal-pana.png")} alt="Not"/>
                 </div>
             )
@@ -94,7 +94,7 @@ class MovieManagement extends React.Component {
             .then(response => {
                 console.log(response);
                 this.setState({
-                    movies: response.data.data
+                    movies: response.data
                 });
             })
             .catch(err => {
@@ -105,7 +105,7 @@ class MovieManagement extends React.Component {
     //https://medium.com/codex/handling-checkboxes-in-react-3a2514b140d2
     handleCheckbox(e){
         var isChecked = e.target.checked;  
-        console.log(isChecked);
+        console.log(isChecked)
         if(isChecked) {
             this.setState({ genres: [...this.state.genres, e.target.value ]});
         } else {

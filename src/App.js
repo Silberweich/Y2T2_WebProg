@@ -11,6 +11,7 @@ import Login from './Components/login';
 import Movie from './Components/movie/movie';
 import AddMovie from './Components/movie/addmovie';
 import UserDetail from './Components/user';
+import ErrorPage from './Components/Errpage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         {<Nav />}
       </nav>
       <Routes>
+        <Route path="*" element={  <ErrorPage/> } />
         <Route path="/" element={<Home />} />
         <Route path="/adminmovies" element={<MovieManagement />} />
         <Route path="/adminusers" element={<UserManagement />} />
