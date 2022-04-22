@@ -140,7 +140,12 @@ class MovieManagement extends React.Component {
                     <h1 className="introduck" style={{ padding: '50px 0' }}>Searching Movie</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div className="search-field">
-                            <input id="search" type="text" placeholder="Enter a Movie Name" name="movie_name" value={this.state.movie_name} onChange={this.handleChange} />
+                            <input id="search" type="text" placeholder="Enter a Movie Name" name="movie_name" value={this.state.movie_name} onChange={this.handleChange}
+                            style={{
+                                '-webkit-text-fill-color': 'rgb(255, 255, 255)',
+                                /*inset - the background color drawn inside this area */
+                                '-webkit-box-shadow': '0 0 0px 1000px rgb(0, 0, 0) inset'
+                            }}/>
                             <button type="submit" style={{ backgroundColor: "black", border: "none" }}><i class="fas fa-search"></i></button>
                         </div>
 
@@ -170,11 +175,11 @@ class MovieManagement extends React.Component {
                                 onChange={this.handleCheckbox} />
                                 <label for="EN" className="soundtrack-select">EN</label>
                                 <input type="checkbox" className="search-checkbox" id="JP" name="movieSound" value="JP" onChange={this.handleCheckbox}/>
-                                <label className="soundtrack-select">JP</label>
+                                <label for="JP" className="soundtrack-select">JP</label>
                                 <input type="checkbox" className="search-checkbox" id="KR" name="movieSound" value="KR" onChange={this.handleCheckbox}/>
-                                <label className="soundtrack-select">KR</label>
+                                <label for="KR" className="soundtrack-select">KR</label>
                                 <input type="checkbox" className="search-checkbox" id="TH" name="movieSound" value="TH" onChange={this.handleCheckbox}/>
-                                <label className="soundtrack-select">TH</label>
+                                <label for="TH" className="soundtrack-select">TH</label>
                             </div>
                         </div>
                     </form>

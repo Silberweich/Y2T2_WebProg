@@ -36,11 +36,12 @@ function Movie() {
         content =
             <div class="row">
                 <div className="col-12 col-md-4">
-                    <img src={movie.data.data.movie_image}
-                        style={{
-                            background: "black", height: "550px", maxWidth: "350px", borderRadius: "10px", border: "2px solid red",
-                            padding: "0", objectFit: "cover"
-                        }} />
+                {/* test Img */}
+                    <div class="movies-box-noScale">   
+                        <div class="movies-img">
+                            <img src={movie.data.data.movie_image} alt="movieImg" />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="col-12 col-md-8">
@@ -68,7 +69,7 @@ function Movie() {
     }
 
     return (
-        <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "60%", padding: "20px", minHeight: '750px' }}>
+        <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "80%", padding: "20px", minHeight: '750px' }}>
 
             <div className="position-relative">
                 <button className="btn btn-primary" style={{ margin: "20px" }}
