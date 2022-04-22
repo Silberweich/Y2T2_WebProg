@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useAxiosGet } from '../request'
 import axios from 'axios';
 import DeleteMovie from './DeleteRequest';
+import UpdateMovie from './UpdateRequest';
 
 function Movie() {
     const { movie_ID } = useParams()
@@ -59,6 +60,7 @@ function Movie() {
                             </p>
                             <h5 class="card-title">Synopsis</h5>
                             <p class="card-text">{synopsis}</p>
+
                         </div>
                     </div>
                 </div>
@@ -67,15 +69,23 @@ function Movie() {
 
     return (
         <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "60%", padding: "20px", minHeight: '750px' }}>
-            <div class="position-relative">
+
+            <div className="position-relative">
                 <button className="btn btn-primary" style={{ margin: "20px" }}
                     onClick={() => navigate("/adminmovies")}>
                     <i class="fa-solid fa-arrow-left"></i> Back
                 </button>
 
-                <DeleteMovie movie_id={movie_ID}/>
+                <DeleteMovie movie_id={movie_ID} />
             </div>
             {content}
+            <div className="position-relative">
+            <button className="btn btn-warning" style={{ margin: "20px" }}
+                    onClick={() => navigate(`/movie/${movie_ID}/edit`)}>
+                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                </button>
+            </div>
+
         </div>
     )
 }

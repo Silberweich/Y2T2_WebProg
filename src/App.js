@@ -10,6 +10,7 @@ import Footer from './Components/footer';
 import Login from './Components/login';
 import Movie from './Components/movie/movie';
 import AddMovie from './Components/movie/addmovie';
+import MovieUpdateForm from './Components/movie/movieUpdateForm';
 import UserDetail from './Components/user';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/adminlogin" element={<Login />} />
         <Route path="/addmovie" element={<AddMovie />} />
         <Route exact path="/movie/:movie_ID" element={<Movie />} />
+        <Route exact path="/movie/:movie_ID/edit" element={<MovieUpdateForm />} />
         <Route exact path="/user/:email" element={<UserDetail />} />
       </Routes>
         {<Footer />}

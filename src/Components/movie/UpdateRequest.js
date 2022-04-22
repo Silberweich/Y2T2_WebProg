@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom'
+import React from 'react'
 
-class Addmovie extends Component {
-    constructor(props) {
+class UpMov extends React.Component {
+constructor(props) {
         super(props);
 
         var today = new Date();
@@ -25,26 +26,49 @@ class Addmovie extends Component {
             movie_synopsis: '',
         };
         this.domain = "http://localhost:4203";
-        this.update = this.create.bind(this);
+        this.update = this.update.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    componentDidMount() {
+        let url = `${this.domain}/movie/${this.props.movie_id}`
+        console.log(url);
+        axios.get(url)
+            .then(response => {
+                const data = response.data.data
+                this.setState({
+                    movie_id: data.movie_ID,
+                    movie_name: data.movie_name,
+                    movie_image: data.movie_image,
+                    movie_rate: data.movie_rate,
+                    movie_starRate: data.movie_starRate,
+                    movie_length: data.movie_length,
+                    movie_soundtrack: data.soundtrack,
+                    movie_subtitle: data.subtitle,
+                    movie_synopsis: data.synopsis,
+                    released_date: data.release_date.slice(0,10)
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
-    create() {
-        let url = `${this.domain}/movie`
-        // const data = { 
-        //     movie_ID: 999,
-        //     movie_name: "TestMovie",
-        //     movie_genre: "Horror",
-        //     movie_rate: 18,
-        //     release_date: "2021-10-27",
-        //     movie_length: 999,
-        //     soundtrack: "TH",
-        //     subtitle: null,
-        //     movie_starRate: "0.0",
-        //     synopsis: "THIS IS A SYNOPSIS",
-        //     movie_image: "https://picsum.photos/seed/picsum/200/300"
-        // };
+    update() {
+        // let url = `${this.domain}/movie`
+        // // const data = { 
+        // //     movie_ID: 999,
+        // //     movie_name: "TestMovie",
+        // //     movie_genre: "Horror",
+        // //     movie_rate: 18,
+        // //     release_date: "2021-10-27",
+        // //     movie_length: 999,
+        // //     soundtrack: "TH",
+        // //     subtitle: null,
+        // //     movie_starRate: "0.0",
+        // //     synopsis: "THIS IS A SYNOPSIS",
+        // //     movie_image: "https://picsum.photos/seed/picsum/200/300"
+        // // };
         const data = {
             movie_ID: this.state.movie_id,
             movie_name: this.state.movie_name,
@@ -61,12 +85,14 @@ class Addmovie extends Component {
         if (data.movie_starRate.match('[0-4].[0-9]|5.0') == null) {
             throw Error(`Wrong starRate format`);
         }
-        axios.post(url, { data: data })
+        let url = `${this.domain}/movie`
+        axios.put(url, { data: data })
             .then(response => {
                 console.log(response);
                 this.setState({
                     movies: response.data.data
                 });
+                this.props.navigate('/adminmovies');
             })
             .catch(err => {
                 console.log(err);
@@ -83,13 +109,13 @@ class Addmovie extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.create();
+        this.update();
     }
 
     render() {
         return (
             <div className="container bg-light p-4" style={{ borderRadius: '15px', margin: '20px auto' }}>
-                <h1 className="text-center m-3">Add a new movie</h1>
+                <h1 className="text-center m-3">Edit Movie #{this.props.movie_ID}</h1>
                 <form className="row g-3" onSubmit={this.handleSubmit}>
                     <div className="col-md-2">
                         <label htmlFor="movieid" className="form-label">Movie ID</label>
@@ -153,7 +179,7 @@ class Addmovie extends Component {
                             name="movie_synopsis" value={this.state.movie_synopsis} onChange={this.handleChange} />
                     </div>
                     <div className="d-grid col-6 mx-auto">
-                        <button className="btn btn-lg btn-success" type="submit">Add Movie!!!</button>
+                        <button className="btn btn-lg btn-warning" type="submit">Confrim Update</button>
                     </div>
 
                 </form>
@@ -162,4 +188,10 @@ class Addmovie extends Component {
     }
 }
 
-export default Addmovie;
+function UpdateMovie(props) {
+    let navigate = useNavigate();
+    console.log(props)
+    return <UpMov{...props} navigate={navigate} />
+}
+
+export default UpdateMovie;

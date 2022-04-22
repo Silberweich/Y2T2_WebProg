@@ -31,10 +31,10 @@ class DelMov extends React.Component {
 
     render() {
         return (
-            <button className="btn btn-danger position-absolute end-0" style={{ margin: "20px" }}
-                onClick={(e) => this.delete(e)}>
-                <i class="fa-solid fa-trash-can"></i> Delete
-            </button >
+                <button className="btn btn-danger position-absolute end-0" style={{ margin: "20px" }}
+                    onClick={(e) => this.delete(e)}>
+                    <i class="fa-solid fa-trash-can"></i> Delete
+                </button >
         )
     }
 }
