@@ -23,24 +23,90 @@ class Friends extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      friends: "",
+      friends: [],
       search: "",
-      searchType: "",
-      motherfucker: 1
+      searchType: "email",
+      motherfucker: 1,
     };
+    this.updateStateRightFuckingNow()
   }
   handleChange(changeObject) {
     this.setState(changeObject)
   }
 
-  reducedList(){
-    console.log(typeof this.state.search)
-    console.log(typeof this.state.searchType)
-    console.log(this.state.friends.pop())
-    this.updateState()
+  refreshPage() {
+    window.location.reload(false);
   }
-  
-  updateState(){
+
+  reducedList(){
+    console.log(this.state.friends)
+    let _s = this.state.search
+    let _t = this.state.searchType
+    this.updateStateRightFuckingNow()
+    
+    switch(_t){
+      case "email":
+        console.log("email")
+        console.log("fname")
+        if(_s == ""){
+          this.state.search = ""
+          this.updateStateRightFuckingNow()
+        }
+        else{
+          for (let i = 0; i < this.state.friends.length ; i++){
+            if(!this.state.friends[i].email.includes(_s)){
+              this.state.friends.splice(i,1)
+            }
+          }
+        }
+
+        this.updateStateRightFuckingNow()
+      break;
+
+      case "fname":
+        console.log("fname")
+        if(/[^a-zA-Z]/g.test(_s) || _s == ""){
+          this.state.search = ""
+          this.updateStateRightFuckingNow()
+        }
+        else{
+          for (let i = 0; i < this.state.friends.length ; i++){
+            for (let i = 0; i < this.state.friends.length ; i++){
+              if(!this.state.friends[i].first_name.includes(_s)){
+                this.state.friends.splice(i,1)
+              }
+            }
+          }
+        }
+
+        this.updateStateRightFuckingNow()
+      break;
+
+      case "lname":
+        console.log("lname")
+        if(/[^a-zA-Z]/g.test(_s) || _s == ""){
+          this.state.search = ""
+          this.updateStateRightFuckingNow()
+        }
+        else{
+          for (let i = 0; i < this.state.friends.length ; i++){
+            for (let i = 0; i < this.state.friends.length ; i++){
+              if(!this.state.friends[i].last_name.includes(_s)){
+                this.state.friends.splice(i,1)
+              }
+            }
+          }
+        }
+        this.updateStateRightFuckingNow()
+      break;
+
+      default:
+        this.state.search = "ERROR:TYPE"
+        this.updateStateRightFuckingNow()
+    }
+  }
+
+  updateStateRightFuckingNow(){
     this.setState({motherfucker: 1})
   }
 
@@ -56,19 +122,26 @@ class Friends extends React.Component {
             type="text"
             className="form-control"
             value={this.state.search}
-            onChange={(e) => this.handleChange({ search: e.target.value })} />
+            onChange={(e) => this.handleChange({search: e.target.value})} />
         </label>
 
         <select name="movie_genre" value={this.state.movie_genre} onChange={(e) => this.handleChange({ searchType: e.target.value })}>
-          <option value="id">ID search</option>
+          <option value="email">Email Search</option>
           <option value="fname">First Name Search</option>
           <option value="lname">Last Name Search</option>
         </select>
 
-        <button className="btn btn-info"
+        <button 
+          className="btn btn-info"
           type='button'
           onClick={(e) => this.reducedList()}>
-          Search
+          Search 
+        </button>
+        <button 
+          className="btn btn-info"
+          type='button'
+          onClick={(e) => this.refreshPage()}>
+          Click to reload!
         </button>
       </form>
 
@@ -202,7 +275,7 @@ class UserManagement extends React.Component {
             Update
           </button>
         </form>
-        <Friends friends={this.state.friends} />
+        <Friends friends={this.state.friends}/>
       </div>
     );
   }
