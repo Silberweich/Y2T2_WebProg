@@ -5,7 +5,6 @@ import React from 'react'
 class UpMov extends React.Component {
 constructor(props) {
         super(props);
-
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -25,20 +24,21 @@ constructor(props) {
             movie_subtitle: null,
             movie_synopsis: '',
         };
-        this.domain = "http://localhost:4203";
+        this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.update = this.update.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentDidMount() {
         let url = `${this.domain}/movie/${this.props.movie_id}`
-        console.log(url);
+        console.log(this.props.movie_id, url);
         axios.get(url)
             .then(response => {
                 const data = response.data.data
                 this.setState({
                     movie_id: data.movie_ID,
                     movie_name: data.movie_name,
+                    movie_genre: data.movie_genre,
                     movie_image: data.movie_image,
                     movie_rate: data.movie_rate,
                     movie_starRate: data.movie_starRate,
@@ -115,12 +115,12 @@ constructor(props) {
     render() {
         return (
             <div className="container bg-light p-4" style={{ borderRadius: '15px', margin: '20px auto' }}>
-                <h1 className="text-center m-3">Edit Movie #{this.props.movie_ID}</h1>
+                <h1 className="text-center m-3">Edit Movie #{this.state.movie_id}</h1>
                 <form className="row g-3" onSubmit={this.handleSubmit}>
                     <div className="col-md-2">
                         <label htmlFor="movieid" className="form-label">Movie ID</label>
                         <input type="number" className="form-control" id="movieid"
-                            name="movie_id" value={this.state.movie_id} onChange={this.handleChange} />
+                            name="movie_id" value={this.state.movie_id} onChange={this.handleChange} disabled/>
                     </div>
                     <div className="col-md-5">
                         <label htmlFor="inputPassword4" className="form-label">Movie Name</label>
@@ -152,7 +152,7 @@ constructor(props) {
                         <input type="number" className="form-control" id="moviestar" pattern="[0-4].[0-9]|5.0"
                             name="movie_starRate" value={this.state.movie_starRate} onChange={this.handleChange} />
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-2">
                         <label htmlFor="soundtrack" className="form-label">Soundtrack</label>
                         <select id="soundtrack" className="form-select"
                             name="movie_soundtrack" value={this.state.movie_soundtrack} onChange={this.handleChange}>
@@ -162,7 +162,7 @@ constructor(props) {
                             <option value="JP">JP</option>
                         </select>
                     </div>
-                    <div className="col-md-3">
+                    <div className="col-md-2">
                         <label htmlFor="subtitle" className="form-label">Subtitle</label>
                         <select id="subtitle" className="form-select"
                             name="movie_subtitle" value={this.state.movie_subtitle} onChange={this.handleChange}>
@@ -171,6 +171,19 @@ constructor(props) {
                             <option value="Th">TH</option>
                             <option value="KR">KR</option>
                             <option value="JP">JP</option>
+                        </select>
+                    </div>
+                    <div className="col-md-2">
+                        <label htmlFor="genre" className="form-label">Genre</label>
+                        <select id="genre" className="form-select"
+                            name="movie_genre" value={this.state.movie_genre} onChange={this.handleChange} >
+                            <option>None</option>
+                            <option value="Action">Action</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
                     <div className="col-12">

@@ -9,7 +9,7 @@ class DelMov extends React.Component {
     }
 
     delete(e) {
-        const url = `http://localhost:4203/movie/`;
+        const url = process.env.REACT_APP_WEBSERV_URL + `/movie/`;
         console.log(this.props.movie_id)
         axios(url, {
             "method": "DELETE",

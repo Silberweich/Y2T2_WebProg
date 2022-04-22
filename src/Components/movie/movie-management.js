@@ -46,7 +46,7 @@ class MovieManagement extends React.Component {
             released_year: '',
             genres: [],  
         };
-        this.domain = "http://localhost:4203";
+        this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.create = this.search.bind(this);
         this.update = this.create.bind(this);
         this.handleCheckbox = this.handleCheckbox.bind(this);
