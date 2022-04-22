@@ -11,7 +11,7 @@ function generateList(data) {
         <td>{data[i].first_name}</td>
         <td>{data[i].last_name}</td>
         <td>
-          <Link to={`/user/${data[i].email}`}>View profile</Link>
+          <Link to={`/user/${data[i].email}`}><button type="button" class="btn btn-outline-dark">View Profile</button></Link>
         </td>
       </tr>
     )
@@ -64,7 +64,7 @@ class UserManagement extends React.Component {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
+        console.log("Users Info:", response);
         this.setState({
           friends: response.data
         })
@@ -150,8 +150,6 @@ class UserManagement extends React.Component {
           <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
             Update
           </button>
-          
-
         </form>
         <Friends friends={this.state.friends} />
       </div>

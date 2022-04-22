@@ -21,7 +21,6 @@ function User() {
 
     const navigate = useNavigate()
     let product = useAxiosGet(url)
-
     let content = null
 
     if (product.error) {
@@ -38,8 +37,9 @@ function User() {
     if (product.loading) {
         content = <div>Loading</div>
     }
-
+    // big chuck of 'each' user
     if (product.data) {
+        // console.log("proddata : ", product.data.data.password)
         content =
             <div class="row">
                 <div className="col dummy" style={{ background: "black", height: "550px", width: "300px", marginLeft: "12px", borderRadius: "10px" }}>
@@ -50,6 +50,7 @@ function User() {
                             <h3 className="text-center">Profile</h3>
                         </div>
                         <div class="card-body">
+                            {/* <h3>Size: {product.data}</h3> */}
                             <h5 class="card-title">{product.data.data.first_name} {product.data.data.last_name}</h5>
                             <p class="card-text">Email: {product.data.data.email}</p>
                             <p class="card-text">Age: {product.data.data.age}</p>

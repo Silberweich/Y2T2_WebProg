@@ -7,10 +7,10 @@ import './global.css'
 const Myul = styled.ul`
     padding: 10px;
 `;
-const Myli = styled.li`
-    padding: 14px 20px;
-    text-decoration: none;
-`;
+// const Myli = styled.li`
+//     padding: 14px 20px;
+//     text-decoration: none;
+// `;
 
 const MyLink = styled(Link)`
     color: white;
