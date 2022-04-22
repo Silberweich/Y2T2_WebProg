@@ -24,7 +24,7 @@ function App() {
         <Route path="/adminusers" element={<UserManagement />} />
         <Route path="/adminlogin" element={<Login />} />
         <Route path="/addmovie" element={<AddMovie />} />
-        <Route exact path="/movie/:id" element={<Movie />} />
+        <Route exact path="/movie/:movie_ID" element={<Movie />} />
         <Route exact path="/user/:email" element={<UserDetail />} />
       </Routes>
         {<Footer />}

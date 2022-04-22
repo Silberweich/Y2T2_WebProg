@@ -14,9 +14,9 @@ const MyLink = styled(Link)`
     }
 `;
 
-function Product() {
+function User() {
     const { email } = useParams()
-    // Create your own Mock API: https://mockapi.io/
+
     const url = `http://localhost:4203/user/${email}`
 
     const navigate = useNavigate()
@@ -78,4 +78,4 @@ function Product() {
     )
 }
 
-export default Product
+export default User
