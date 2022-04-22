@@ -46,6 +46,7 @@ class MovieManagement extends React.Component {
             released_year: '',
             genres: [],  
         };
+        // i cant access env file, so need to use actual path //
         this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.create = this.search.bind(this);
         this.update = this.create.bind(this);
@@ -55,7 +56,7 @@ class MovieManagement extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`${this.domain}/movie`, {
+        fetch(`http://localhost:4203/movie`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
