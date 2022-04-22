@@ -258,7 +258,7 @@ router.put('/movie', function (req, res) {
 
 //delete a movie using ID
 router.delete('/movie', function (req, res) {
-    let movie_ID = req.body.data[0].movie_ID;
+    let movie_ID = req.body.movie_ID;
     if (!movie_ID) {
         return res.status(400).send({ error: true, message: 'Please provide movie_ID' });
     }

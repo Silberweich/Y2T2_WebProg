@@ -150,9 +150,53 @@ app.post('/adminlogin', function (req, res) {
     })
 })
 
+app.get('/searchMoviesReact', function (req, res) {
+    let movieDisplay;
+    if (Object.keys(req.query).length === 0) {
+        con.query('SELECT * FROM movie', function (error, results) {
+            return res.send({ error: false, data: results, message: "This movie exists, 1st con" });
+        })
+    } else {
+        let movieName;
+        if(!req.query.movieName || req.query.movieName === "All") {
+            movieName = "%%%";
+            movieDisplay = " ";
+        } else {
+            movieName = "%%" + (req.query.movieName).toLowerCase() + "%";
+            movieDisplay = req.query.movieName;
+        }
+        /* --------- Criteria Search Variable --------- */
+        let movieGenre = req.query.movieGenre;
+        if(!movieGenre || movieGenre === "All") {
+            movieGenre = "%%";
+        } else {
+            movieGenre = "%" + req.query.movieGenre + "%";
+        }
+        let movieReleasedYr = req.query.movieReleasedYr;
+        if(!movieReleasedYr || movieReleasedYr === "All") movieReleasedYr = 2018;
+        let movieSound = JSON.stringify(req.query.movieSound);
+        if(!movieSound) {
+            movieSound = `""JP", "EN", "KR", "TH""`
+        }
+
+        if (movieSound.includes(",")) movieSound = movieSound.substring(1,movieSound.length-1);
+        console.log(movieName, movieGenre, movieReleasedYr, movieSound)
+
+        con.query(`SELECT * FROM movie WHERE movie_name LIKE ?
+        AND movie_genre LIKE ?
+        AND YEAR(release_date) >= ?
+        AND soundtrack IN (${movieSound})
+        ORDER BY movie_name ASC`,
+        [movieName, movieGenre, movieReleasedYr], function (error, results) {
+            if (error) throw error;
+            return res.send({ error: false, data: results, message: "Searched the moviedb" });
+        });
+    }
+});
+
 app.get('/searchMovies', function (req, res) {
     // No input
-    // console.log(req.query)
+    console.log(req.originalUrl)
     let movieDisplay;
     if (Object.keys(req.query).length === 0) {
         con.query('SELECT * FROM movie', function (error, results) {
