@@ -238,7 +238,7 @@ router.post('/movie', function (req, res) {
 
 //update an existing movie with ID
 router.put('/movie', function (req, res) {
-    let movie_ID = req.body.data[0].movie_ID;
+    let movie_ID = req.body.data.movie_ID;
     let movie = req.body.data;
     if (!movie_ID || !movie) {
         return res.status(400).send({ 
@@ -246,7 +246,7 @@ router.put('/movie', function (req, res) {
             message: 'Please provide valid movie information' 
         });
     }
-    con.query("UPDATE movie SET ? WHERE movie_ID = ?", [movie[0], movie_ID], function (error, results) {
+    con.query("UPDATE movie SET ? WHERE movie_ID = ?", [movie, movie_ID], function (error, results) {
     if (error) throw error;
         return res.send({
             error: false, 
