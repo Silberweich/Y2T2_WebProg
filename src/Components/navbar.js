@@ -36,6 +36,7 @@ const LogoLink = styled(Link)`
 `;
 
 class Nav extends React.Component {
+    //Unnecessary
     constructor(props) {
         super(props);
         this.state = {
@@ -44,7 +45,7 @@ class Nav extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
     }
-
+    //Unnecessary
     handleClick(e) {
         if (this.state.isLoggedIn === true) {
             this.setState({
