@@ -77,8 +77,8 @@ https://fonts.google.com/specimen/Quicksand
     "node-fetch": "^3.2.3",
     "nodemon": "^2.0.15"
 
-### Run the <b>React App</b> by using <b>npm start</b>
-### Start the <b>Web Service</b> with <b>npm start</b>
+### Run the <b>React App</b> by using ```npm start```
+### Start the <b>Web Service</b> with ```npm start```
 
 ## Modifying the domain that the React App is connected with
 Go to .env file and replace the http://localhost:4203 with another domain
