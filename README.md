@@ -65,6 +65,7 @@ https://fonts.google.com/specimen/Quicksand
 ### Required Modules on React App
     1. React Router Dom v6 (npm install react-router-dom@6)
     2. React Styled-Component (npm install --save styled-components)
+    3. Axios (npm install axios)
 
 ### Required Modules on Web Service
     "body-parser": "^1.19.2",
