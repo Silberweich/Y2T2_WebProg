@@ -69,7 +69,7 @@ router.post('/user', function (req, res) {
 
 //update a user in the table from a given email
 router.put('/user', function (req, res) {
-    let userEmail = req.body.data[0].email;
+    let userEmail = req.body.data.email;
     let user = req.body.data;
     if (!userEmail || !user) {
         return res.status(400).send({ 
@@ -77,7 +77,7 @@ router.put('/user', function (req, res) {
             message: 'Please provide valid user information' 
         });
     }
-    con.query("UPDATE user SET ? WHERE email = ?", [user[0], userEmail], function (error, results) {
+    con.query("UPDATE user SET ? WHERE email = ?", [user, userEmail], function (error, results) {
     if (error) throw error;
         return res.send({
             error: false, 
