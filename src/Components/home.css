@@ -266,3 +266,23 @@ main {
 .section-team .single-person:hover .speciality {
 	color: #fff;
 }
+
+.contact {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.fa-linkedin,
+.fa-github-square,
+.fa-instagram-square {
+    color: black;
+    margin-right: 0.5rem;
+}
+
+.fa-linkedin:hover,
+.fa-github-square:hover,
+.fa-instagram-square:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: ease-in-out 0.4s;
+}

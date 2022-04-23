@@ -98,16 +98,16 @@ class Home extends Component {
                         </div>
                     </div>
 
-                    {/* Membruh Section */}
+                    {/* <--- Membruh Section ---> */}
                     <div className="shadow p-3 mb-5 bg-white rounded">
                         <section className="section-team">
                         <div className="container">
                             {/* Start Header Section */}
                                 <div className="row justify-content-center text-center">
                                     <div className="col-md-8 col-lg-6">
-                                    <div className="header-section">
-                                        <h2 className="title">Let's meet with our team members</h2>
-                                    </div>
+                                        <div className="header-section">
+                                            <h2 className="title">Let's meet with our team members</h2>
+                                        </div>
                                     </div>
                                 </div>
                             
@@ -122,6 +122,11 @@ class Home extends Component {
                                     <div className="person-info">
                                         <h3 className="full-name">Kulawut Makkamoltham</h3>
                                         <span className="speciality">Web Developer</span>
+                                        <div className="contact">
+                                            <a href="https://www.linkedin.com/in/kulawut-makkamoltham-561478225/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/Vvidsky" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
+                                            <a href="https://www.instagram.com/view.klw/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -135,6 +140,11 @@ class Home extends Component {
                                     <div className="person-info">
                                         <h3 className="full-name">Phichayut Ngeonnim</h3>
                                         <span className="speciality">WordPress Developer</span>
+                                        <div className="contact">
+                                            <a href="https://www.linkedin.com/in/phi-ngoennim/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/Silberweich" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
+                                            <a href="/" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -148,6 +158,11 @@ class Home extends Component {
                                     <div className="person-info">
                                         <h3 className="full-name">Ariya<br/>Phengphon</h3>
                                         <span className="speciality">Angular Developer</span>
+                                        <div className="contact">
+                                            <a href="https://www.linkedin.com/in/ariya-phengphon/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/ChanAndKlee" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
+                                            <a href="https://www.instagram.com/chanariya_/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -161,6 +176,11 @@ class Home extends Component {
                                     <div className="person-info">
                                         <h3 className="full-name">Perakorn Nimitkul</h3>
                                         <span className="speciality">Javascript Developer</span>
+                                        <div className="contact">
+                                            <a href="/" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/Nyavioly" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
+                                            <a href="https://www.instagram.com/perakorn_nimitkul/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                        </div>
                                     </div>
                                 </div>
                                 </div>
