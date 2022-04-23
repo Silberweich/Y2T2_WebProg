@@ -86,13 +86,13 @@ router.get('/userSearchFname', function (req, res) {
 // Last Name search
 router.get('/userSearchLname', function (req, res) {
     let lname = '%' + req.query.lname + '%';
-    if (!email) {
+    if (!lname) {
         return res.status(400).send({ 
             error: true, 
             message: 'Please provide an lname.' 
         });
     }
-    con.query('SELECT * FROM user where ast_name LIKE ?', lname, function (error, results) {
+    con.query('SELECT * FROM user where last_name LIKE ?', lname, function (error, results) {
     if (error) throw error;
         return res.send({ 
             error: false, 
