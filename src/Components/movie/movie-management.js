@@ -47,7 +47,7 @@ class MovieManagement extends React.Component {
             soundtracks: [],  
         };
         this.domain = process.env.REACT_APP_WEBSERV_URL;
-        this.create = this.search.bind(this);
+        this.search = this.search.bind(this);
         this.handleCheckbox = this.handleCheckbox.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -118,7 +118,7 @@ class MovieManagement extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.search(this.state.menu);
+        this.search();
     }
 
     handleChange(e) {

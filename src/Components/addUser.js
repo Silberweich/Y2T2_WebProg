@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 class AddUse extends Component {
@@ -14,7 +14,7 @@ class AddUse extends Component {
 
         this.state = {
             email: '',
-            passowrd: '',
+            password: '',
             firstname: '',
             lastname: '',
             age: '',
@@ -88,12 +88,12 @@ class AddUse extends Component {
                             name="email" value={this.state.email} onChange={this.handleChange} />
                     </div>
                     <div className="col-md-6">
-                        <label htmlFor="password" className="form-label">Passowrd</label>
+                        <label htmlFor="password" className="form-label">Password</label>
                         <input type="password" className="form-control" id="password"
                             name="password" value={this.state.password} onChange={this.handleChange} />
                     </div>
                     <div className="col-5">
-                        <label htmlFor="movieimage" className="form-label">First Name</label>
+                        <label htmlFor="firstname" className="form-label">First Name</label>
                         <input type="text" className="form-control" id="firstname"
                             name="firstname" value={this.state.firstname} onChange={this.handleChange} />
                     </div>

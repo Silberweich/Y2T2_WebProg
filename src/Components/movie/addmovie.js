@@ -102,12 +102,12 @@ class AddMov extends Component {
                             name="movie_id" value={this.state.movie_id} onChange={this.handleChange} />
                     </div>
                     <div className="col-md-5">
-                        <label htmlFor="inputPassword4" className="form-label">Movie Name</label>
+                        <label htmlFor="moviename" className="form-label">Movie Name</label>
                         <input type="text" className="form-control" id="moviename"
                             name="movie_name" value={this.state.movie_name} onChange={this.handleChange} />
                     </div>
                     <div className="col-5">
-                        <label htmlFor="inputAddress" className="form-label">Release Date</label>
+                        <label htmlFor="releasedate" className="form-label">Release Date</label>
                         <input type="date" className="form-control" id="releasedate"
                             name="released_date" value={this.state.released_date} onChange={this.handleChange} />
                     </div>
