@@ -88,7 +88,7 @@ class UserEditor extends React.Component {
         return (
             <div className="container" style={{ margin: "20px auto" }}>
                 <form className="m-3">
-                    <div class="collapse mt-3 mb-3" id="updateCollapse">
+                    <div className="collapse mt-3 mb-3" id="updateCollapse">
                         <label htmlFor="email">
                             Email:
                             <input name="email" id="email" type="text" className="form-control"
@@ -134,7 +134,7 @@ class UserEditor extends React.Component {
                         data-bs-target="#updateCollapse" aria-expanded="false" aria-controls="collapseExample">
                         Toggle Update form
                     </button>
-                    <div class="position-absolute bottom-0 end-0">
+                    <div className="position-absolute bottom-0 end-0">
                         <button className="btn btn-danger" type='button' onClick={(e) => this.delete(e)}>
                             Delete
                         </button>

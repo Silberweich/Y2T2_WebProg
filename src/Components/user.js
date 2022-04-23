@@ -1,18 +1,7 @@
 import React from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate} from 'react-router-dom'
 import { useAxiosGet } from './request'
 import UpdateUser from './userEditor';
-import styled from 'styled-components';
-
-const MyLink = styled(Link)`
-    color: white;
-    height: 100%;
-    &:hover {
-        color: red;
-        opacity: 80%;
-        transition: 0.3s;
-    }
-`;
 
 function User() {
     const { email } = useParams()
@@ -41,23 +30,23 @@ function User() {
     if (product.data) {
         // console.log("proddata : ", product.data.data.password)
         content =
-            <div class="row">
+            <div className="row">
                 <div className="col dummy" style={{ background: "black", height: "550px", width: "300px", marginLeft: "12px", borderRadius: "10px" }}>
                 </div>
                 <div className="col col-8">
                     <div className="card">
-                        <div class="card-header">
+                        <div className="card-header">
                             <h3 className="text-center">Profile</h3>
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             {/* <h3>Size: {product.data}</h3> */}
-                            <h5 class="card-title">{product.data.data.first_name} {product.data.data.last_name}</h5>
-                            <p class="card-text">Email: {product.data.data.email}</p>
-                            <p class="card-text">Age: {product.data.data.age}</p>
+                            <h5 className="card-title">{product.data.data.first_name} {product.data.data.last_name}</h5>
+                            <p className="card-text">Email: {product.data.data.email}</p>
+                            <p className="card-text">Age: {product.data.data.age}</p>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">About me</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam temporibus dolores quis aut quisquam. Aliquam, voluptatibus eaque incidunt maxime ea, corrupti minima soluta cumque est voluptatem quasi saepe laborum facilis!
+                        <div className="card-body">
+                            <h5 className="card-title">About me</h5>
+                            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam temporibus dolores quis aut quisquam. Aliquam, voluptatibus eaque incidunt maxime ea, corrupti minima soluta cumque est voluptatem quasi saepe laborum facilis!
                                 Velit sapiente architecto ad quo, illum, numquam aut facere natus excepturi labore esse, distinctio sequi! Delectus vero fugit, nulla voluptates doloribus ab asperiores, voluptatum quae cupiditate inventore, modi eum mollitia.
                                 Omnis commodi distinctio inventore ipsum quasi aliquam voluptatem illo sit mollitia ipsam?
                             </p>
@@ -71,7 +60,7 @@ function User() {
         <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "60%",  padding: "20px"}}>
             <button className="btn btn-primary" style={{ margin: "20px" }}
                 onClick={() => navigate("/adminusers")}>
-                <i class="fa-solid fa-arrow-left"></i> Back
+                <i className="fa-solid fa-arrow-left"></i> Back
             </button>
             {content}
             <UpdateUser email={email}/>

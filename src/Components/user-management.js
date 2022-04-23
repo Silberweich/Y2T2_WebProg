@@ -97,11 +97,11 @@ class UserManagement extends React.Component {
           <form className="row" onSubmit={this.handleSubmit}>
             <div className="row mb-3">
               <label htmlFor="searchTxt" className="col-sm-2 col-form-label" style={{ color: 'black', fontFamily: 'Poppins', paddingRight: '0', width: '8em' }}>Search Type:</label>
-              <div class="col-sm-3">
+              <div className="col-sm-3">
                 <input className="form-control" name="search" id="searchTxt" type="text"
                   value={this.state.search} onChange={(e) => this.handleChange({ search: e.target.value })} />
               </div>
-              <div class="col-sm-3">
+              <div className="col-sm-3">
                 <select className="form-select" name="user_criteria" value={this.state.user_criteria} onChange={(e) => this.handleChange({ searchType: e.target.value })}>
                   <option value="Email">Email Search</option>
                   <option value="Fname">First Name Search</option>
@@ -109,7 +109,7 @@ class UserManagement extends React.Component {
                 </select>
               </div>
 
-              <div class="col-sm-3">
+              <div className="col-sm-3">
                 <button className="btn btn-info" type='button' onClick={(e) => this.search()}>
                   Search
                 </button>
