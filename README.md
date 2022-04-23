@@ -56,7 +56,29 @@ https://fonts.google.com/specimen/Quicksand
     - [x] Display users
     - [x] Search (No criteria + 3 criteria)
     - [x] Create
-    - [x] Update
+    - [] Update
     - [x] Delete
     - [x] Dynamic page for each user
 - [x] Report
+
+## How to run our React Project
+### Required Modules on React App
+    1. React Router Dom v6 (npm install react-router-dom@6)
+    2. React Styled-Component (npm install --save styled-components)
+
+### Required Modules on Web Service
+    "body-parser": "^1.19.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.3",
+    "nodemon": "^2.0.15"
+
+### Run the <b>React App</b> by using <b>npm start</b>
+### Start the <b>Web Service</b> with <b>npm start</b>
+
+## Modifying the domain that the React App is connected with
+Go to .env file and replace the http://localhost:4203 with another domain
