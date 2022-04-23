@@ -8,8 +8,7 @@ function Movie() {
     // Create your own Mock API: https://mockapi.io/
     // const url = process.env.REACT_APP_WEBSERV_URL + `/movie/${movie_ID}`
 
-    // i cant access env file, so need to use actual path //
-    const url = `http://localhost:4203/movie/${movie_ID}`
+    const url = process.env.REACT_APP_WEBSERV_URL + `/movie/${movie_ID}`
 
     const navigate = useNavigate()
     let movie = useAxiosGet(url)
