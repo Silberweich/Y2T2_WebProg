@@ -47,6 +47,60 @@ router.get('/user/:email', function (req, res) {
     });
 });
 
+// Email search
+router.get('/userSearchEmail', function (req, res) {
+    let email = '%' + req.query.email + '%';
+    if (!email) {
+        return res.status(400).send({ 
+            error: true, 
+            message: 'Please provide an email.' 
+        });
+    }
+    con.query('SELECT * FROM user where email LIKE ?', email, function (error, results) {
+    if (error) throw error;
+        return res.send({ 
+            error: false, 
+            data: results, 
+            message: 'User retrieved' });
+    });
+});
+
+// First Name search
+router.get('/userSearchFname', function (req, res) {
+    let fname = '%' + req.query.fname + '%';
+    if (!fname) {
+        return res.status(400).send({ 
+            error: true, 
+            message: 'Please provide an first name.' 
+        });
+    }
+    con.query('SELECT * FROM user where first_name LIKE ?', fname, function (error, results) {
+    if (error) throw error;
+        return res.send({ 
+            error: false, 
+            data: results, 
+            message: 'User retrieved' });
+    });
+});
+
+// Last Name search
+router.get('/userSearchLname', function (req, res) {
+    let lname = '%' + req.query.lname + '%';
+    if (!email) {
+        return res.status(400).send({ 
+            error: true, 
+            message: 'Please provide an lname.' 
+        });
+    }
+    con.query('SELECT * FROM user where ast_name LIKE ?', lname, function (error, results) {
+    if (error) throw error;
+        return res.send({ 
+            error: false, 
+            data: results, 
+            message: 'User retrieved' });
+    });
+});
+
 // add single record to the user table
 router.post('/user', function (req, res) {
     let user = req.body.data;
