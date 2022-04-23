@@ -11,7 +11,7 @@ function generateList(data) {
         <td>{data[i].first_name}</td>
         <td>{data[i].last_name}</td>
         <td>
-          <Link to={`/user/${data[i].email}`}><button type="button" class="btn btn-outline-dark">View Profile</button></Link>
+          <Link to={`/user/${data[i].email}`}><button type="button" className="btn btn-outline-dark">View Profile</button></Link>
         </td>
       </tr>
     )
@@ -48,8 +48,8 @@ class User extends React.Component {
       case "email":
         console.log("email")
         console.log("fname")
-        if (_s == "") {
-          this.state.search = ""
+        if (_s === "") {
+          this.setState({search: ""})
           this.updateStateRightNow()
         }
         else {
@@ -65,8 +65,8 @@ class User extends React.Component {
 
       case "fname":
         console.log("fname")
-        if (/[^a-zA-Z]/g.test(_s) || _s == "") {
-          this.state.search = ""
+        if (/[^a-zA-Z]/g.test(_s) || _s === "") {
+          this.setState({search: ""})
           this.updateStateRightNow()
         }
         else {
@@ -84,8 +84,8 @@ class User extends React.Component {
 
       case "lname":
         console.log("lname")
-        if (/[^a-zA-Z]/g.test(_s) || _s == "") {
-          this.state.search = ""
+        if (/[^a-zA-Z]/g.test(_s) || _s === "") {
+          this.setState({search: ""})
           this.updateStateRightNow()
         }
         else {
@@ -282,7 +282,7 @@ class UserManagement extends React.Component {
         <User users={this.state.users} />
         <button className="btn btn-lg btn-primary position-fixed bottom-0 end-0 m-3"
           style={{ borderRadius: '10px' }}>
-          <Link to="/adduser" style={{ textDecoration: 'none', color: 'white', padding: '0.5em 0' }}><i class="fa-solid fa-plus"></i> Add a new user</Link>
+          <Link to="/adduser" style={{ textDecoration: 'none', color: 'white', padding: '0.5em 0' }}><i className="fa-solid fa-plus"></i> Add a new user</Link>
         </button>
       </div>
     );

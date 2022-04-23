@@ -65,17 +65,17 @@ class Nav extends React.Component {
                     <LogoLink to="/"><img src={MClogo} alt="Logo" height={50} /></LogoLink>
                     <Myul className="nav nav-pills justify-content-end" >
                         <li className="nav-item">
-                            <MyLink className="nav-link" to="/"><i class="fa-solid fa-house" /> Home</MyLink>
+                            <MyLink className="nav-link" to="/"><i className="fa-solid fa-house" /> Home</MyLink>
                         </li>
                         <li className="nav-item">
-                            <MyLink className="nav-link" to="/adminmovies"><i class="fa-solid fa-film" /> Movies</MyLink>
+                            <MyLink className="nav-link" to="/adminmovies"><i className="fa-solid fa-film" /> Movies</MyLink>
                         </li>
                         <li className="nav-item">
-                            <MyLink className="nav-link" to="/adminusers"><i class="fa-solid fa-users" /> User Management</MyLink>
+                            <MyLink className="nav-link" to="/adminusers"><i className="fa-solid fa-users" /> User Management</MyLink>
                         </li>
                         <li className="nav-item">
                             <MyLink className="nav-link active" to="/adminlogin" onClick={this.handleClick} >
-                                <i class="fa-solid fa-right-to-bracket" /> {this.state.loginTxt}
+                                <i className="fa-solid fa-right-to-bracket" /> {this.state.loginTxt}
                             </MyLink>
                         </li>
                     </Myul>

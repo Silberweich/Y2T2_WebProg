@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 class AddMov extends Component {
     constructor(props) {
         super(props);
 
+        // ref: https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 01

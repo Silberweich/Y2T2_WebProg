@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,8 +15,7 @@ import AddUser from './Components/addUser';
 import ErrorPage from './Components/Errpage';
 
 function App() {
-  return (
-    <BrowserRouter className="min-vh-100 d-flex flex-column justify-content-between">
+  return (<BrowserRouter className="min-vh-100 d-flex flex-column justify-content-between">
       <nav>
         {<Nav />}
       </nav>

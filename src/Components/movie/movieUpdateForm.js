@@ -36,7 +36,7 @@ function MovieUpdateForm() {
     return (
         <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "60%", padding: "20px", minHeight: '750px' }}>
             <button className="btn btn-primary" style={{ margin: "5px" }}>
-                <Link to={`/movie/${movie_ID}`} style={{textDecoration:'none', color:'white'}}><i class="fa-solid fa-arrow-left"></i> Back </Link>
+                <Link to={`/movie/${movie_ID}`} style={{textDecoration:'none', color:'white'}}><i className="fa-solid fa-arrow-left"></i> Back </Link>
             </button>
             <UpdateMovie movie_id={movie_ID} />
         </div>

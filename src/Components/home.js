@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import styles from './home.css'
+import './home.css';
 
 class Home extends Component {
     constructor(props) {
@@ -39,7 +39,7 @@ class Home extends Component {
                     <div className="bigBanner">
                         <h1 className='welcome'>Welcome Admin</h1>
                         <Link to="/adminlogin">
-                            <button type="button" class="btn btn-outline-dark">Login Page</button>
+                            <button type="button" className="btn btn-outline-dark">Login Page</button>
                         </Link>
                     </div>
                     
@@ -54,7 +54,7 @@ class Home extends Component {
                                         <Link style={{textDecoration: "none", color: "white"}} to="/">
                                             <h4 className="text-right"><i className="fa-solid fa-eye"></i> Total Visted</h4>
                                             <h3>999</h3>
-                                            <p class="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 3 mins ago</p>
+                                            <p className="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 3 mins ago</p>
                                         </Link>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@ class Home extends Component {
                                         <Link style={{textDecoration: "none", color: "white"}} to="/adminmovies">
                                             <h4 className="text-right"><i className="fa-solid fa-clapperboard"></i> Total Movies</h4>
                                             <h3>{this.state.movies}</h3>
-                                            <p class="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 6 mins ago</p>
+                                            <p className="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 6 mins ago</p>
                                         </Link>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@ class Home extends Component {
                                         <Link style={{textDecoration: "none", color: "white"}} to="/adminusers">
                                             <h4 className="text-right"><i className="fa-solid fa-user"></i> Total Users</h4>
                                             <h3>{this.state.friends}</h3>
-                                            <p class="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 16 mins ago</p>
+                                            <p className="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 16 mins ago</p>
                                         </Link>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@ class Home extends Component {
                                         <Link style={{textDecoration: "none", color: "white"}} to="/">
                                             <h4 className="text-right"><i className="fa-brands fa-android"></i> Total Admins</h4>
                                             <h3>4</h3>
-                                            <p class="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 15 mins ago</p>
+                                            <p className="card-text" style={{color: "rgb(255, 255, 255, 0.75)"}}>Last updated 15 mins ago</p>
                                         </Link>
                                     </div>
                                 </div>
@@ -123,9 +123,9 @@ class Home extends Component {
                                         <h3 className="full-name">Kulawut Makkamoltham</h3>
                                         <span className="speciality">Web Developer</span>
                                         <div className="contact">
-                                            <a href="https://www.linkedin.com/in/kulawut-makkamoltham-561478225/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                                            <a href="https://github.com/Vvidsky" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
-                                            <a href="https://www.instagram.com/view.klw/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                            <a href="https://www.linkedin.com/in/kulawut-makkamoltham-561478225/" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/Vvidsky" target="_blank" rel="noreferrer"><i className="fa-brands fa-github-square"></i></a>
+                                            <a href="https://www.instagram.com/view.klw/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram-square"></i></a>    
                                         </div>
                                     </div>
                                 </div>
@@ -141,9 +141,9 @@ class Home extends Component {
                                         <h3 className="full-name">Phichayut Ngeonnim</h3>
                                         <span className="speciality">WordPress Developer</span>
                                         <div className="contact">
-                                            <a href="https://www.linkedin.com/in/phi-ngoennim/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                                            <a href="https://github.com/Silberweich" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
-                                            <a href="/" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                            <a href="https://www.linkedin.com/in/phi-ngoennim/" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/Silberweich" target="_blank" rel="noreferrer"><i className="fa-brands fa-github-square"></i></a>
+                                            <a href="/" rel="noreferrer"><i className="fa-brands fa-instagram-square"></i></a>    
                                         </div>
                                     </div>
                                 </div>
@@ -159,9 +159,9 @@ class Home extends Component {
                                         <h3 className="full-name">Ariya<br/>Phengphon</h3>
                                         <span className="speciality">Angular Developer</span>
                                         <div className="contact">
-                                            <a href="https://www.linkedin.com/in/ariya-phengphon/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                                            <a href="https://github.com/ChanAndKlee" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
-                                            <a href="https://www.instagram.com/chanariya_/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                            <a href="https://www.linkedin.com/in/ariya-phengphon/" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/ChanAndKlee" target="_blank" rel="noreferrer"><i className="fa-brands fa-github-square"></i></a>
+                                            <a href="https://www.instagram.com/chanariya_/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram-square"></i></a>    
                                         </div>
                                     </div>
                                 </div>
@@ -177,9 +177,9 @@ class Home extends Component {
                                         <h3 className="full-name">Perakorn Nimitkul</h3>
                                         <span className="speciality">Javascript Developer</span>
                                         <div className="contact">
-                                            <a href="/" rel="noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-                                            <a href="https://github.com/Nyavioly" target="_blank" rel="noreferrer"><i class="fa-brands fa-github-square"></i></a>
-                                            <a href="https://www.instagram.com/perakorn_nimitkul/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram-square"></i></a>    
+                                            <a href="/" rel="noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+                                            <a href="https://github.com/Nyavioly" target="_blank" rel="noreferrer"><i className="fa-brands fa-github-square"></i></a>
+                                            <a href="https://www.instagram.com/perakorn_nimitkul/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram-square"></i></a>    
                                         </div>
                                     </div>
                                 </div>

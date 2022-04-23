@@ -17,9 +17,9 @@ class Movies extends React.Component {
                                         <div className="fav"><i className="fas fa-heart" /></div>
                                         <img src={movie.movie_image} alt={movie.movie_name} />
                                     </div>
-                                    <a href="#container-ranking">
-                                        {movie.movie_name}<br />{movie.released_year}
-                                    </a>
+                                    <div style={{color: 'black', fontWeight: 'bold', textAlign: 'center', fontSize: '18px', margin: '15px'}}>
+                                        {movie.movie_name}
+                                    </div>
                                 </div>
                             </article>
                         </Link>
@@ -28,7 +28,7 @@ class Movies extends React.Component {
             );
         } else {
             return (
-                <div class="container">
+                <div className="container">
                     <img style={{width: '25%', display: 'block', marginLeft: 'auto', marginRight: 'auto'}} 
                     src={require("../../Assets/404 Error with a cute animal-pana.png")} alt="Not"/>
                 </div>
@@ -111,7 +111,7 @@ class MovieManagement extends React.Component {
         } else {
             const index = this.state.soundtracks.indexOf(e.target.value);    //Get the index of the value in the array
             this.state.soundtracks.splice(index, 1);                         //Remove the item at index with only 1 item
-            // this.setState({ soundtracks: this.state.soundtracks});                //Update the state
+            // this.setState({ soundtracks: this.state.soundtracks});        //Update the state, This is the original one, but I think it works since line 113
         }
         console.log(this.state.soundtracks)
     }
@@ -132,7 +132,7 @@ class MovieManagement extends React.Component {
     render() {
         return (
             <div className="bg-white" style={{ width: '95%', margin: '0 5vh 20px 5vh', borderRadius: '0.5rem', paddingBottom: '50px' }}>
-                <div class="search-container">
+                <div className="search-container">
                     <h1 className="introduck" style={{ padding: '50px 0' }}>Searching Movie</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div className="search-field">
@@ -142,10 +142,10 @@ class MovieManagement extends React.Component {
                                 /*inset - the background color drawn inside this area */
                                 '-webkit-box-shadow': '0 0 0px 1000px rgb(0, 0, 0) inset'
                             }}/>
-                            <button type="submit" style={{ backgroundColor: "black", border: "none" }}><i class="fas fa-search"></i></button>
+                            <button type="submit" style={{ backgroundColor: "black", border: "none" }}><i className="fas fa-search"></i></button>
                         </div>
 
-                        <div class="search" style={{ backgroundColor: 'rgb(229, 229, 229)', padding: '1rem', margin: '4vh', borderRadius: '0.5rem' }}>
+                        <div className="search" style={{ backgroundColor: 'rgb(229, 229, 229)', padding: '1rem', margin: '4vh', borderRadius: '0.5rem' }}>
                             <label style={{ margin: '2vh', color: 'black', fontFamily: 'Poppins' }}>Genre:</label>
                             <select style={{ fontFamily: "Poppins" }} id="sortByGenre" name="movie_genre" value={this.state.movie_genre} onChange={this.handleChange}>
                                 <option value="All">All</option>
@@ -165,7 +165,7 @@ class MovieManagement extends React.Component {
                                 <option value="2018">2018</option>
                             </select>
 
-                            <div class="adjust" style={{ paddingTop: '0.5rem' }}>
+                            <div className="adjust" style={{ paddingTop: '0.5rem' }}>
                                 <label style={{ margin: '2vh', color: 'black', fontFamily: 'Poppins' }}>Soundtrack:</label>
                                 <input type="checkbox" className="search-checkbox" id="EN" name="movieSound" value="EN" 
                                 onChange={this.handleCheckbox} />
@@ -190,7 +190,7 @@ class MovieManagement extends React.Component {
                 </div>
                 <button className="btn btn-lg btn-primary position-fixed bottom-0 end-0 m-3"
                 style={{borderRadius: '10px'}}>
-                    <Link to="/addmovie" style={{textDecoration: 'none', color:'white', padding: '0.5em 0'}}><i class="fa-solid fa-plus"></i> Add a new movie</Link>
+                    <Link to="/addmovie" style={{textDecoration: 'none', color:'white', padding: '0.5em 0'}}><i className="fa-solid fa-plus"></i> Add a new movie</Link>
                 </button>
             </div>
         );

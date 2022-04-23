@@ -1,9 +1,7 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAxiosGet } from '../request'
-import axios from 'axios';
 import DeleteMovie from './DeleteRequest';
-import UpdateMovie from './UpdateRequest';
 
 function Movie() {
     const { movie_ID } = useParams()
@@ -37,7 +35,7 @@ function Movie() {
         const synopsis = movie.data.data.synopsis ? movie.data.data.synopsis : "No description";
         const date = movie.data.data.release_date.slice(0, 10);
         content =
-            <div class="row" >
+            <div className="row" >
                 <div className="col-12 col-md-4" style={{paddingRight: '0'}}>
                     {/* test Img */}
                     <img src={movie.data.data.movie_image} style={{
@@ -51,9 +49,9 @@ function Movie() {
                         <div className="card-header">
                             <h3 className="text-center">Movie #{movie.data.data.movie_ID}</h3>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>Movie Name: {movie.data.data.movie_name}</strong></h5>
-                            <p class="card-text">
+                        <div className="card-body">
+                            <h5 className="card-title"><strong>Movie Name: {movie.data.data.movie_name}</strong></h5>
+                            <p className="card-text">
                                 Movie Genre: {movie.data.data.movie_genre} <br />
                                 Movie Rate: PG{movie.data.data.movie_rate} <br />
                                 Release Date: {date} <br />
@@ -61,8 +59,8 @@ function Movie() {
                                 Soundtrack: {movie.data.data.soundtrack} &emsp; Subtitle: {movie.data.data.subtitle}<br />
                                 Movie rating: {movie.data.data.movie_starRate} &#9733; <br />
                             </p>
-                            <h5 class="card-title">Synopsis</h5>
-                            <p class="card-text">{synopsis}</p>
+                            <h5 className="card-title">Synopsis</h5>
+                            <p className="card-text">{synopsis}</p>
 
                         </div>
                     </div>
@@ -76,7 +74,7 @@ function Movie() {
             <div className="position-relative">
                 <button className="btn btn-primary" style={{ margin: "20px" }}
                     onClick={() => navigate("/adminmovies")}>
-                    <i class="fa-solid fa-arrow-left"></i> Back
+                    <i className="fa-solid fa-arrow-left"></i> Back
                 </button>
 
                 <DeleteMovie movie_id={movie_ID} />
@@ -85,7 +83,7 @@ function Movie() {
             <div className="position-relative">
                 <button className="btn btn-warning" style={{ margin: "20px" }}
                     onClick={() => navigate(`/movie/${movie_ID}/edit`)}>
-                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                    <i className="fa-solid fa-pen-to-square"></i> Edit
                 </button>
             </div>
 

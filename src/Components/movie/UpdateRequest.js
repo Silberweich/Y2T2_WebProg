@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import React from 'react'
 
 class UpMov extends React.Component {
