@@ -60,6 +60,7 @@ class AddMov extends Component {
             movie_image: this.state.movie_image
         };
         if (data.movie_starRate.match('[0-4].[0-9]|5.0') == null) {
+            alert(`Wrong starRate format`);
             throw Error(`Wrong starRate format`);
         }
         axios.post(url, { data: data })
