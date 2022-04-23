@@ -56,7 +56,7 @@ https://fonts.google.com/specimen/Quicksand
     - [x] Display users
     - [x] Search (No criteria + 3 criteria)
     - [x] Create
-    - [] Update
+    - [ ] Update
     - [x] Delete
     - [x] Dynamic page for each user
 - [x] Report
