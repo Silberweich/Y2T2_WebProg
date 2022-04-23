@@ -44,11 +44,10 @@ class MovieManagement extends React.Component {
             movie_name: '',
             movie_genre: '',
             released_year: '',
-            genres: [],  
+            soundtracks: [],  
         };
         this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.create = this.search.bind(this);
-        this.update = this.create.bind(this);
         this.handleCheckbox = this.handleCheckbox.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -73,16 +72,12 @@ class MovieManagement extends React.Component {
                 console.log(err);
             });
     }
-    create(e) {
-        // add entity - POST
-        e.preventDefault();
-    }
 
     search() {
-        // console.log(this.state.genres);
+        // console.log(this.state.soundtracks);
         let soundQuery = "";
-        if (this.state.genres){
-            this.state.genres.forEach(value => {
+        if (this.state.soundtracks){
+            this.state.soundtracks.forEach(value => {
                 soundQuery = soundQuery + "&movieSound=" + value
             })
         }
@@ -112,13 +107,13 @@ class MovieManagement extends React.Component {
         var isChecked = e.target.checked;  
         console.log(isChecked);
         if(isChecked) {
-            this.setState({ genres: [...this.state.genres, e.target.value ]});
+            this.setState({ soundtracks: [...this.state.soundtracks, e.target.value ]});
         } else {
-            const index = this.state.genres.indexOf(e.target.value);    //Get the index of the value in the array
-            this.state.genres.splice(index, 1);                         //Remove the item at index with only 1 item
-            // this.setState({ genres: this.state.genres});                //Update the state
+            const index = this.state.soundtracks.indexOf(e.target.value);    //Get the index of the value in the array
+            this.state.soundtracks.splice(index, 1);                         //Remove the item at index with only 1 item
+            // this.setState({ soundtracks: this.state.soundtracks});                //Update the state
         }
-        console.log(this.state.genres)
+        console.log(this.state.soundtracks)
     }
 
     handleSubmit(e) {
