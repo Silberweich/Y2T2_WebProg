@@ -6,12 +6,11 @@ class UserEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            friends: [],
-            name: '',
-            id: '',
-            notes: '',
-            getData: false,
-            email: "",
+            email: '',
+            password: '',
+            first_name: '',
+            last_name: '',
+            age: '',
         };
         this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.update = this.update.bind(this);
@@ -19,8 +18,43 @@ class UserEditor extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount() {
+        let url = `${this.domain}/user/${this.props.email}`
+        console.log(this.props.email, url);
+        axios.get(url)
+            .then(response => {
+                const data = response.data.data
+                this.setState({
+                    email: data.email,
+                    password: data.password,
+                    first_name: data.first_name,
+                    last_name: data.last_name,
+                    age: data.age,
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
     update(e) {
         e.preventDefault();
+        const data = {
+            email: this.state.email,
+            password: this.state.password,
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            age: this.state.age,
+        };
+        let url = `${this.domain}/user`
+        axios.put(url, { data: data })
+            .then(response => {
+                console.log(response);
+                this.props.navigate('/adminusers');
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
     delete(e) {
         e.preventDefault();
@@ -42,55 +76,70 @@ class UserEditor extends React.Component {
             });
     }
 
-    handleChange(changeObject) {
-        this.setState(changeObject)
+    handleChange(e) {
+        const targetName = e.target.name;           //Required the name of the element to match with the state variables
+        console.log(targetName)
+        this.setState({
+            [targetName]: e.target.value,
+        });
     }
 
     render() {
         return (
             <div className="container" style={{ margin: "20px auto" }}>
-                <form className="">
-                    <label htmlFor="name">
-                        Username:
-                        <input name="name"
-                            id="name"
-                            type="text"
-                            className="form-control"
-                            value={this.state.name}
-                            onChange={(e) => this.handleChange({ name: e.target.value })}
-                            required
-                        />
-                    </label>
-                    <label htmlFor="notes">
-                        Friend notes:
-                        <input
-                            name="notes"
-                            id="notes"
-                            type="test"
-                            className="form-control"
-                            value={this.state.notes}
-                            onChange={(e) => this.handleChange({ notes: e.target.value })}
-                            required
-                        />
-                    </label>
-                    <label htmlFor="id">
-                        Friend ID:
-                        <input
-                            name="id"
-                            id="id"
-                            type="text"
-                            className="form-control"
-                            value={this.state.id}
-                            onChange={(e) => this.handleChange({ id: e.target.value })}
-                        />
-                    </label>
-                    <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
-                        Update
-                    </button>
-                    <button className="btn btn-danger" type='button' onClick={(e) => this.delete(e)}>
-                        Delete
-                    </button>
+                <form className="m-3">
+                    <div class="collapse mt-3 mb-3" id="updateCollapse">
+                        <label htmlFor="email">
+                            Email:
+                            <input name="email" id="email" type="text" className="form-control"
+                                value={this.state.email} onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                        <label htmlFor="password">
+                            Passowrd:
+                            <input name="password" id="password" type="text" className="form-control"
+                                value={this.state.password} onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                        <label htmlFor="first_name">
+                            Firstname:
+                            <input name="first_name" id="first_name" type="text" className="form-control"
+                                value={this.state.first_name} onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                        <label htmlFor="last_name">
+                            Lastname:
+                            <input name="last_name" id="last_name" type="text" className="form-control"
+                                value={this.state.last_name} onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                        <label htmlFor="age">
+                            Age:
+                            <input name="age" id="age" type="number" className="form-control"
+                                value={this.state.age} onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                        <button className="btn btn-warning" type='button' onClick={(e) => this.update(e)}>
+                            Update
+                        </button>
+                    </div>
                 </form>
+                <div className="position-relative">
+                    <button className="btn btn-info" type='button' data-bs-toggle="collapse"
+                        data-bs-target="#updateCollapse" aria-expanded="false" aria-controls="collapseExample">
+                        Toggle Update form
+                    </button>
+                    <div class="position-absolute bottom-0 end-0">
+                        <button className="btn btn-danger" type='button' onClick={(e) => this.delete(e)}>
+                            Delete
+                        </button>
+                    </div>
+                </div>
             </div>
         )
     };

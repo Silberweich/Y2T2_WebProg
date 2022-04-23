@@ -90,9 +90,6 @@ constructor(props) {
         axios.put(url, { data: data })
             .then(response => {
                 console.log(response);
-                this.setState({
-                    movies: response.data.data
-                });
                 this.props.navigate('/adminmovies');
             })
             .catch(err => {
