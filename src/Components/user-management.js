@@ -19,16 +19,16 @@ function generateList(data) {
   return elements
 }
 
-class Friends extends React.Component {
+class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      friends: [],
+      users: [],
       search: "",
       searchType: "email",
       motherfucker: 1,
     };
-    this.updateStateRightFuckingNow()
+    this.updateStateRightNow()
   }
   handleChange(changeObject) {
     this.setState(changeObject)
@@ -38,114 +38,116 @@ class Friends extends React.Component {
     window.location.reload(false);
   }
 
-  reducedList(){
-    console.log(this.state.friends)
+  reducedList() {
+    console.log(this.state.users)
     let _s = this.state.search
     let _t = this.state.searchType
-    this.updateStateRightFuckingNow()
-    
-    switch(_t){
+    this.updateStateRightNow()
+
+    switch (_t) {
       case "email":
         console.log("email")
         console.log("fname")
-        if(_s == ""){
+        if (_s == "") {
           this.state.search = ""
-          this.updateStateRightFuckingNow()
+          this.updateStateRightNow()
         }
-        else{
-          for (let i = 0; i < this.state.friends.length ; i++){
-            if(!this.state.friends[i].email.includes(_s)){
-              this.state.friends.splice(i,1)
+        else {
+          for (let i = 0; i < this.state.users.length; i++) {
+            if (!this.state.users[i].email.includes(_s)) {
+              this.state.users.splice(i, 1)
             }
           }
         }
 
-        this.updateStateRightFuckingNow()
-      break;
+        this.updateStateRightNow()
+        break;
 
       case "fname":
         console.log("fname")
-        if(/[^a-zA-Z]/g.test(_s) || _s == ""){
+        if (/[^a-zA-Z]/g.test(_s) || _s == "") {
           this.state.search = ""
-          this.updateStateRightFuckingNow()
+          this.updateStateRightNow()
         }
-        else{
-          for (let i = 0; i < this.state.friends.length ; i++){
-            for (let i = 0; i < this.state.friends.length ; i++){
-              if(!this.state.friends[i].first_name.includes(_s)){
-                this.state.friends.splice(i,1)
+        else {
+          for (let i = 0; i < this.state.users.length; i++) {
+            for (let i = 0; i < this.state.users.length; i++) {
+              if (!this.state.users[i].first_name.includes(_s)) {
+                this.state.users.splice(i, 1)
               }
             }
           }
         }
 
-        this.updateStateRightFuckingNow()
-      break;
+        this.updateStateRightNow()
+        break;
 
       case "lname":
         console.log("lname")
-        if(/[^a-zA-Z]/g.test(_s) || _s == ""){
+        if (/[^a-zA-Z]/g.test(_s) || _s == "") {
           this.state.search = ""
-          this.updateStateRightFuckingNow()
+          this.updateStateRightNow()
         }
-        else{
-          for (let i = 0; i < this.state.friends.length ; i++){
-            for (let i = 0; i < this.state.friends.length ; i++){
-              if(!this.state.friends[i].last_name.includes(_s)){
-                this.state.friends.splice(i,1)
+        else {
+          for (let i = 0; i < this.state.users.length; i++) {
+            for (let i = 0; i < this.state.users.length; i++) {
+              if (!this.state.users[i].last_name.includes(_s)) {
+                this.state.users.splice(i, 1)
               }
             }
           }
         }
-        this.updateStateRightFuckingNow()
-      break;
+        this.updateStateRightNow()
+        break;
 
       default:
         this.state.search = "ERROR:TYPE"
-        this.updateStateRightFuckingNow()
+        this.updateStateRightNow()
     }
   }
 
-  updateStateRightFuckingNow(){
-    this.setState({motherfucker: 1})
+  updateStateRightNow() {
+    this.setState({ motherfucker: 1 })
   }
 
   render() {
-    this.state.friends = this.props.friends;
+    this.state.users = this.props.users;
     return (
-      <><form>
-        <label style={{ color: 'black', fontFamily: 'Poppins' }}>Search Type: </label>
-        <label>
-          <input
-            name="search"
-            id="search"
-            type="text"
-            className="form-control"
-            value={this.state.search}
-            onChange={(e) => this.handleChange({search: e.target.value})} />
-        </label>
+      <div className="container bg-white p-3">
+        <h1 className="m-3 text-center">User Management</h1>
+        <form>
+          <label style={{ color: 'black', fontFamily: 'Poppins' }}>Search Type: </label>
+          <label>
+            <input
+              name="search"
+              id="search"
+              type="text"
+              className="form-control"
+              value={this.state.search}
+              onChange={(e) => this.handleChange({ search: e.target.value })} />
+          </label>
 
-        <select name="movie_genre" value={this.state.movie_genre} onChange={(e) => this.handleChange({ searchType: e.target.value })}>
-          <option value="email">Email Search</option>
-          <option value="fname">First Name Search</option>
-          <option value="lname">Last Name Search</option>
-        </select>
+          <select name="user_criteria" value={this.state.user_criteria} onChange={(e) => this.handleChange({ searchType: e.target.value })}>
+            <option value="email">Email Search</option>
+            <option value="fname">First Name Search</option>
+            <option value="lname">Last Name Search</option>
+          </select>
 
-        <button 
-          className="btn btn-info"
-          type='button'
-          onClick={(e) => this.reducedList()}>
-          Search 
-        </button>
-        <button 
-          className="btn btn-info"
-          type='button'
-          onClick={(e) => this.refreshPage()}>
-          Click to reload!
-        </button>
-      </form>
+          <button
+            className="btn btn-info"
+            type='button'
+            onClick={(e) => this.reducedList()}>
+            Search
+          </button>
+          <button
+            className="btn btn-info"
+            type='button'
+            onClick={(e) => this.refreshPage()}>
+            Click to reload!
+          </button>
+        </form>
 
-      <table className="table table-striped" style={{ background: "white" }}>
+        <table className="table table-striped" style={{ background: "white" }}>
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -156,9 +158,10 @@ class Friends extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {generateList(this.state.friends)}
+            {generateList(this.state.users)}
           </tbody>
-        </table></>
+        </table>
+      </div>
     );
   }
 }
@@ -167,13 +170,13 @@ class UserManagement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      friends: [],
+      users: [],
       name: '',
       id: '',
       notes: '',
       getData: false,
     };
-    this.domain = "http://localhost:4203";
+    this.domain = process.env.REACT_APP_WEBSERV_URL;
     this.create = this.create.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -190,7 +193,7 @@ class UserManagement extends React.Component {
       .then(response => {
         console.log("Users Info:", response);
         this.setState({
-          friends: response.data
+          users: response.data
         })
       })
       .catch(err => {
@@ -210,7 +213,8 @@ class UserManagement extends React.Component {
   render() {
     return (
       <div className="container">
-        <form>
+
+        {/* <form>
           <legend className="text-center">CRUD User</legend>
           <label htmlFor="name">
             Email:
@@ -274,8 +278,12 @@ class UserManagement extends React.Component {
           <button className="btn btn-info" type='button' onClick={(e) => this.update(e)}>
             Update
           </button>
-        </form>
-        <Friends friends={this.state.friends}/>
+        </form> */}
+        <User users={this.state.users} />
+        <button className="btn btn-lg btn-primary position-fixed bottom-0 end-0 m-3"
+          style={{ borderRadius: '10px' }}>
+          <Link to="/adduser" style={{ textDecoration: 'none', color: 'white', padding: '0.5em 0' }}><i class="fa-solid fa-plus"></i> Add a new user</Link>
+        </button>
       </div>
     );
   }

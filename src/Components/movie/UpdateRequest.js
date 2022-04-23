@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import React from 'react'
 
 class UpMov extends React.Component {
@@ -157,7 +157,7 @@ constructor(props) {
                         <select id="soundtrack" className="form-select"
                             name="movie_soundtrack" value={this.state.movie_soundtrack} onChange={this.handleChange}>
                             <option value="EN">EN</option>
-                            <option value="Th">TH</option>
+                            <option value="TH">TH</option>
                             <option value="KR">KR</option>
                             <option value="JP">JP</option>
                         </select>
@@ -168,7 +168,7 @@ constructor(props) {
                             name="movie_subtitle" value={this.state.movie_subtitle} onChange={this.handleChange}>
                             <option>None</option>
                             <option value="EN">EN</option>
-                            <option value="Th">TH</option>
+                            <option value="TH">TH</option>
                             <option value="KR">KR</option>
                             <option value="JP">JP</option>
                         </select>

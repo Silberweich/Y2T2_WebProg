@@ -17,7 +17,7 @@ const MyLink = styled(Link)`
 function User() {
     const { email } = useParams()
 
-    const url = `http://localhost:4203/user/${email}`
+    const url = process.env.REACT_APP_WEBSERV_URL + `/user/${email}`
 
     const navigate = useNavigate()
     let product = useAxiosGet(url)

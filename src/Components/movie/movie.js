@@ -11,7 +11,7 @@ function Movie() {
     // const url = process.env.REACT_APP_WEBSERV_URL + `/movie/${movie_ID}`
 
     // i cant access env file, so need to use actual path //
-    const url = `http://localhost:4203/movie/${movie_ID}` 
+    const url = `http://localhost:4203/movie/${movie_ID}`
 
     const navigate = useNavigate()
     let movie = useAxiosGet(url)
@@ -37,19 +37,18 @@ function Movie() {
         const synopsis = movie.data.data.synopsis ? movie.data.data.synopsis : "No description";
         const date = movie.data.data.release_date.slice(0, 10);
         content =
-            <div class="row">
-                <div className="col-12 col-md-4">
-                {/* test Img */}
-                    <div class="movies-box-noScale">   
-                        <div class="movies-img">
-                            <img src={movie.data.data.movie_image} alt="movieImg" />
-                        </div>
-                    </div>
+            <div class="row" >
+                <div className="col-12 col-md-4" style={{paddingRight: '0'}}>
+                    {/* test Img */}
+                    <img src={movie.data.data.movie_image} style={{
+                        background: "black", height: "550px", maxWidth: "350px", borderRadius: "10px", border: "2px solid red",
+                        padding: "0", objectFit: "cover"
+                    }} alt="movieImg" />
                 </div>
 
                 <div className="col-12 col-md-8">
                     <div className="card">
-                        <div class="card-header">
+                        <div className="card-header">
                             <h3 className="text-center">Movie #{movie.data.data.movie_ID}</h3>
                         </div>
                         <div class="card-body">
@@ -72,7 +71,7 @@ function Movie() {
     }
 
     return (
-        <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "80%", padding: "20px", minHeight: '750px' }}>
+        <div className="container" style={{ margin: "20px auto", borderRadius: "15px", background: "white", width: "80%", padding: "20px 50px", minHeight: '750px' }}>
 
             <div className="position-relative">
                 <button className="btn btn-primary" style={{ margin: "20px" }}
@@ -84,7 +83,7 @@ function Movie() {
             </div>
             {content}
             <div className="position-relative">
-            <button className="btn btn-warning" style={{ margin: "20px" }}
+                <button className="btn btn-warning" style={{ margin: "20px" }}
                     onClick={() => navigate(`/movie/${movie_ID}/edit`)}>
                     <i class="fa-solid fa-pen-to-square"></i> Edit
                 </button>

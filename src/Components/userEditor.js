@@ -13,14 +13,13 @@ class UserEditor extends React.Component {
             getData: false,
             email: "",
         };
-        this.domain = "http://localhost:4203";
+        this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
     update(e) {
-        // update entity - PUT
         e.preventDefault();
     }
     delete(e) {
@@ -42,6 +41,7 @@ class UserEditor extends React.Component {
                 console.log(err);
             });
     }
+
     handleChange(changeObject) {
         this.setState(changeObject)
     }

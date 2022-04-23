@@ -12,6 +12,7 @@ import Movie from './Components/movie/movie';
 import AddMovie from './Components/movie/addmovie';
 import MovieUpdateForm from './Components/movie/movieUpdateForm';
 import UserDetail from './Components/user';
+import AddUser from './Components/addUser';
 import ErrorPage from './Components/Errpage';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/adminusers" element={<UserManagement />} />
         <Route path="/adminlogin" element={<Login />} />
         <Route path="/addmovie" element={<AddMovie />} />
+        <Route path="/adduser" element={<AddUser />} />
         <Route exact path="/movie/:movie_ID" element={<Movie />} />
         <Route exact path="/movie/:movie_ID/edit" element={<MovieUpdateForm />} />
         <Route exact path="/user/:email" element={<UserDetail />} />

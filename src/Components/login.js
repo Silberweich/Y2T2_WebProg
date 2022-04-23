@@ -7,7 +7,7 @@ class LoginForm extends Component {
             email: "",
             password: "",
         };
-        this.domain = "http://localhost:4203";
+        this.domain = process.env.REACT_APP_WEBSERV_URL;
         this.login = this.login.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }

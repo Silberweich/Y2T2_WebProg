@@ -93,7 +93,7 @@ class MovieManagement extends React.Component {
         // &movieReleasedYr=${this.state.released_year}
         // &movieName=${this.state.movie_name}`
         
-        let url = `http://localhost:4203/searchMoviesReact?movieName=${this.state.movie_name}&movieReleasedYr=${this.state.released_year}&movieGenre=${this.state.movie_genre}${soundQuery}`
+        let url = process.env.REACT_APP_WEBSERV_URL + `/searchMoviesReact?movieName=${this.state.movie_name}&movieReleasedYr=${this.state.released_year}&movieGenre=${this.state.movie_genre}${soundQuery}`
         // let url = `${this.domain}/searchMoviesReact?movieName=${this.state.movie_name}&movieReleasedYr=${this.state.released_year}&movieGenre=${this.state.movie_genre}${soundQuery}`
         console.log(url);
         axios.get(url)
@@ -196,7 +196,7 @@ class MovieManagement extends React.Component {
                 </div>
                 <button className="btn btn-lg btn-primary position-fixed bottom-0 end-0 m-3"
                 style={{borderRadius: '10px'}}>
-                    <Link to="/addmovie" style={{textDecoration: 'none', color:'white'}}><i class="fa-solid fa-plus"></i> Add a new movie</Link>
+                    <Link to="/addmovie" style={{textDecoration: 'none', color:'white', padding: '0.5em 0'}}><i class="fa-solid fa-plus"></i> Add a new movie</Link>
                 </button>
             </div>
         );

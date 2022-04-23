@@ -10,7 +10,7 @@ class Home extends Component {
             movies: '',
             friends: '',
         }       
-        this.domain = "http://localhost:4203";
+        this.domain = process.env.REACT_APP_WEBSERV_URL;
       }
 
     componentDidMount() {
