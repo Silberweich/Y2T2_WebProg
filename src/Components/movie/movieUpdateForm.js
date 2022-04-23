@@ -8,7 +8,7 @@ function MovieUpdateForm() {
     console.log(movie_ID);
     // Create your own Mock API: https://mockapi.io/
     const url = process.env.REACT_APP_WEBSERV_URL + `/movie/${movie_ID}`
-
+        
     const navigate = useNavigate()
     let movie = useAxiosGet(url)
     console.log(url, movie);

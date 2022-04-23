@@ -83,6 +83,7 @@ constructor(props) {
             movie_image: this.state.movie_image
         };
         if (data.movie_starRate.match('[0-4].[0-9]|5.0') == null) {
+            alert('nono')
             throw Error(`Wrong starRate format`);
         }
         let url = `${this.domain}/movie`
@@ -149,7 +150,7 @@ constructor(props) {
                     </div>
                     <div className="col-md-2">
                         <label htmlFor="moviestar" className="form-label" >Movie Star Rate</label>
-                        <input type="number" className="form-control" id="moviestar" pattern="[0-4].[0-9]|5.0"
+                        <input type="number" className="form-control" id="moviestar" pattern="[0-4].[0-9]|5.0" placeholder='0.0-5.0'
                             name="movie_starRate" value={this.state.movie_starRate} onChange={this.handleChange} />
                     </div>
                     <div className="col-md-2">
