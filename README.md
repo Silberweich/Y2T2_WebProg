@@ -42,6 +42,21 @@ https://fonts.google.com/specimen/Quicksand
 - [x] Authentication Service Interaction
 - [x] Search Service Interaction
 - [x] Public web service interaction (External API)
-
->>>>>>> 6724a62e8683cc4a1a5082478504a96ddddae899
->>>>>>> 20fedff4a7b013411c675a39fa9fa7142d970536
+### Third Phase (React APP):
+- [x] Home
+- [x] Login + API
+- [x] Admin Movie
+    - [x] Display movies
+    - [x] Search (No criteria + 3 criteria)
+    - [x] Create
+    - [x] Update
+    - [x] Delete
+    - [x] Dynamic page for each movie
+- [x] Admin User
+    - [x] Display users
+    - [x] Search (No criteria + 3 criteria)
+    - [x] Create
+    - [x] Update
+    - [x] Delete
+    - [x] Dynamic page for each user
+- [x] Report
