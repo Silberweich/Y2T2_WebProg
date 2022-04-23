@@ -118,7 +118,7 @@ class MovieManagement extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.search();
+        this.search(this.state.menu);
     }
 
     handleChange(e) {
