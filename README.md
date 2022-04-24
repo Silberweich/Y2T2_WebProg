@@ -56,7 +56,7 @@ https://fonts.google.com/specimen/Quicksand
     - [x] Display users
     - [x] Search (No criteria + 3 criteria)
     - [x] Create
-    - [ ] Update
+    - [x] Update
     - [x] Delete
     - [x] Dynamic page for each user
 - [x] Report
@@ -87,5 +87,5 @@ Go to .env file and replace the http://localhost:4203 with another domain
 ## Updated Web Service from Phase 2
 1. ```index.js``` added '/searchMoviesReact' route (the same as ```'/searchMovies'```), but only data is returned
 2. ```crud.js```
-- Added GET methods: ```'/userSearchEmail', '/userSearchFname', '/userSearchLname'``` for criteria search
-- Change `req.body.data[0].${varName}` to `req.body.data.${varName}` in PUT and DELETE methods, so that they can be use with the React APP easily
+    - Added GET methods: ```'/userSearchEmail', '/userSearchFname', '/userSearchLname'``` for criteria search
+    - Change `req.body.data[0].${varName}` to `req.body.data.${varName}` in PUT and DELETE methods, so that they can be use with the React APP easily
