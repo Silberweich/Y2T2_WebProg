@@ -83,3 +83,9 @@ https://fonts.google.com/specimen/Quicksand
 
 ## Modifying the domain that the React App is connected with
 Go to .env file and replace the http://localhost:4203 with another domain
+
+## Updated Web Service from Phase 2
+1. ```index.js``` added '/searchMoviesReact' route (the same as ```'/searchMovies'```), but only data is returned
+2. ```crud.js```
+- Added GET methods: ```'/userSearchEmail', '/userSearchFname', '/userSearchLname'``` for criteria search
+- Change `req.body.data[0].${varName}` to `req.body.data.${varName}` in PUT and DELETE methods, so that they can be use with the React APP easily
