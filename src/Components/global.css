@@ -1,0 +1,5 @@
+.navbar-light .nav-item .nav-link:active,
+.navbar-light .nav-item .nav-link:focus {
+    color: red;
+    background-color: azure;
+}

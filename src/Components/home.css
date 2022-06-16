@@ -1,0 +1,288 @@
+main {
+    font-family: 'Poppins';
+}
+.bigBanner {
+    background: url('https://d.newsweek.com/en/full/2017231/spy-x-family.jpg?w=1600&h=900&q=88&f=4c50ad68e7a502313b9d2a1b16d565c7');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 5rem;
+    line-height: 3rem;
+    text-align: center;
+}
+
+.welcome {
+    font-weight: bolder;
+}
+
+.header {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.shadow {
+    margin: 2rem;
+}
+
+/* Card text color */
+.order-card {
+    margin: 0.75rem;
+}
+
+.order-card:hover {
+    transform: scale(1.060);
+    transition: ease-in-out 0.4s;
+}
+
+/* Card background */
+.bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+}
+
+.bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+
+.bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+
+.card .card-block {
+    padding: 25px;
+}
+
+.order-card i {
+    font-size: 26px;
+}
+
+.fa-eye,
+.fa-clapperboard,
+.fa-user,
+.fa-android {
+    background: white;
+    padding: 0.75rem;
+    border-radius: 2rem;
+}
+
+.fa-eye {
+    color: #4099ff;
+}
+
+.fa-clapperboard {
+    color: #2ed8b6;
+}
+
+.fa-user {
+    color: #FFB64D;
+}
+
+.fa-android{
+    color: #FF5370;
+}
+
+/* Our team */
+
+
+.our-team {
+    padding: 20px 15px 30px;
+    background: #fff;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.our-team .pic {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 25px;
+    transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .pic {
+    background: #17bebb;
+    border-radius: 50%;
+}
+
+.pic img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.our-team .title {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2e282a;
+    text-transform: uppercase;
+    margin: 0 0 7px 0;
+}
+
+.our-team .post {
+    display: block;
+    font-size: 15px;
+    color: #17bebb;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.our-team .social {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.our-team .social li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.our-team .social li a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: #17bebb;
+    border: 1px solid #17bebb;
+    transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .social li a {
+    background: #17bebb;
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Our team styling */
+.fab {
+    color: #2e282a;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+}
+
+.fab:hover {
+    transform: scale(1.25);
+    transition: ease-in-out 0.4s;   
+}
+
+/* tesstt */
+.section-team {
+	font-family: "Poppins", sans-serif;
+	padding: 80px 0;
+}
+
+.section-team .header-section {
+	margin-bottom: 50px;
+}
+
+.section-team .header-section .small-title {
+    margin-bottom: 25px;
+	font-size: 16px;
+    font-weight: 500;
+    color: #3e64ff;
+}
+
+.section-team .header-section .title {
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.section-team .single-person {
+	margin-top: 30px;
+	padding: 30px;
+	background-color: #f6f9ff;
+	border-radius: 5px;
+}
+
+.section-team .single-person:hover {
+	background: linear-gradient(to right, #016cec, #00b5f7);
+}
+
+.section-team .single-person .person-image {
+    position: relative;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    border: 4px dashed transparent;
+    transition: padding .3s;
+}
+
+.section-team .single-person:hover .person-image {
+	padding: 12px;
+    border: 4px dashed #fff;
+}
+
+.section-team .single-person .person-image img {
+	width: 100%;
+    border-radius: 50%;
+}
+
+.section-team .single-person .person-image .icon {
+	position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #016cec, #00b5f7);
+    color: #fff;
+    border-radius: 50%;
+}
+
+.section-team .single-person:hover .person-image .icon {
+	background: none;
+	background-color: #fff;
+	color: #016cec;
+}
+
+.section-team .single-person .person-info .full-name {
+	margin-bottom: 10px;
+	font-size: 28px;
+    font-weight: 700;
+}
+
+.section-team .single-person .person-info .speciality {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #016cec;
+}
+
+.section-team .single-person:hover .full-name,
+.section-team .single-person:hover .speciality {
+	color: #fff;
+}
+
+.contact {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.fa-linkedin,
+.fa-github-square,
+.fa-instagram-square {
+    color: black;
+    margin-right: 0.5rem;
+}
+
+.fa-linkedin:hover,
+.fa-github-square:hover,
+.fa-instagram-square:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: ease-in-out 0.4s;
+}
